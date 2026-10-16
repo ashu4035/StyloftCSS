@@ -1,0 +1,19 @@
+---
+import Base from './Base.astro';
+import {components,groups} from '../data/components';
+const {title,description,active='getting-started',section='components'}=Astro.props;
+---
+<Base title={title} description={description} section={section}>
+  <div class="sl-container docs-shell">
+    <aside class="docs-sidebar" aria-label="Documentation sidebar">
+      <span class="sidebar-eyebrow">THE FRAMEWORK</span>
+      <a class:list={['sidebar-link',{active:active==='getting-started'}]} href="/getting-started/" aria-current={active==='getting-started'?'page':undefined}>Getting started <span>↗</span></a>
+      <a class:list={['sidebar-link',{active:active==='overview'}]} href="/components/" aria-current={active==='overview'?'page':undefined}>All components <span>{components.length}</span></a>
+      <a class:list={['sidebar-link',{active:active==='layouts'}]} href="/layouts/" aria-current={active==='layouts'?'page':undefined}>Layout patterns</a>
+      <a class:list={['sidebar-link',{active:active==='themes'}]} href="/themes/" aria-current={active==='themes'?'page':undefined}>Tokens & themes</a>
+      {groups.map(group=><div class="sidebar-group"><span class="sidebar-eyebrow">{group}</span>{components.filter(c=>c.group===group).map(c=><a class:list={['sidebar-link',{active:active===c.slug}]} href={`/components/${c.slug}/`} aria-current={active===c.slug?'page':undefined}>{c.name}{c.slug==='animations'&&<small>CSS</small>}</a>)}</div>)}
+      <div class="sidebar-tip"><span class="sidebar-eyebrow">SMALL BY DESIGN</span><p>3.31 KB gzip.<br/>Zero runtime JavaScript.</p><a href="/downloads/styloft.min.css" download>Get the core ↓</a></div>
+    </aside>
+    <div class="docs-content"><slot/></div>
+  </div>
+</Base>

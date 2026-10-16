@@ -1,0 +1,53 @@
+/* CSS-only motion primitives. All content remains static without motion support. */
+@layer sl.components {
+  .sl-hover-lift,.sl-hover-tilt,.sl-hover-glow,.sl-hover-zoom,.sl-hover-fill,.sl-hover-sheen { position: relative; }
+  .sl-hover-fill { background: linear-gradient(var(--sl-accent),var(--sl-accent)) 0 100% / 100% 0 no-repeat; color: var(--sl-accent); border: 1px solid currentColor; }
+  .sl-link--underline { background: linear-gradient(currentColor,currentColor) 0 100% / 0 2px no-repeat; text-decoration: none; padding-block-end: .2em; }
+  .sl-hover-sheen { overflow: hidden; isolation: isolate; }
+  .sl-hover-sheen::after { content: ""; position: absolute; inset: -50%; background: linear-gradient(110deg,transparent 35%,rgb(255 255 255 / .3) 50%,transparent 65%); translate: -80% 0; pointer-events: none; }
+  .sl-split { display: flex; flex-wrap: wrap; column-gap: .25em; }
+  .sl-word { display: inline-block; white-space: nowrap; }
+  .sl-char { display: inline-block; }
+  .sl-scene { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; align-items: start; }
+  .sl-scene__visual { position: sticky; top: 6rem; padding: 2rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius-lg); background: var(--sl-soft); }
+  .sl-scene__step { min-block-size: 40vh; padding-block: 2rem; }
+  .sl-scroll-progress { block-size: .3rem; background: var(--sl-accent); transform-origin: left; }
+  @media (max-width: 767px) { .sl-scene { grid-template-columns: minmax(0,1fr); }.sl-scene__visual { position: static; } }
+  /* Keep content visible during closing; interrupted transitions reverse from their current height. */
+  @media (prefers-reduced-motion: no-preference) {
+    .sl-details > summary::after { transition: rotate 360ms cubic-bezier(.2,.7,.2,1); }
+    @supports (interpolate-size: allow-keywords) and selector(::details-content) {
+      .sl-details { interpolate-size: allow-keywords; }
+      .sl-details::details-content { block-size: 0; overflow: clip; transition: block-size 360ms cubic-bezier(.2,.7,.2,1), content-visibility 360ms allow-discrete; }
+      .sl-details[open]::details-content { block-size: auto; }
+    }
+    :where(.sl-hover-lift,.sl-hover-tilt,.sl-hover-glow,.sl-hover-zoom,.sl-hover-fill,.sl-hover-sheen,.sl-link--underline) {
+      transition: transform 300ms cubic-bezier(.2,.7,.2,1), box-shadow 300ms ease, border-color 300ms ease, background-size 300ms ease, color 300ms ease;
+    }
+    .sl-hover-lift:not(:disabled):is(:hover,:focus-visible,:focus-within) { transform: translateY(-6px); box-shadow: 0 16px 32px rgb(0 0 0 / .14); }
+    .sl-hover-tilt:not(:disabled):is(:hover,:focus-visible,:focus-within) { transform: perspective(800px) rotateX(3deg) rotateY(-3deg); }
+    .sl-hover-glow:not(:disabled):is(:hover,:focus-visible,:focus-within) { box-shadow: 0 0 0 4px var(--sl-soft),0 0 28px var(--sl-soft); border-color: var(--sl-accent); }
+    .sl-hover-zoom:not(:disabled):is(:hover,:focus-visible,:focus-within) { transform: scale(1.025); }
+    .sl-hover-fill:not(:disabled):is(:hover,:focus-visible) { background-image: linear-gradient(var(--sl-accent),var(--sl-accent)); background-color: transparent; background-size: 100% 100%; color: var(--sl-on-accent); }
+    .sl-hover-sheen::after { transition: translate 550ms ease; }.sl-hover-sheen:not(:disabled):is(:hover,:focus-visible)::after { translate: 80% 0; }
+    .sl-link--underline:is(:hover,:focus-visible) { background-size: 100% 2px; }
+    .sl-spinner { animation: sl-spin 900ms linear infinite; }
+    @supports (animation-timeline: view()) and (animation-range: entry 0% entry 50%) {
+      :is(.sl-reveal,.sl-reveal-left,.sl-reveal-scale,.sl-reveal-text,.sl-parallax,.sl-stagger > *,.sl-split .sl-word,.sl-split .sl-char) {
+        animation: sl-reveal 1s linear both; animation-timeline: view(block); animation-range: entry 0% entry 50%;
+      }
+      .sl-reveal-left { animation-name: sl-slide-left; }.sl-reveal-scale { animation-name: sl-scale-in; }.sl-reveal-text { animation-name: sl-text-mask; }
+      .sl-parallax { animation-name: sl-parallax; animation-range: cover 0% cover 100%; }
+      .sl-stagger > *,.sl-split .sl-word,.sl-split .sl-char { animation-range: entry calc(var(--sl-i,0) * 3%) entry calc(40% + var(--sl-i,0) * 3%); }
+      :is(.sl-reveal,.sl-reveal-left,.sl-reveal-scale,.sl-reveal-text,.sl-parallax,.sl-stagger > *):focus-within { animation-play-state: paused; }
+    }
+    @supports (animation-timeline: scroll()) { .sl-scroll-progress { animation: sl-progress 1s linear both; animation-timeline: scroll(root block); } }
+  }
+}
+@keyframes sl-reveal { from { opacity: .65; translate: 0 24px; } to { opacity: 1; translate: 0 0; } }
+@keyframes sl-slide-left { from { opacity: .65; translate: -20px 0; } to { opacity: 1; translate: 0 0; } }
+@keyframes sl-scale-in { from { opacity: .65; scale: .96; } to { opacity: 1; scale: 1; } }
+@keyframes sl-text-mask { from { clip-path: inset(0 0 75%); } to { clip-path: inset(0); } }
+@keyframes sl-parallax { from { translate: 0 12px; } to { translate: 0 -12px; } }
+@keyframes sl-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes sl-spin { to { rotate: 1turn; } }

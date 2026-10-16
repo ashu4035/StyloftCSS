@@ -9,10 +9,13 @@
   a:hover { text-decoration-thickness: .15em; }
   :where(code, pre, kbd, samp) { font-family: var(--sl-mono); }
   pre { overflow: auto; padding: 1rem; background: var(--sl-surface); border: 1px solid var(--sl-border); border-radius: var(--sl-radius); }
-  :focus-visible { outline: 3px solid var(--sl-focus); outline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--sl-focus); outline-offset: 2px; }
   :where([id]) { scroll-margin-block-start: 2rem; }
   :where(button, summary, input[type="checkbox"], input[type="radio"]) { cursor: pointer; }
   :where(button:disabled, input:disabled, select:disabled, textarea:disabled) { cursor: not-allowed; opacity: .65; }
+  @media (prefers-reduced-motion: no-preference) {
+    :where(a,button,input,textarea,select,summary) { transition: color 180ms ease,background-color 180ms ease,border-color 180ms ease,outline-color 180ms ease; }
+  }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   }

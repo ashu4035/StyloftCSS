@@ -1,0 +1,18 @@
+---
+import Docs from '../layouts/Docs.astro';
+import Demo from '../components/Demo.astro';
+import {components} from '../data/components';
+const grid=components.find(c=>c.slug==='grid')!;
+const flex=components.find(c=>c.slug==='flex')!;
+---
+<Docs title="Layout patterns" description="Responsive grids, flexible rows, sidebars, and content rhythm with StyloftCSS." active="layouts" section="layouts">
+  <div class="breadcrumbs"><a href="/">Home</a><span>/</span><span>Layouts</span></div>
+  <header class="docs-page-header"><span class="eyebrow">Space, thoughtfully arranged</span><h1>A place for every idea.</h1><p>Build the structure with simple layout primitives. Let the content decide how much space it needs.</p><div class="doc-tags"><span>Grid + Flexbox</span><span>Logical properties</span><span>Mobile first</span></div></header>
+  <div class="examples-list"><Demo {...grid.examples[0]} id="responsive-grid"/><Demo {...grid.examples[1]}/><Demo {...flex.examples[1]}/><Demo title="A rhythm that carries through" description="Stack spaces siblings; cluster wraps related actions. Nest them to build useful patterns." html={`<section class="sl-card sl-stack sl-gap-6">
+  <div class="sl-cluster sl-justify-between"><h2 class="sl-text-xl">Your project collection</h2><span class="sl-badge">3 ideas</span></div>
+  <div class="sl-grid sl-md:cols-3 sl-gap-4"><div class="demo-cell">The beginning</div><div class="demo-cell">The next chapter</div><div class="demo-cell">The possibility</div></div>
+  <div class="sl-cluster sl-justify-between"><p class="sl-help">Illustrative layout pattern.</p><a class="sl-btn" href="/components/">Explore more ↗</a></div>
+</section>`}/></div>
+  <aside class="usage-note"><h2>Viewport breakpoints, intrinsic options</h2><p>Responsive classes follow viewport width: sm 40rem, md 48rem, lg 64rem. Auto-grid and sidebar use intrinsic wrapping instead. Gap tokens inherit, so set a new sl-gap-* class when a nested layout needs a different rhythm. Each sl-grid starts with one column.</p></aside>
+  <nav class="docs-next" aria-label="More layouts"><a href="/components/grid/">Grid & columns →</a><a href="/components/flex/">Flex & rows →</a></nav>
+</Docs>

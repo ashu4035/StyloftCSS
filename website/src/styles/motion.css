@@ -1,0 +1,47 @@
+/* Optional website/demo effects. No runtime JavaScript and no dependency on motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .sl-btn:not(.sl-skip):not([class*="sl-hover-"]):not([class*="sl-fx-"]),.mode-switch {
+    transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease,
+      box-shadow 220ms ease, transform 220ms cubic-bezier(.2,.7,.2,1);
+  }
+  .sl-btn:not(:disabled):not(.sl-skip):not([class*="sl-hover-"]):not([class*="sl-fx-"]):is(:hover,:focus-visible) { transform: translateY(-2px); box-shadow: 0 7px 18px rgb(0 0 0 / .12); }
+  .sl-btn:not(:disabled):not(.sl-skip):not([class*="sl-hover-"]):not([class*="sl-fx-"]):active { transform: translateY(0); box-shadow: none; }
+  .mode-switch:hover { box-shadow: 0 0 0 3px var(--sl-soft); }
+  .demo-feature-card,.demo-lift,.demo-glow,.catalog-card,.component-tile {
+    transition: transform 280ms cubic-bezier(.2,.7,.2,1), box-shadow 280ms ease,
+      border-color 280ms ease, background-color 280ms ease;
+  }
+  .demo-feature-card:is(:hover,:focus-within),.catalog-card:is(:hover,:focus-within),.component-tile:is(:hover,:focus-within) {
+    transform: translateY(-4px); border-color: var(--sl-accent); box-shadow: 0 12px 28px rgb(0 0 0 / .12);
+  }
+  .demo-lift:is(:hover,:focus-within) { transform: translateY(-6px); box-shadow: 0 16px 30px rgb(0 0 0 / .14); }
+  .demo-glow:is(:hover,:focus-within) { border-color: var(--sl-accent); box-shadow: 0 0 0 4px var(--sl-soft); }
+  .demo-animated-link span { transition: transform 260ms cubic-bezier(.2,.7,.2,1); }
+  .demo-animated-link:is(:hover,:focus-visible) span { transform: translateX(6px); }
+  .sl-table tbody tr { transition: background-color 220ms ease; }
+  .sl-table tbody tr:hover { background-color: var(--sl-soft); }
+  @supports (animation-timeline: view()) and (animation-range: entry 0% entry 30%) {
+    :is(.home-section > .section-heading,.principles > article,.component-tile,.build-section > div,.theme-teaser,.catalog-group,.example-block,.demo-scroll-reveal) {
+      animation: sl-site-reveal 1s linear both;
+      animation-timeline: view(block);
+      animation-range: entry 0% entry 30%;
+    }
+    :is(.component-tile,.catalog-group,.example-block,.demo-scroll-reveal):focus-within {
+      animation-play-state: paused;
+    }
+  }
+  @supports (animation-timeline: scroll()) {
+    .site-header::after {
+      content: ""; position: absolute; inset-inline: 0; inset-block-end: -1px;
+      block-size: 2px; background: linear-gradient(90deg,#22d3ee,#3b82f6,#a855f7);
+      transform-origin: left; animation: sl-reading-progress 1s linear both;
+      animation-timeline: scroll(root block); pointer-events: none;
+    }
+  }
+}
+@keyframes sl-site-reveal { from { opacity: .65; translate: 0 18px; } to { opacity: 1; translate: 0 0; } }
+@keyframes sl-reading-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .demo-scroll-reveal { opacity: 1; translate: none; animation: none; }
+  .sl-btn:not(.sl-skip):not([class*="sl-hover-"]):not([class*="sl-fx-"]),.demo-feature-card,.demo-lift,.demo-glow,.catalog-card,.component-tile,.demo-animated-link span { transform: none; }
+}

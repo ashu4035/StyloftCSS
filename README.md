@@ -172,3 +172,137 @@ references, module separation, no-runtime assets, and fixed-palette AA contrast.
 See [architecture](docs/architecture.md), [validation](docs/validation.md), and
 [contribution guidelines](CONTRIBUTING.md). Browser feature targets are documented
 separately from tested engines; this MVP is not a WCAG conformance certification.
+
+## Astro documentation website
+
+The complete demo website is in `website/`: a landing page, getting-started guide,
+18 component categories with 103 live previews and matching HTML, layout patterns,
+and a theme/token gallery. It uses StyloftCSS plus a documented brand/demo extension
+stylesheet, with no Bootstrap, Tailwind, or runtime JavaScript.
+
+Requires Node 22.22.0+ for Astro (the CSS package's development build needs Node 20+).
+Install website tooling once with `cd website` then `npm ci`; return to the root.
+
+- `npm run site:dev`: local Astro development server.
+- `npm run site:build`: rebuild the CSS and generate `website/dist/`.
+- `npm run site:preview`: preview the built site.
+- `npm run site:test`: test built pages and browser behavior (root Playwright required).
+
+See `website/README.md` for source structure and deployment notes. Production hosting
+uses `website/dist/`; root `dist/` remains the CSS framework package.
+
+### Responsive table records
+
+The optional tables module supports sl-table--responsive. Below 40rem it stacks
+each record into a labelled card; desktop keeps the original table. Use explicit
+table roles when changing table display, retain header scopes, and add visible
+mobile labels hidden from assistive technology to avoid duplicate announcements:
+
+~~~html
+<table class="sl-table sl-table--responsive" role="table">
+  <caption>Projects</caption>
+  <thead role="rowgroup"><tr role="row">
+    <th scope="col" role="columnheader">Project</th>
+    <th scope="col" role="columnheader">Owner</th>
+  </tr></thead>
+  <tbody role="rowgroup"><tr role="row">
+    <th scope="row" role="rowheader">Studio notebook</th>
+    <td role="cell"><span class="sl-table-label" aria-hidden="true">Owner</span><span>Alex</span></td>
+  </tr></tbody>
+</table>
+~~~
+
+Keep a labelled sl-table-wrap around wider tables. Without the responsive
+modifier, the original horizontal scroll behavior is preserved.
+
+## Expanded variants, responsive module and motion
+
+Load optional stylesheets after the core. The core remains self-contained; no
+optional module is automatically included in its size measurement.
+
+| File | Public patterns |
+| --- | --- |
+| variants.min.css | sl-btn--sm/md/lg/fill/outline/ghost/soft/pill/icon, sl-nav, sl-footer, card modifiers, sl-link |
+| responsive.min.css | sl-down-1200:*, sl-down-1023:*, sl-down-991:*, sl-down-767:* |
+| motion.min.css | sl-hover-lift/tilt/glow/zoom/fill/sheen, sl-link--underline, sl-reveal/-left/-scale/-text, sl-split, sl-stagger, sl-scene |
+
+Pixel breakpoints are **inclusive max-width** queries, ordered 1200, 1023, 991,
+767px. Each offers cols-1 through cols-4, column, hidden and block. Existing
+sm/md/lg minimum-width utilities remain unchanged. Example:
+
+~~~html
+<div class="sl-grid sl-cols-4 sl-down-1200:cols-3 sl-down-1023:cols-2 sl-down-991:cols-1 sl-down-767:cols-1">
+  ...
+</div>
+~~~
+
+Native exclusive accordions share a details name; multiple-open accordions omit
+name. Omit open for initially closed items. Unrelated groups need unique names.
+The native pattern allows zero open items and does not enforce an always-open
+answer. Unsupported older browsers retain independent disclosures.
+
+Motion primitives are CSS-only progressive enhancement, not a GSAP scripting API.
+They provide scroll-linked reveals, stagger, masked headings, sticky scenes and
+bounded parallax. Use --sl-i on staggered children. Split text must be marked up
+at build time: use sl-word / sl-char spans, hide decorative fragments with
+aria-hidden and give the heading one complete accessible name. No runtime splitter
+or animation library ships. Reduced-motion users and unsupported browsers get
+static readable content. Hover effects also support keyboard focus; use links or
+buttons inside interactive cards. Compact button size is 36px high; medium and
+large are 44px and 52px respectively.
+
+## Sliders and signature button effects
+
+Two additional opt-in modules load after the core:
+
+- slider.min.css: sl-slider, sl-slider__track, sl-slide, sl-slider__nav,
+  sl-slider--cards, sl-slider--vertical, and sl-range.
+- button-fx.min.css: sl-fx-doors/orbit/swap/runway/spotlight/diagonal/depth/frame.
+
+The signature gallery is first on /components/buttons/ and directly reachable at
+/components/buttons/#signature-buttons. Hover or keyboard-focus each button;
+these are interaction effects, not automatically playing demos. The orbit border
+rotates only while hovered/focused; all eight treatments have static reduced-motion
+states. They use explicit transitions and typed custom properties, with no runtime
+JavaScript. A text-swap button needs the documented sl-fx-label wrapper with two
+aria-hidden visual spans and a single complete aria-label on the button.
+
+Sliders are documented at /components/sliders/. The five examples cover a featured
+carousel, responsive card rail, illustrative quotes, vertical chapters, and native
+range inputs. Carousels use scroll snapping, a focusable labelled track, and real
+fragment links for navigation. They support touch scrolling, keyboard arrow keys,
+and numbered/Previous/Next navigation. They do not autoplay or claim live active-slide
+announcements. Reuse unique slide IDs per carousel. Range input values and business
+actions belong to the consuming application.
+
+~~~html
+<link rel="stylesheet" href="styloft.min.css">
+<link rel="stylesheet" href="slider.min.css">
+<link rel="stylesheet" href="button-fx.min.css">
+
+<button class="sl-btn sl-fx-doors" type="button">Split doors</button>
+<section class="sl-slider" aria-label="Example chapters">
+  <div class="sl-slider__track" tabindex="0" role="group" aria-label="Chapters. Use arrow keys or swipe.">
+    <article class="sl-slide" id="chapter-a" tabindex="-1"><h2>First chapter</h2><a href="#chapter-b">Next →</a></article>
+    <article class="sl-slide" id="chapter-b" tabindex="-1"><h2>Next chapter</h2><a href="#chapter-a">← Previous</a></article>
+  </div>
+</section>
+~~~
+
+Testimonial patterns: see /components/testimonials/ (or /light/components/testimonials/) for a featured quote card, a responsive 1/2/3-column grid, a single-quote slider, and a card rail. Related examples are also included in Cards and Sliders. Copy HTML from each preview. Core CSS supplies the cards and grid; slider.min.css enables scroll snapping and motion.min.css adds optional hover lift. Demo names and quotes are fictional. No extra CSS was added to the framework core.
+
+WYSIWYG presentation: editor.min.css adds a wrapping toolbar, native editable canvas, compact/error/read-only states, and themed rich-text typography. Four examples are available at /components/editor/ and /light/components/editor/. Formatting controls are inactive integration templates; application code owns formatting, saving, and sanitization. See docs/editor.md for usage. The optional module measures 2,678 raw / 897 gzip bytes; the core remains 3,313 gzip bytes.
+
+Header layouts: load header.min.css after the core for left-logo/right-menu, right-logo/left-menu, centered-logo/split-menu, logo/menu/CTA, and top-information-bar examples. Find them first at /components/headers/ and /light/components/headers/. sl-header is the inline-size query container; menus stack below 44rem of available header width. Standard links retain native keyboard navigation. This optional module measures 2,146 raw / 696 gzip bytes. The core remains 3,313 gzip bytes.
+
+Cursor effects: load cursor.min.css after the core and add sl-cursor-site sl-cursor-pulse to body for the site-wide ring and action-pointer treatment. This is enabled on the demo website. See /components/cursors/ and /light/components/cursors/ for section-specific ring, crosshair, text, grab, pulsing, and hover-glow examples. The optional module measures 3,572 raw / 956 gzip bytes; core remains 3,313 gzip bytes. Pulsing swaps three cursor images discretely. Touch and forced-color modes retain native cursors; reduced motion keeps the custom ring static. Pointer trails and mouse-drag scrolling require application JavaScript and are not implemented by this CSS.
+
+Interactive documentation playground: open View HTML under any example to edit HTML and StyloftCSS classes, use automatic preview or Run (Ctrl/Command+Enter), reset the example, copy HTML, and select mobile/tablet/full preview widths. The documentation script initializes each editor only when opened. Native textareas preserve normal keyboard navigation; highlighted read-only HTML remains available without JavaScript. Results run in a sandboxed iframe with scripts, forms and external network resources blocked by sandbox/CSP policy; framework CSS and demo extensions are preloaded. Edits are temporary and do not change files or persist after reload. Text editing uses native textareas; syntax highlighting is provided in the no-JavaScript source view. Framework packages remain CSS-only.
+
+Playground formatting: initial HTML is formatted at build time with Prettier (two-space indentation, 88-column target). Format or Alt+Shift+F formats the current HTML; invalid syntax leaves edits unchanged. The browser HTML formatter/parser modules load only when formatting is requested. The parent page fetches and caches framework CSS, then embeds it into the script-blocked sandbox; this avoids Astro development-server 403 responses to opaque-origin stylesheet requests. Regression checks cover formatted source, formatting errors, and actual framework styling inside the preview in addition to editing/reset/copy behavior.
+
+The playground now has one full-width HTML editor. The CSS editor, Copy CSS control, and browser CSS formatting parser have been removed. Framework and demo CSS load automatically; change classes to explore component styles. Focused checks passed for HTML-only layout, class-driven styling, formatting/errors, run/reset/copy, responsive widths and sandbox protection in both themes.
+
+Control polish: field focus uses a 1px outline with a 1px offset, general keyboard focus uses 2px, and control colors transition over 180ms. Optional select.min.css (3,104 raw / 984 gzip bytes) provides Select2-inspired native select styling, grouped options, multiple/disabled states and animated customizable popups where supported. Older browsers retain their native option picker. Load select.min.css after core; examples are in Forms and the playground preview-width control uses the same styling. Reduced motion disables transitions. Core measures 3,313 gzip bytes.
+
+Standalone components: download self-contained CSS from /downloads/components/ (buttons.min.css, cards.min.css, forms.min.css, headers.min.css and other families), or use the component-only link above each gallery. Required tokens and dependencies are included; no core file is needed. See docs/component-packs.md for usage and measured sizes. Header examples now collapse into native keyboard-operated Menu disclosures on narrow containers, with desktop/reverse/center logo arrangements retained on wide layouts. Standalone buttons and headers were verified in isolated pages loading one stylesheet each.

@@ -1,0 +1,24 @@
+@layer sl.components {
+  .sl-btn--sm { min-block-size: 2.25rem; padding: .4rem .7rem; font-size: .8rem; }
+  .sl-btn--md { min-block-size: 2.75rem; padding: .6rem 1.1rem; font-size: 1rem; }
+  .sl-btn--lg { min-block-size: 3.25rem; padding: .85rem 1.5rem; font-size: 1.125rem; }
+  .sl-btn--fill { background: var(--sl-accent); color: var(--sl-on-accent); }
+  .sl-btn--ghost { background: transparent; color: var(--sl-accent); }
+  .sl-btn--soft { background: var(--sl-soft); color: var(--sl-accent); }
+  .sl-btn--ghost:hover:not(:disabled),.sl-btn--soft:hover:not(:disabled) { background: var(--sl-soft); color: var(--sl-accent); }
+  .sl-btn--pill { border-radius: 100vmax; }
+  .sl-btn--icon { aspect-ratio: 1; padding: .6rem; }
+  .sl-btn--icon svg,.sl-btn svg { inline-size: 1.1em; block-size: 1.1em; flex-shrink: 0; }
+  .sl-btn--outline.sl-btn--ghost { border-color: transparent; }
+  .sl-link { display: inline-flex; align-items: center; gap: .4em; text-underline-offset: .25em; }
+  .sl-link svg { inline-size: 1.1em; block-size: 1.1em; flex-shrink: 0; }
+  .sl-card--accent { border-block-start: .25rem solid var(--sl-accent); }
+  .sl-card--outline { background: transparent; border: 2px solid var(--sl-border); }
+  .sl-card--horizontal { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; }
+  .sl-card--horizontal > * { flex: 1 1 12rem; min-inline-size: 0; }
+  .sl-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem; background: var(--sl-surface); border: 1px solid var(--sl-border); border-radius: var(--sl-radius); }
+  .sl-footer { padding: 2rem; background: var(--sl-surface); border-block-start: 1px solid var(--sl-border); }
+  .sl-avatar { display: inline-grid; place-items: center; inline-size: 3rem; block-size: 3rem; border: 1px solid var(--sl-border); border-radius: 50%; background: var(--sl-soft); color: var(--sl-accent); font-weight: 700; }
+  .sl-spinner { display: inline-block; inline-size: 1em; block-size: 1em; border: 2px solid currentColor; border-inline-end-color: transparent; border-radius: 50%; }
+  .sl-details--flush { border-inline: 0; border-block-start: 0; border-radius: 0; background: transparent; }
+}

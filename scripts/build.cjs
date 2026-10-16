@@ -44,23 +44,29 @@ function utilities() {
 }
 // Conservative whitespace compression preserves calc(), strings and declaration order.
 function compact(css) {
-  return css.replace(/\/\*(?!\!)[\s\S]*?\*\//g, '').replace(/\s+/g, ' ').replace(/\s*([{};])\s*/g, '$1').replace(/;}/g, '}').trim() + '\n';
+  const strings=[];
+  const masked=css.replace(/"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'/g,value=>`__STRING_${strings.push(value)-1}__`);
+  return masked.replace(/\/\*(?!\!)[\s\S]*?\*\//g, '').replace(/\s+/g, ' ').replace(/\s*([{};,])\s*/g, '$1').replace(/:\s+/g,':').replace(/;}/g, '}').trim().replace(/__STRING_(\d+)__/g,(_,i)=>strings[Number(i)]) + '\n';
 }
 const outputs = {};
 const core = banner + order + files.map(name => fs.readFileSync(path.join(root, 'src', name + '.css'), 'utf8')).join('\n') + '\n' + utilities();
 outputs['styloft.css'] = core;
 outputs['styloft.min.css'] = compact(core);
-for (const name of ['prose','tables']) {
+for (const name of ['prose','tables','variants','responsive','motion','button-fx','slider','editor','header','cursor','select']) {
   const css = banner + order + fs.readFileSync(path.join(root, 'src/modules', name + '.css'), 'utf8');
   outputs[name + '.css'] = css;
   outputs[name + '.min.css'] = compact(css);
 }
-const metrics = Object.fromEntries(Object.entries(outputs).map(([name, css]) => [name, {bytes: Buffer.byteLength(css), gzipBytes: zlib.gzipSync(css, {level: 9, mtime: 0}).length}]));
+const standalone = require('./standalone.cjs')(root,banner,order,utilities());
+for(const [name,css] of Object.entries(standalone.outputs)){outputs[name]=css;outputs[name.replace('.css','.min.css')]=compact(css);}
+outputs['components/manifest.json']=JSON.stringify(standalone.manifest,null,2)+'\n';
+const metrics = Object.fromEntries(Object.entries(outputs).filter(([name])=>name.endsWith('.css')).map(([name, css]) => [name, {bytes: Buffer.byteLength(css), gzipBytes: zlib.gzipSync(css, {level: 9, mtime: 0}).length}]));
 if (metrics['styloft.min.css'].gzipBytes >= 10000) throw new Error('Core must be below 10,000 gzip bytes');
 outputs['size-report.json'] = JSON.stringify({budgetBytes:10000, compression:'gzip level 9, deterministic header; decimal KB', files:metrics}, null, 2) + '\n';
 fs.mkdirSync(path.join(root, 'dist'), {recursive:true});
 for (const [name, value] of Object.entries(outputs)) {
   const target = path.join(root, 'dist', name);
+  if(!process.argv.includes('--check'))fs.mkdirSync(path.dirname(target),{recursive:true});
   if (process.argv.includes('--check')) {
     if (!fs.existsSync(target) || fs.readFileSync(target, 'utf8') !== value) throw new Error(`Stale build: ${name}. Run npm run build.`);
   } else fs.writeFileSync(target, value);

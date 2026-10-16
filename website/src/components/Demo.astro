@@ -1,0 +1,27 @@
+---
+import Icon from './Icon.astro';
+import {Code} from 'astro:components';
+import {format} from 'prettier';
+import {lightNavigation} from '../lib/theme';
+const { title, description, html, className = '', id } = Astro.props;
+const isLight=Astro.url.pathname.startsWith('/light/');
+const markup=isLight?lightNavigation(html):html;
+const formatted=await format(markup,{parser:'html',tabWidth:2,printWidth:88,htmlWhitespaceSensitivity:'css'});
+const lines=formatted.trimEnd().split('\n').length;
+---
+<section class="example-block" id={id} aria-label={title}>
+  <div class="example-heading"><div><h2>{title}</h2>{description && <p>{description}</p>}</div><span class="preview-label"><span></span> Live preview</span></div>
+  <div class:list={['example-canvas',className]}><Fragment set:html={markup}/></div>
+  <details class="example-source"><summary><span><Icon name="code" size={17}/> View HTML / Playground</span><span class="source-hint">HTML source</span></summary><div class="code-editor"><div class="code-editor__bar"><span class="code-editor__file"><Icon name="code" size={16}/> example.html</span><span class="code-editor__language">HTML</span></div><Code code={formatted.trimEnd()} lang="html" theme={isLight ? 'github-light' : 'github-dark'} class="code-editor__code" tabindex="0" aria-label={`${title} HTML source (read-only)`}/><div class="code-editor__status code-editor__fallback"><span>HTML source · enable JavaScript for the playground</span><span>{lines} {lines===1?'line':'lines'} · UTF-8</span></div>
+<template data-playground>
+  <div class="playground__actions"><div class="sl-cluster sl-gap-2"><button type="button" class="sl-btn sl-btn--sm" data-run>Run ▶</button><button type="button" class="sl-btn sl-btn--sm sl-btn--outline" data-format>Format</button><button type="button" class="sl-btn sl-btn--sm sl-btn--outline" data-reset>Reset</button><button type="button" class="sl-btn sl-btn--sm sl-btn--ghost" data-copy-html>Copy HTML</button></div><label class="playground__auto"><input type="checkbox" data-auto checked/> Auto preview</label></div>
+  <div class="playground__panes">
+    <label class="playground__pane"><span class="playground__pane-title"><span aria-hidden="true">&lt;/&gt;</span> HTML <span class="playground__hint">Editable</span></span><span class="playground__input"><span data-lines aria-hidden="true" class="playground__gutter"></span><textarea data-html aria-label={`HTML editor: ${title}`} spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off">{formatted}</textarea></span></label>
+  </div>
+  <div class="playground__result-bar"><strong>Result</strong><label>Preview width <select class="sl-select" data-width aria-label="Preview width"><option value="full">Full width</option><option value="375">Mobile · 375px</option><option value="768">Tablet · 768px</option></select></label></div>
+  <div class="playground__result" data-result><iframe title={`Live preview: ${title}`} sandbox="" referrerpolicy="no-referrer" loading="lazy"></iframe></div>
+  <div class="code-editor__status"><span role="status" aria-live="polite" data-status>Ready</span><span>Ctrl/⌘ + Enter to run · Scripts blocked</span></div>
+</template></div></details>
+</section>
+
+<script>import '../scripts/playground';</script>

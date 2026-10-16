@@ -1,9 +1,36 @@
 /*! StyloftCSS v0.1.0 | MIT License */
 @layer sl.tokens, sl.reset, sl.base, sl.layout, sl.components, sl.utilities;
 @layer sl.components {
-  .sl-table-wrap { overflow-x: auto; }
+  .sl-table-wrap { min-inline-size: 0; max-inline-size: 100%; overflow-x: auto; }
   .sl-table { inline-size: 100%; border-collapse: collapse; text-align: start; }
   .sl-table :where(th, td) { padding: .75rem 1rem; border-block-end: 1px solid var(--sl-border); text-align: start; }
   .sl-table th { font-weight: 700; background: var(--sl-surface); }
   .sl-table caption { text-align: start; font-weight: 650; padding-block: .75rem; }
+  .sl-table-label { display: none; }
+  /* Opt in: preserve labelled table semantics while stacking records on small screens. */
+  @media (max-width: 39.99rem) {
+    .sl-table--responsive { display: block; }
+    .sl-table--responsive caption { display: block; }
+    .sl-table--responsive thead {
+      position: absolute; inline-size: 1px; block-size: 1px; padding: 0;
+      margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+    }
+    .sl-table--responsive tbody { display: grid; gap: 1rem; }
+    .sl-table--responsive tbody tr {
+      display: grid; padding: .25rem .85rem; background: var(--sl-surface);
+      border: 1px solid var(--sl-border); border-radius: var(--sl-radius);
+    }
+    .sl-table--responsive tbody :where(th, td) {
+      padding: .75rem 0; overflow-wrap: anywhere; min-inline-size: 0;
+    }
+    .sl-table--responsive tbody th { font-size: 1rem; }
+    .sl-table--responsive tbody td {
+      display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      align-items: baseline; gap: .75rem;
+    }
+    .sl-table--responsive tbody tr > :last-child { border-block-end: 0; }
+    .sl-table--responsive .sl-table-label { display: block; color: var(--sl-muted); font-weight: 600; }
+    .sl-table--responsive td > :last-child { min-inline-size: 0; }
+    .sl-table--responsive .sl-badge { white-space: normal; }
+  }
 }

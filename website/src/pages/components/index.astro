@@ -1,0 +1,11 @@
+---
+import Docs from '../../layouts/Docs.astro';
+import Icon from '../../components/Icon.astro';
+import {components,groups} from '../../data/components';
+---
+<Docs title="Component library" description="Browse live CSS-only components, page sections, and layouts built with StyloftCSS." active="overview">
+  <div class="breadcrumbs"><a href="/">Home</a><span>/</span><span>Components</span></div>
+  <header class="docs-page-header"><span class="eyebrow">Your building blocks</span><h1>Small pieces.<br/>Endless possibilities.</h1><p>Explore the essentials, see them in action, and take the HTML with you. Styled with StyloftCSS, ready for your next idea.</p><div class="doc-tags"><span>{components.length} categories</span><span>{components.reduce((n,c)=>n+c.examples.length,0)} live examples</span><span>Zero runtime JS</span></div></header>
+  <p class="framework-extension">Framework primitives use <code>sl-</code> classes. Branded illustrations and hover effects use a separate <a href="/downloads/demo-extensions.css" download>demo extension stylesheet ↓</a>, keeping the core small.</p>
+  {groups.map(group=><section class="catalog-group"><div class="section-line"><h2>{group}</h2><span>{String(components.filter(c=>c.group===group).length).padStart(2,'0')} patterns</span></div><div class="sl-grid sl-md:cols-2 sl-gap-4">{components.filter(c=>c.group===group).map(c=><a class="catalog-card sl-card" href={`/components/${c.slug}/`}><span class="catalog-icon"><Icon name={c.icon}/></span><div><h3>{c.name}<span aria-hidden="true">↗</span></h3><p>{c.description}</p><span class="catalog-meta">{c.examples.length} live examples</span></div></a>)}</div></section>)}
+</Docs>

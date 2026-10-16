@@ -4,10 +4,42 @@
   "description": "A modular, layered CSS framework with zero runtime JavaScript.",
   "license": "MIT",
   "private": true,
-  "files": ["dist", "src", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "style": "dist/styloft.css",
-  "exports": {".": "./dist/styloft.css", "./core": "./dist/styloft.css", "./prose": "./dist/prose.css", "./tables": "./dist/tables.css"},
-  "scripts": {"build": "node scripts/build.cjs", "test": "node scripts/build.cjs --check && node --test tests/core.test.cjs", "test:browser": "node tests/browser.cjs"},
-  "devDependencies": {"playwright": "1.62.1"},
-  "engines": {"node": ">=20"}
+  "exports": {
+    ".": "./dist/styloft.css",
+    "./core": "./dist/styloft.css",
+    "./prose": "./dist/prose.css",
+    "./tables": "./dist/tables.css",
+    "./variants": "./dist/variants.css",
+    "./responsive": "./dist/responsive.css",
+    "./motion": "./dist/motion.css",
+    "./button-fx": "./dist/button-fx.css",
+    "./slider": "./dist/slider.css",
+    "./editor": "./dist/editor.css",
+    "./header": "./dist/header.css",
+    "./cursor": "./dist/cursor.css",
+    "./select": "./dist/select.css",
+    "./components/*": "./dist/components/*.css"
+  },
+  "scripts": {
+    "build": "node scripts/build.cjs",
+    "test": "node scripts/build.cjs --check && node --test tests/core.test.cjs",
+    "test:browser": "node tests/browser.cjs",
+    "site:dev": "npm --prefix website run dev",
+    "site:build": "npm --prefix website run build",
+    "site:preview": "npm --prefix website run preview",
+    "site:test": "npm --prefix website test"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
 }

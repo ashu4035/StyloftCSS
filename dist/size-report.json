@@ -3,28 +3,260 @@
   "compression": "gzip level 9, deterministic header; decimal KB",
   "files": {
     "styloft.css": {
-      "bytes": 13808,
-      "gzipBytes": 3330
+      "bytes": 14688,
+      "gzipBytes": 3518
     },
     "styloft.min.css": {
-      "bytes": 12204,
-      "gzipBytes": 3189
+      "bytes": 12544,
+      "gzipBytes": 3313
     },
     "prose.css": {
       "bytes": 608,
       "gzipBytes": 321
     },
     "prose.min.css": {
-      "bytes": 559,
-      "gzipBytes": 313
+      "bytes": 543,
+      "gzipBytes": 310
     },
     "tables.css": {
-      "bytes": 531,
-      "gzipBytes": 312
+      "bytes": 1940,
+      "gzipBytes": 725
     },
     "tables.min.css": {
-      "bytes": 486,
-      "gzipBytes": 302
+      "bytes": 1547,
+      "gzipBytes": 618
+    },
+    "variants.css": {
+      "bytes": 2327,
+      "gzipBytes": 722
+    },
+    "variants.min.css": {
+      "bytes": 2045,
+      "gzipBytes": 697
+    },
+    "responsive.css": {
+      "bytes": 1534,
+      "gzipBytes": 412
+    },
+    "responsive.min.css": {
+      "bytes": 1224,
+      "gzipBytes": 331
+    },
+    "motion.css": {
+      "bytes": 5304,
+      "gzipBytes": 1714
+    },
+    "motion.min.css": {
+      "bytes": 4526,
+      "gzipBytes": 1516
+    },
+    "button-fx.css": {
+      "bytes": 4510,
+      "gzipBytes": 1255
+    },
+    "button-fx.min.css": {
+      "bytes": 3990,
+      "gzipBytes": 1137
+    },
+    "slider.css": {
+      "bytes": 2404,
+      "gzipBytes": 878
+    },
+    "slider.min.css": {
+      "bytes": 2180,
+      "gzipBytes": 853
+    },
+    "editor.css": {
+      "bytes": 3086,
+      "gzipBytes": 974
+    },
+    "editor.min.css": {
+      "bytes": 2678,
+      "gzipBytes": 897
+    },
+    "header.css": {
+      "bytes": 4031,
+      "gzipBytes": 1144
+    },
+    "header.min.css": {
+      "bytes": 3573,
+      "gzipBytes": 1090
+    },
+    "cursor.css": {
+      "bytes": 3861,
+      "gzipBytes": 1052
+    },
+    "cursor.min.css": {
+      "bytes": 3572,
+      "gzipBytes": 956
+    },
+    "select.css": {
+      "bytes": 3507,
+      "gzipBytes": 1084
+    },
+    "select.min.css": {
+      "bytes": 3104,
+      "gzipBytes": 984
+    },
+    "components/buttons.css": {
+      "bytes": 11163,
+      "gzipBytes": 2873
+    },
+    "components/buttons.min.css": {
+      "bytes": 9989,
+      "gzipBytes": 2628
+    },
+    "components/cards.css": {
+      "bytes": 12965,
+      "gzipBytes": 3114
+    },
+    "components/cards.min.css": {
+      "bytes": 11332,
+      "gzipBytes": 2935
+    },
+    "components/forms.css": {
+      "bytes": 15455,
+      "gzipBytes": 3511
+    },
+    "components/forms.min.css": {
+      "bytes": 13487,
+      "gzipBytes": 3243
+    },
+    "components/accordions.css": {
+      "bytes": 12136,
+      "gzipBytes": 2913
+    },
+    "components/accordions.min.css": {
+      "bytes": 10537,
+      "gzipBytes": 2748
+    },
+    "components/testimonials.css": {
+      "bytes": 15308,
+      "gzipBytes": 3638
+    },
+    "components/testimonials.min.css": {
+      "bytes": 13470,
+      "gzipBytes": 3424
+    },
+    "components/feedback.css": {
+      "bytes": 3839,
+      "gzipBytes": 1293
+    },
+    "components/feedback.min.css": {
+      "bytes": 3432,
+      "gzipBytes": 1199
+    },
+    "components/links.css": {
+      "bytes": 3955,
+      "gzipBytes": 1419
+    },
+    "components/links.min.css": {
+      "bytes": 3527,
+      "gzipBytes": 1308
+    },
+    "components/alerts.css": {
+      "bytes": 3471,
+      "gzipBytes": 1218
+    },
+    "components/alerts.min.css": {
+      "bytes": 3081,
+      "gzipBytes": 1127
+    },
+    "components/badges.css": {
+      "bytes": 3414,
+      "gzipBytes": 1226
+    },
+    "components/badges.min.css": {
+      "bytes": 3025,
+      "gzipBytes": 1131
+    },
+    "components/heroes.css": {
+      "bytes": 19173,
+      "gzipBytes": 4264
+    },
+    "components/heroes.min.css": {
+      "bytes": 16871,
+      "gzipBytes": 3968
+    },
+    "components/headers.css": {
+      "bytes": 22616,
+      "gzipBytes": 4940
+    },
+    "components/headers.min.css": {
+      "bytes": 19873,
+      "gzipBytes": 4597
+    },
+    "components/footers.css": {
+      "bytes": 18832,
+      "gzipBytes": 4245
+    },
+    "components/footers.min.css": {
+      "bytes": 16532,
+      "gzipBytes": 3948
+    },
+    "components/sliders.css": {
+      "bytes": 13384,
+      "gzipBytes": 3186
+    },
+    "components/sliders.min.css": {
+      "bytes": 11660,
+      "gzipBytes": 3001
+    },
+    "components/editor.css": {
+      "bytes": 13675,
+      "gzipBytes": 3156
+    },
+    "components/editor.min.css": {
+      "bytes": 11785,
+      "gzipBytes": 2917
+    },
+    "components/selects.css": {
+      "bytes": 6792,
+      "gzipBytes": 1978
+    },
+    "components/selects.min.css": {
+      "bytes": 6023,
+      "gzipBytes": 1780
+    },
+    "components/tables.css": {
+      "bytes": 12992,
+      "gzipBytes": 3016
+    },
+    "components/tables.min.css": {
+      "bytes": 11099,
+      "gzipBytes": 2751
+    },
+    "components/typography.css": {
+      "bytes": 11179,
+      "gzipBytes": 2660
+    },
+    "components/typography.min.css": {
+      "bytes": 9632,
+      "gzipBytes": 2508
+    },
+    "components/layout.css": {
+      "bytes": 13185,
+      "gzipBytes": 2813
+    },
+    "components/layout.min.css": {
+      "bytes": 11393,
+      "gzipBytes": 2588
+    },
+    "components/animations.css": {
+      "bytes": 24451,
+      "gzipBytes": 5211
+    },
+    "components/animations.min.css": {
+      "bytes": 21376,
+      "gzipBytes": 4678
+    },
+    "components/cursors.css": {
+      "bytes": 7344,
+      "gzipBytes": 1967
+    },
+    "components/cursors.min.css": {
+      "bytes": 6689,
+      "gzipBytes": 1779
     }
   }
 }

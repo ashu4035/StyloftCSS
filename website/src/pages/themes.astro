@@ -1,0 +1,47 @@
+---
+import Docs from '../layouts/Docs.astro';
+import Demo from '../components/Demo.astro';
+const themes=`<div class="sl-grid sl-md:cols-2 sl-gap-6 theme-gallery">
+  <article data-theme="light" class="sl-card sl-stack">
+    <span class="sl-badge">Light theme</span><h2 class="sl-text-xl">A fresh perspective.</h2>
+    <p class="sl-text-muted">A bright canvas with a clear visual hierarchy.</p>
+    <a class="sl-btn" href="/components/">Explore components ↗</a>
+    <details class="sl-details"><summary>One connected system</summary><p>Semantic tokens connect backgrounds, text, controls, and focus indicators.</p></details>
+  </article>
+  <article data-theme="dark" class="sl-card sl-stack">
+    <span class="sl-badge">Dark theme</span><h2 class="sl-text-xl">A quieter canvas.</h2>
+    <p class="sl-text-muted">The same components, in a different light.</p>
+    <a class="sl-btn" href="/components/">Explore components ↗</a>
+    <details class="sl-details"><summary>One connected system</summary><p>Each explicit theme scope supplies its own full semantic palette.</p></details>
+  </article>
+</div>`;
+---
+<Docs title="Tokens & themes" description="Customize StyloftCSS with semantic design tokens and native light/dark themes." active="themes" section="themes">
+  <div class="breadcrumbs"><a href="/">Home</a><span>/</span><span>Themes</span></div>
+  <header class="docs-page-header"><span class="eyebrow">Your design, connected</span><h1>One system.<br/>Your spectrum.</h1><p>A token is a decision you make once. Give that decision a name, and let it carry through your whole interface.</p><div class="doc-tags"><span>CSS custom properties</span><span>Light + dark</span><span>Scoped themes</span></div></header>
+  <Demo title="Same components. A different atmosphere." description="Real theme scopes, side by side. The website shell switches independently using the header theme link." html={themes}/>
+  <section class="guide-section"><h2>Choose a theme</h2><p>Without a theme attribute, the framework follows the operating system's color preference. Set a theme on html to force it, or on a container to scope it. No switching script is included.</p><pre><code>{`<!-- Follow the operating system -->
+<html lang="en">
+
+<!-- Or choose explicitly -->
+<html lang="en" data-theme="dark">
+
+<!-- Or scope a section -->
+<section data-theme="light" class="sl-card">...</section>`}</code></pre></section>
+  <section class="guide-section"><h2>Semantic colors</h2><p>The core's default light palette. The website adds its own brand colors in a separate stylesheet.</p><div class="token-swatches">{[{name:'bg',color:'#f8fafc'},{name:'surface',color:'#ffffff'},{name:'text',color:'#172033'},{name:'muted',color:'#475569'},{name:'accent',color:'#3730a3'},{name:'on-accent',color:'#ffffff'},{name:'border',color:'#64748b'},{name:'soft',color:'#e0e7ff'},{name:'danger',color:'#b91c1c'},{name:'success',color:'#166534'}].map(t=><div class="token-swatch"><div style={`--color:${t.color}`} aria-hidden="true"></div><p>--sl-{t.name}<code>{t.color}</code></p></div>)}</div></section>
+  <section class="guide-section"><h2>Space with a rhythm</h2><p>Nine spacing steps, expressed in rem. Utilities and components share the same scale.</p><div class="spacing-demo">{[[0,0],[1,.25],[2,.5],[3,.75],[4,1],[6,1.5],[8,2],[12,3],[16,4]].map(([n,size])=><div><code>--sl-space-{n}</code><span style={`--size:${size}rem`} aria-hidden="true"></span><code>{size}rem</code></div>)}</div></section>
+  <section class="guide-section"><h2>Make a palette your own</h2><p>Keep the foreground, hover, and focus colors connected. Define light and dark choices explicitly when your design needs both.</p><pre><code>{`:root, [data-theme="light"] {
+  --sl-accent: #075985;
+  --sl-accent-hover: #0c4a6e;
+  --sl-on-accent: #ffffff;
+  --sl-focus: #075985;
+}
+[data-theme="dark"] {
+  --sl-accent: #7dd3fc;
+  --sl-accent-hover: #bae6fd;
+  --sl-on-accent: #082f49;
+  --sl-focus: #7dd3fc;
+}`}</code></pre></section>
+  <section class="guide-section"><h2>Type, shape, and measure</h2><div class="sl-table-wrap" role="region" aria-label="Design token groups" tabindex="0"><table class="sl-table"><caption>Other core token groups</caption><thead><tr><th scope="col">Group</th><th scope="col">Properties</th></tr></thead><tbody><tr><th scope="row">Typography</th><td>--sl-font, --sl-mono, --sl-text-sm/base/lg/xl/2xl/3xl</td></tr><tr><th scope="row">Shape</th><td>--sl-radius, --sl-radius-lg, --sl-shadow</td></tr><tr><th scope="row">Measure</th><td>--sl-measure, --sl-container</td></tr><tr><th scope="row">Layout hooks</th><td>--sl-gap, --sl-cols, --sl-card-min</td></tr></tbody></table></div></section>
+  <aside class="usage-note"><h2>Color is a design responsibility</h2><p>Default core semantic palettes have automated contrast checks. Any custom palette—including your own product branding—needs its own verification. Never make color the only way to understand an error or status.</p></aside>
+</Docs>

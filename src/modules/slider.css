@@ -1,0 +1,17 @@
+@layer sl.components {
+  .sl-slider { min-inline-size: 0; max-inline-size: 100%; }
+  .sl-slider__track { display: flex; gap: 1rem; overflow-x: auto; max-inline-size: 100%; scroll-snap-type: x mandatory; overscroll-behavior-inline: contain; scrollbar-width: thin; padding-block-end: .65rem; }
+  .sl-slide { flex: 0 0 100%; min-inline-size: 0; scroll-snap-align: start; scroll-snap-stop: always; padding: 1.5rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius-lg); background: var(--sl-surface); }
+  .sl-slide:target { outline: 2px solid var(--sl-accent); outline-offset: -3px; }
+  .sl-slider__nav { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin-block-start: 1rem; }
+  .sl-slider__nav a { display: inline-grid; place-items: center; min-inline-size: 2.75rem; min-block-size: 2.75rem; border: 1px solid var(--sl-border); border-radius: 50%; text-decoration: none; background: var(--sl-surface); color: var(--sl-accent); }
+  .sl-slider__nav a:is(:hover,:focus-visible) { background: var(--sl-soft); border-color: var(--sl-accent); }
+  .sl-slider--cards .sl-slide { flex-basis: calc((100% - 1rem) / 2); }
+  .sl-slide-art { min-block-size: 8rem; border-radius: var(--sl-radius); background: radial-gradient(circle at 25% 120%,#0ea5e9 0 40%,transparent 41%),radial-gradient(circle at 75% 80%,#8b5cf6 0 45%,#12344a 46%); }
+  .sl-slide-art--warm { background: radial-gradient(circle at 25% 120%,#ea9c75 0 40%,transparent 41%),radial-gradient(circle at 75% 80%,#b38ce8 0 45%,#382244 46%); }
+  .sl-slide-art--mint { background: radial-gradient(circle at 25% 120%,#14b8a6 0 40%,transparent 41%),radial-gradient(circle at 75% 80%,#38bdf8 0 45%,#153f45 46%); }
+  .sl-slider--vertical .sl-slider__track { display: grid; grid-auto-rows: 100%; block-size: 22rem; overflow-y: auto; overflow-x: hidden; scroll-snap-type: y mandatory; padding-block-end: 0; }
+  .sl-range { inline-size: 100%; min-block-size: 2.75rem; accent-color: var(--sl-accent); }
+  @media (max-width: 767px) { .sl-slider--cards .sl-slide { flex-basis: min(85%,18rem); }.sl-slide { padding: 1rem; } }
+  @media (prefers-reduced-motion: no-preference) { .sl-slider__track { scroll-behavior: smooth; }.sl-slider__nav a { transition: background-color 250ms ease,border-color 250ms ease; } }
+}

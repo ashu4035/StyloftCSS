@@ -1,0 +1,6 @@
+---
+import { Image } from 'astro:assets';
+import mark from '../assets/brand-mark.png';
+const {markOnly=false}=Astro.props;
+---
+{markOnly ? <Image src={mark} alt="" width={40} height={40} fit="contain" format="webp" densities={[1,2]} class="brand-image"/> : <a href="/" class="brand" aria-label="StyloftCSS home"><Image src={mark} alt="" width={40} height={40} fit="contain" format="webp" densities={[1,2]} class="brand-image"/><span class="brand-wordmark">Styloft<span class="brand-css">CSS</span></span></a>}

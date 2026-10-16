@@ -1,0 +1,55 @@
+---
+import Docs from '../layouts/Docs.astro';
+import Demo from '../components/Demo.astro';
+const starter=`<!doctype html>
+<html lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My first Styloft page</title>
+  <link rel="stylesheet" href="/css/styloft.min.css">
+  <body>
+    <main class="sl-container sl-py-12 sl-stack sl-gap-6">
+      <h1>Hello, possibility.</h1>
+      <p class="sl-text-lg sl-text-muted">Your idea starts here.</p>
+      <div class="sl-grid sl-md:cols-3 sl-gap-6">
+        <article class="sl-card sl-stack">
+          <h2 class="sl-text-xl">A little structure.</h2>
+          <p>A flexible foundation for what comes next.</p>
+          <a class="sl-btn" href="/about">Learn more</a>
+        </article>
+      </div>
+    </main>
+  </body>
+</html>`;
+---
+<Docs title="Getting started" description="Build your first StyloftCSS page with one stylesheet and semantic HTML." active="getting-started" section="docs">
+  <div class="breadcrumbs"><a href="/">Home</a><span>/</span><span>Getting started</span></div>
+  <header class="docs-page-header"><span class="eyebrow">A small beginning</span><h1>Your first five minutes.</h1><p>A stylesheet, a few classes, and a place for your idea. Here's everything you need to start with StyloftCSS.</p><div class="doc-tags"><span>v0.1.0 MVP</span><span>CSS only</span><span>MIT licensed</span></div></header>
+  <section class="guide-section"><h2><span class="guide-step">01</span> Get the stylesheet</h2><p>Download the built core and save it in your project's public CSS folder. No package manager, CDN account, or build tool is required to use it.</p><a class="sl-btn" href="/downloads/styloft.min.css" download>Download StyloftCSS ↓</a><p>The current core is 3,139 bytes gzip (level 9). Your server's compression settings may change the transferred size. <a href="/downloads/size-report.json">See the measured report</a>.</p></section>
+  <section class="guide-section"><h2><span class="guide-step">02</span> Link it and start composing</h2><p>This complete starter uses a container, fluid heading, responsive grid, and a card. Replace the content and destinations with your own.</p><pre><code>{starter}</code></pre></section>
+  <section class="guide-section"><h2><span class="guide-step">03</span> Make the tokens yours</h2><p>Add your own stylesheet after StyloftCSS. Unlayered application rules override the framework's normal layered rules.</p><pre><code>{`:root {
+  --sl-accent: #075985;
+  --sl-accent-hover: #0c4a6e;
+  --sl-on-accent: #ffffff;
+  --sl-focus: #075985;
+  --sl-radius: .4rem;
+  --sl-container: 80rem;
+}`}</code></pre><p>For dark scopes, override the corresponding tokens on <code>[data-theme="dark"]</code> too. Recheck contrast whenever you change foreground or background colors. <a href="/themes/">Explore all tokens →</a></p></section>
+  <section class="guide-section"><h2><span class="guide-step">04</span> Add only the modules you need</h2><p>Core already contains reset, tokens, base typography, layouts, utilities, and basic components. Prose and tables are separate stylesheets that depend on core tokens.</p><pre><code>{`<link rel="stylesheet" href="/css/styloft.min.css">
+<!-- Optional: only add what your page uses. -->
+<link rel="stylesheet" href="/css/prose.min.css">
+<link rel="stylesheet" href="/css/tables.min.css">
+<!-- Optional component variants, exact-pixel breakpoints, and motion. -->
+<link rel="stylesheet" href="/css/variants.min.css">
+<link rel="stylesheet" href="/css/responsive.min.css">
+<link rel="stylesheet" href="/css/motion.min.css">`}</code></pre><div class="sl-cluster"><a href="/downloads/prose.min.css" download>Download prose ↓</a><a href="/downloads/tables.min.css" download>Download tables ↓</a></div></section>
+  <section class="guide-section"><h2>The utility vocabulary</h2><div class="sl-table-wrap" role="region" aria-label="Utility reference" tabindex="0"><table class="sl-table"><caption>Small classes, predictable behavior</caption><thead><tr><th scope="col">Pattern</th><th scope="col">Examples</th><th scope="col">Purpose</th></tr></thead><tbody><tr><th scope="row">Spacing</th><td><code>sl-p-4 sl-py-8 sl-gap-6</code></td><td>Padding, logical axes, layout gap</td></tr><tr><th scope="row">Columns</th><td><code>sl-grid sl-md:cols-3</code></td><td>One column, then three from 48rem</td></tr><tr><th scope="row">Flex</th><td><code>sl-cluster sl-justify-between</code></td><td>Wrapping, aligned rows</td></tr><tr><th scope="row">Type</th><td><code>sl-text-lg sl-text-muted</code></td><td>Fluid size and semantic color</td></tr><tr><th scope="row">Surfaces</th><td><code>sl-card sl-rounded sl-shadow</code></td><td>Content surfaces and decoration</td></tr></tbody></table></div><p>Spacing steps: 0, 1, 2, 3, 4, 6, 8, 12, 16. Responsive variants apply to columns, display, and flex direction: sm 40rem, md 48rem, lg 64rem. Classes use a literal colon in HTML.</p></section>
+  <aside class="usage-note"><h2>A good foundation still needs good HTML</h2><p>Use labels, meaningful headings, real buttons and links, visible error text, and sensible reading order. CSS supplies focus and presentation; your markup supplies meaning. Custom interactive widgets need their own accessible behavior.</p></aside>
+  <section class="guide-section"><h2>Using Astro?</h2><p>This very website is built with Astro and StyloftCSS. Import the CSS once in your shared layout's frontmatter. Astro handles it at build time; no client-side framework is needed.</p><pre><code>{`---
+import '../styles/styloft.css';
+---
+<html lang="en">
+  <body><slot /></body>
+</html>`}</code></pre><p>Using the repository locally? Run <code>npm run site:dev</code> from its root. Use <code>npm run site:build</code> for static output in <code>website/dist/</code>. The CSS framework stays in the root <code>dist/</code>.</p></section>
+  <nav class="docs-next" aria-label="Next steps"><a href="/themes/">Explore the tokens →</a><a href="/components/">Meet the components →</a></nav>
+</Docs>

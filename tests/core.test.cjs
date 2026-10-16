@@ -13,7 +13,8 @@ test('core budget and measured report match the actual bytes', () => {
 });
 test('core is self-contained and ships no scripts, network dependencies or fonts', () => {
   assert.doesNotMatch(css, /@import|url\s*\(|expression\s*\(/i);
-  for (const name of fs.readdirSync(path.join(root,'dist'))) assert.match(name, /\.(css|json)$/);
+  const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(entry=>entry.isDirectory()?walk(path.join(dir,entry.name)):[path.join(dir,entry.name)]);
+  for(const file of walk(path.join(root,'dist')))assert.match(file,/\.(css|json)$/);
   for (const name of fs.readdirSync(path.join(root,'examples'))) assert.doesNotMatch(fs.readFileSync(path.join(root,'examples',name),'utf8'), /<script\b|\son\w+=/i);
 });
 test('ordered layers, opt-in modules, and bounded responsive variants', () => {
@@ -35,4 +36,15 @@ test('light and dark semantic color pairs pass WCAG AA contrast thresholds', () 
     for (const bg of ['bg','surface']) assert.ok(ratio(t.border,t[bg])>=3);
     for (const color of Object.values(t)) assert.ok(css.includes(color), color);
   }
+});
+
+test('standalone component packs include tokens, measured sizes, and only button-related styles in buttons',()=>{
+ const manifest=JSON.parse(fs.readFileSync(path.join(root,'dist/components/manifest.json')));
+ const report=JSON.parse(fs.readFileSync(path.join(root,'dist/size-report.json')));
+ for(const [name,item] of Object.entries(manifest)){
+  assert.equal(item.requiresCore,false,name);const bytes=fs.readFileSync(path.join(root,'dist',item.file));
+  assert.match(bytes.toString(),/--sl-accent:/);assert.equal(report.files[item.file].gzipBytes,zlib.gzipSync(bytes,{level:9,mtime:0}).length);
+  assert.doesNotMatch(bytes.toString(),/@import/);
+ }
+ const buttons=fs.readFileSync(path.join(root,'dist/components/buttons.css'),'utf8');assert.match(buttons,/\.sl-btn/);assert.match(buttons,/\.sl-fx-doors/);assert.doesNotMatch(buttons,/\.sl-(card|input|table|scene|grid)\b/);
 });

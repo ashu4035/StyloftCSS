@@ -1,0 +1,19 @@
+@layer sl.utilities {
+  /* Inclusive, desktop-down breakpoints; the existing sm/md/lg classes are unchanged. */
+  @media (max-width: 1200px) {
+    .sl-down-1200\:cols-1 { --sl-cols: 1; }.sl-down-1200\:cols-2 { --sl-cols: 2; }.sl-down-1200\:cols-3 { --sl-cols: 3; }.sl-down-1200\:cols-4 { --sl-cols: 4; }
+    .sl-down-1200\:column { flex-direction: column; }.sl-down-1200\:hidden { display: none; }.sl-down-1200\:block { display: block; }
+  }
+  @media (max-width: 1023px) {
+    .sl-down-1023\:cols-1 { --sl-cols: 1; }.sl-down-1023\:cols-2 { --sl-cols: 2; }.sl-down-1023\:cols-3 { --sl-cols: 3; }.sl-down-1023\:cols-4 { --sl-cols: 4; }
+    .sl-down-1023\:column { flex-direction: column; }.sl-down-1023\:hidden { display: none; }.sl-down-1023\:block { display: block; }
+  }
+  @media (max-width: 991px) {
+    .sl-down-991\:cols-1 { --sl-cols: 1; }.sl-down-991\:cols-2 { --sl-cols: 2; }.sl-down-991\:cols-3 { --sl-cols: 3; }.sl-down-991\:cols-4 { --sl-cols: 4; }
+    .sl-down-991\:column { flex-direction: column; }.sl-down-991\:hidden { display: none; }.sl-down-991\:block { display: block; }
+  }
+  @media (max-width: 767px) {
+    .sl-down-767\:cols-1 { --sl-cols: 1; }.sl-down-767\:cols-2 { --sl-cols: 2; }.sl-down-767\:cols-3 { --sl-cols: 3; }.sl-down-767\:cols-4 { --sl-cols: 4; }
+    .sl-down-767\:column { flex-direction: column; }.sl-down-767\:hidden { display: none; }.sl-down-767\:block { display: block; }
+  }
+}

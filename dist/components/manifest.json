@@ -1,0 +1,172 @@
+{
+  "buttons": {
+    "file": "components/buttons.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "button variants",
+      "button effects"
+    ]
+  },
+  "cards": {
+    "file": "components/cards.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "layout helpers",
+      "hover effects"
+    ]
+  },
+  "forms": {
+    "file": "components/forms.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "select",
+      "layout helpers"
+    ]
+  },
+  "accordions": {
+    "file": "components/accordions.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "layout helpers",
+      "disclosure motion"
+    ]
+  },
+  "testimonials": {
+    "file": "components/testimonials.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "cards",
+      "sliders",
+      "layout helpers"
+    ]
+  },
+  "feedback": {
+    "file": "components/feedback.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens"
+    ]
+  },
+  "links": {
+    "file": "components/links.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "link motion"
+    ]
+  },
+  "alerts": {
+    "file": "components/alerts.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens"
+    ]
+  },
+  "badges": {
+    "file": "components/badges.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens"
+    ]
+  },
+  "heroes": {
+    "file": "components/heroes.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "buttons",
+      "cards",
+      "layout helpers"
+    ]
+  },
+  "headers": {
+    "file": "components/headers.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "buttons",
+      "layout helpers"
+    ]
+  },
+  "footers": {
+    "file": "components/footers.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "buttons",
+      "layout helpers"
+    ]
+  },
+  "sliders": {
+    "file": "components/sliders.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "layout helpers",
+      "badges"
+    ]
+  },
+  "editor": {
+    "file": "components/editor.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "layout helpers"
+    ]
+  },
+  "selects": {
+    "file": "components/selects.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens"
+    ]
+  },
+  "tables": {
+    "file": "components/tables.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "layout helpers",
+      "badges"
+    ]
+  },
+  "typography": {
+    "file": "components/typography.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "layout helpers"
+    ]
+  },
+  "layout": {
+    "file": "components/layout.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "layout helpers",
+      "responsive variants"
+    ]
+  },
+  "animations": {
+    "file": "components/animations.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "buttons",
+      "cards",
+      "layout helpers"
+    ]
+  },
+  "cursors": {
+    "file": "components/cursors.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+/* Preview-only corrections: framework variant sizes must override site branding. */
+.example-canvas .sl-btn--sm { font-size: .8rem; }.example-canvas .sl-btn--md { font-size: 1rem; }.example-canvas .sl-btn--lg { font-size: 1.125rem; }
+.example-canvas .sl-nav .demo-wordmark { display: inline-flex; gap: .5rem; align-items: center; }
+.example-canvas .sl-nav :where(nav,details) { min-inline-size: 0; max-inline-size: 100%; }
+.example-canvas .sl-hover-fill { background-color: transparent; }
+.example-canvas .sl-btn svg { width: 1.1em; height: 1.1em; }
+.example-canvas .sl-split { line-height: 1.5; }

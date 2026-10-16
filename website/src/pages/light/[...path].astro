@@ -1,0 +1,21 @@
+---
+import Home from '../index.astro';
+import GettingStarted from '../getting-started.astro';
+import Catalog from '../components/index.astro';
+import ComponentPage from '../components/[slug].astro';
+import Layouts from '../layouts.astro';
+import Themes from '../themes.astro';
+import NotFound from '../404.astro';
+import {components} from '../../data/components';
+export function getStaticPaths(){
+  return [
+    {params:{path:undefined},props:{page:'home'}},
+    ...['getting-started','components','layouts','themes','404'].map(path=>({params:{path},props:{page:path}})),
+    ...components.map(component=>({params:{path:`components/${component.slug}`},props:{page:'component',component}}))
+  ];
+}
+const {page,component}=Astro.props;
+const routes={home:Home,'getting-started':GettingStarted,components:Catalog,component:ComponentPage,layouts:Layouts,themes:Themes,'404':NotFound};
+const Page=routes[page];
+---
+<Page component={component}/>
