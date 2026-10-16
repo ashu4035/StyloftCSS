@@ -1,0 +1,23 @@
+@layer sl.base {
+  html { font-family: var(--sl-font); line-height: 1.6; -webkit-text-size-adjust: 100%; }
+  body { background: var(--sl-bg); color: var(--sl-text); overflow-wrap: break-word; }
+  :where([data-theme]) { background: var(--sl-bg); color: var(--sl-text); }
+  :where(h1, h2, h3, h4) { line-height: 1.15; text-wrap: balance; }
+  h1 { font-size: var(--sl-text-3xl); } h2 { font-size: var(--sl-text-2xl); }
+  h3 { font-size: var(--sl-text-xl); } h4 { font-size: var(--sl-text-lg); }
+  a { color: var(--sl-accent); text-underline-offset: .18em; }
+  a:hover { text-decoration-thickness: .15em; }
+  :where(code, pre, kbd, samp) { font-family: var(--sl-mono); }
+  pre { overflow: auto; padding: 1rem; background: var(--sl-surface); border: 1px solid var(--sl-border); border-radius: var(--sl-radius); }
+  :focus-visible { outline: 3px solid var(--sl-focus); outline-offset: 3px; }
+  :where([id]) { scroll-margin-block-start: 2rem; }
+  :where(button, summary, input[type="checkbox"], input[type="radio"]) { cursor: pointer; }
+  :where(button:disabled, input:disabled, select:disabled, textarea:disabled) { cursor: not-allowed; opacity: .65; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  }
+  @media (forced-colors: active) {
+    :focus-visible { outline-color: Highlight; }
+    .sl-btn { border-color: ButtonText; }
+  }
+}

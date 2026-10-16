@@ -1,0 +1,13 @@
+{
+  "name": "styloftcss",
+  "version": "0.1.0",
+  "description": "A modular, layered CSS framework with zero runtime JavaScript.",
+  "license": "MIT",
+  "private": true,
+  "files": ["dist", "src", "README.md", "LICENSE"],
+  "style": "dist/styloft.css",
+  "exports": {".": "./dist/styloft.css", "./core": "./dist/styloft.css", "./prose": "./dist/prose.css", "./tables": "./dist/tables.css"},
+  "scripts": {"build": "node scripts/build.cjs", "test": "node scripts/build.cjs --check && node --test tests/core.test.cjs", "test:browser": "node tests/browser.cjs"},
+  "devDependencies": {"playwright": "1.62.1"},
+  "engines": {"node": ">=20"}
+}

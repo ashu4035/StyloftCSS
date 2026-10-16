@@ -1,0 +1,8 @@
+@layer sl.components {
+  .sl-prose { max-inline-size: var(--sl-measure); }
+  .sl-prose > * + * { margin-block-start: 1.25em; }
+  .sl-prose :where(ul, ol) { padding-inline-start: 1.5em; }
+  .sl-prose :where(li + li) { margin-block-start: .4em; }
+  .sl-prose blockquote { border-inline-start: .25rem solid var(--sl-accent); padding-inline-start: 1rem; color: var(--sl-muted); }
+  .sl-prose :where(code):not(pre code) { padding: .1em .3em; border-radius: .25rem; background: var(--sl-soft); }
+}

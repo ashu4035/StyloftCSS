@@ -1,0 +1,12 @@
+@layer sl.layout {
+  .sl-container { inline-size: min(100% - 2rem, var(--sl-container)); margin-inline: auto; }
+  .sl-stack > * + * { margin-block-start: var(--sl-gap, 1rem); }
+  .sl-cluster { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sl-gap, 1rem); }
+  .sl-grid { --sl-cols: 1; display: grid; gap: var(--sl-gap, 1rem); grid-template-columns: repeat(var(--sl-cols, 1), minmax(0, 1fr)); }
+  .sl-grid > *, .sl-flex > * { min-inline-size: 0; }
+  .sl-auto-grid { display: grid; gap: var(--sl-gap, 1rem); grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--sl-card-min, 16rem)), 1fr)); }
+  .sl-flex { display: flex; gap: var(--sl-gap, 1rem); }
+  .sl-sidebar { display: flex; flex-wrap: wrap; gap: var(--sl-gap, 1.5rem); }
+  .sl-sidebar > :first-child { flex: 1 1 15rem; }
+  .sl-sidebar > :last-child { flex: 999 1 50%; min-inline-size: min(100%, 20rem); }
+}

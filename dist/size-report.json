@@ -1,0 +1,30 @@
+{
+  "budgetBytes": 10000,
+  "compression": "gzip level 9, deterministic header; decimal KB",
+  "files": {
+    "styloft.css": {
+      "bytes": 13808,
+      "gzipBytes": 3330
+    },
+    "styloft.min.css": {
+      "bytes": 12204,
+      "gzipBytes": 3189
+    },
+    "prose.css": {
+      "bytes": 608,
+      "gzipBytes": 321
+    },
+    "prose.min.css": {
+      "bytes": 559,
+      "gzipBytes": 313
+    },
+    "tables.css": {
+      "bytes": 531,
+      "gzipBytes": 312
+    },
+    "tables.min.css": {
+      "bytes": 486,
+      "gzipBytes": 302
+    }
+  }
+}

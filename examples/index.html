@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="StyloftCSS: a modular CSS foundation with zero runtime JavaScript.">
+<title>StyloftCSS — Less weight. More room.</title>
+<link rel="stylesheet" href="../dist/styloft.min.css">
+<link rel="stylesheet" href="../dist/tables.min.css">
+<style>
+  :root { --sl-container: 76rem; }
+  .demo-nav { padding-block: 1.4rem; border-block-end: 1px solid #d5dae5; }
+  .demo-logo { font-size: 1.35rem; letter-spacing: -.055em; font-weight: 850; text-decoration: none; color: var(--sl-text); }
+  .demo-mark { display: inline-grid; place-items: center; inline-size: 2rem; block-size: 2rem; border-radius: .5rem; background: var(--sl-accent); color: var(--sl-on-accent); margin-inline-end: .5rem; }
+  .demo-nav a:not(.demo-logo) { font-size: .9rem; }
+  .demo-hero { padding-block: clamp(3rem, 8vw, 7rem); }
+  .demo-eyebrow { font-size: .75rem; font-weight: 750; letter-spacing: .16em; text-transform: uppercase; color: var(--sl-accent); }
+  .demo-title { max-inline-size: 12ch; letter-spacing: -.065em; }
+  .demo-lead { max-inline-size: 45ch; font-size: var(--sl-text-lg); color: var(--sl-muted); }
+  .demo-code { background: #172033; color: #e0e7ff; border: 0; font-size: .875rem; padding: 1.5rem; line-height: 1.8; }
+  .demo-showcase { position: relative; padding: 1.5rem; background: #e9edf5; border-radius: 1.5rem; }
+  .demo-section { padding-block: 3.5rem; border-block-start: 1px solid #d5dae5; }
+  .demo-section-title { font-size: var(--sl-text-xl); letter-spacing: -.035em; }
+  .demo-number { font-family: var(--sl-mono); font-size: .75rem; color: var(--sl-muted); }
+  .demo-tile { background: var(--sl-soft); border: 1px solid var(--sl-border); padding: 1rem; border-radius: var(--sl-radius); text-align: center; }
+  .demo-footer { padding-block: 2rem; font-size: .875rem; }
+</style>
+<body>
+<a class="sl-skip sl-btn" href="#main">Skip to content</a>
+<header class="demo-nav"><nav class="sl-container sl-cluster sl-justify-between" aria-label="Main navigation">
+  <a class="demo-logo" href="#"><span class="demo-mark" aria-hidden="true">s.</span>StyloftCSS</a>
+  <div class="sl-cluster sl-gap-6"><a href="#components">Components</a><a href="#layout">Layout</a><a href="#themes">Themes</a><span class="sl-badge">v0.1.0</span></div>
+</nav></header>
+<main id="main" class="sl-container" tabindex="-1">
+  <section class="demo-hero sl-grid sl-md:cols-2 sl-gap-12 sl-items-center" aria-labelledby="hero-title">
+    <div class="sl-stack sl-gap-6">
+      <p class="demo-eyebrow">Small foundation. Open possibilities.</p>
+      <h1 id="hero-title" class="demo-title">Less weight.<br>More room.</h1>
+      <p class="demo-lead">Tokens, layouts, and everyday components. A thoughtful CSS foundation that leaves the creative decisions to you.</p>
+      <div class="sl-cluster"><a class="sl-btn" href="#components">Explore the core <span aria-hidden="true">↗</span></a><a class="sl-btn sl-btn--outline" href="../README.md">Read the docs</a></div>
+      <p class="sl-help">CSS only · Native browser behavior · No runtime dependencies</p>
+    </div>
+    <div class="demo-showcase sl-stack sl-gap-6">
+      <div class="sl-card sl-stack sl-gap-4 sl-shadow">
+        <div class="sl-cluster sl-justify-between"><span class="demo-eyebrow">Your next project</span><span class="sl-badge">Ready to build</span></div>
+        <h2 class="demo-section-title">A little structure.<br>A lot of freedom.</h2>
+        <p class="sl-text-muted">Start with good defaults. Make every token your own.</p>
+        <div class="sl-grid sl-cols-3 sl-gap-2" aria-label="Three layout columns"><div class="demo-tile">01</div><div class="demo-tile">02</div><div class="demo-tile">03</div></div>
+      </div>
+      <pre class="demo-code"><code>&lt;div class="sl-grid sl-md:cols-3"&gt;
+  &lt;article class="sl-card"&gt;
+    Your idea goes here.
+  &lt;/article&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </section>
+  <section id="components" class="demo-section sl-stack sl-gap-8" aria-labelledby="components-title">
+    <div class="sl-cluster sl-justify-between"><h2 id="components-title" class="demo-section-title">Everyday essentials</h2><span class="demo-number">01 / COMPONENTS</span></div>
+    <div class="sl-grid sl-md:cols-3 sl-gap-6">
+      <article class="sl-card sl-stack sl-gap-6">
+        <div><span class="sl-badge">Actions</span><h3 class="sl-text-xl sl-my-4">Clear next steps.</h3><p class="sl-text-muted">Native buttons, visible focus, comfortable targets.</p></div>
+        <div class="sl-cluster"><button class="sl-btn" type="button">Primary</button><button class="sl-btn sl-btn--outline" type="button">Secondary</button><button class="sl-btn" type="button" disabled>Disabled</button></div>
+        <div class="sl-alert"><strong>All set.</strong> This is a static informational message.</div>
+      </article>
+      <article class="sl-card sl-stack sl-gap-4">
+        <span class="sl-badge">Forms</span><h3 class="sl-text-xl">Room for the details.</h3>
+        <div class="sl-field"><label class="sl-label" for="email">Email address</label><input class="sl-input" id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" aria-describedby="email-help"><p id="email-help" class="sl-help">A label that stays visible as you type.</p></div>
+        <div class="sl-field"><label class="sl-label" for="project">Project type</label><select id="project" class="sl-input" name="project"><option>Personal website</option><option>Design system</option></select></div>
+        <label class="sl-check"><input type="checkbox" name="updates"> Include optional modules</label>
+      </article>
+      <article class="sl-card sl-stack sl-gap-4">
+        <span class="sl-badge">Disclosure</span><h3 class="sl-text-xl">Let the browser help.</h3><p class="sl-text-muted">A real details element. Keyboard interaction included.</p>
+        <details class="sl-details"><summary>Does this need JavaScript?</summary><p>No. This disclosure uses the browser’s native open and close behavior.</p></details>
+        <div class="sl-field"><label class="sl-label" for="invalid">Workspace name</label><input class="sl-input" id="invalid" value="" aria-invalid="true" aria-describedby="invalid-help"><p class="sl-error sl-text-sm" id="invalid-help">Enter a workspace name.</p></div>
+      </article>
+    </div>
+  </section>
+  <section id="layout" class="demo-section sl-stack sl-gap-8" aria-labelledby="layout-title">
+    <div class="sl-cluster sl-justify-between"><h2 id="layout-title" class="demo-section-title">Space that adapts</h2><span class="demo-number">02 / LAYOUT</span></div>
+    <p class="sl-text-muted">One column by default. Three from 48rem. Logical spacing supports right-to-left layouts.</p>
+    <div id="responsive-grid" class="sl-grid sl-md:cols-3 sl-gap-4"><div class="demo-tile">A flexible start</div><div class="demo-tile">A considered middle</div><div class="demo-tile">A strong finish</div></div>
+  </section>
+  <section id="themes" class="demo-section sl-stack sl-gap-8" aria-labelledby="themes-title">
+    <div class="sl-cluster sl-justify-between"><h2 id="themes-title" class="demo-section-title">Same system. Different light.</h2><span class="demo-number">03 / THEMES</span></div>
+    <div class="sl-grid sl-md:cols-2 sl-gap-6">
+      <article data-theme="light" class="sl-card sl-stack sl-gap-4"><p class="demo-eyebrow">Light theme</p><h3 class="sl-text-xl">A fresh perspective.</h3><p class="sl-text-muted">Semantic tokens keep the palette connected.</p><a href="#components" class="sl-btn">Explore components</a></article>
+      <article data-theme="dark" class="sl-card sl-stack sl-gap-4"><p class="demo-eyebrow">Dark theme</p><h3 class="sl-text-xl">A quieter canvas.</h3><p class="sl-text-muted">Explicit themes can live side by side.</p><a href="#components" class="sl-btn">Explore components</a></article>
+    </div>
+  </section>
+  <section class="demo-section sl-stack" aria-labelledby="module-title"><h2 id="module-title" class="demo-section-title">Add only what you need</h2>
+    <div class="sl-table-wrap" role="region" aria-labelledby="module-title" tabindex="0"><table class="sl-table"><caption>Package modules</caption><thead><tr><th scope="col">Module</th><th scope="col">Includes</th><th scope="col">Delivery</th></tr></thead><tbody><tr><th scope="row">Core</th><td>Tokens, reset, layouts, utilities, components</td><td>One CSS file</td></tr><tr><th scope="row">Prose</th><td>Long-form text rhythm</td><td>Optional CSS</td></tr><tr><th scope="row">Tables</th><td>Readable data tables</td><td>Optional CSS</td></tr></tbody></table></div>
+  </section>
+</main>
+<footer class="demo-footer sl-container sl-cluster sl-justify-between"><span class="demo-logo">StyloftCSS</span><p class="sl-text-muted">Made for the web. Yours to shape. · MIT</p></footer>
+</body>
+</html>

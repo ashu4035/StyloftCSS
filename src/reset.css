@@ -1,0 +1,10 @@
+@layer sl.reset {
+  *, *::before, *::after { box-sizing: border-box; }
+  :where(body, h1, h2, h3, h4, p, figure, blockquote, dl, dd) { margin: 0; }
+  :where(img, picture, video, canvas, svg) { display: block; max-inline-size: 100%; }
+  :where(img, video) { block-size: auto; }
+  :where(button, input, textarea, select) { font: inherit; }
+  :where(button, select) { text-transform: none; }
+  :where(textarea) { resize: vertical; }
+  [hidden] { display: none !important; }
+}

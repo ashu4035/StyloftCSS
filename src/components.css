@@ -1,0 +1,30 @@
+@layer sl.components {
+  .sl-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+    min-block-size: 2.75rem; padding: .6rem 1.1rem;
+    border: 1px solid transparent; border-radius: var(--sl-radius);
+    background: var(--sl-accent); color: var(--sl-on-accent);
+    text-decoration: none; font-weight: 650; line-height: 1.3; text-align: center;
+  }
+  .sl-btn:hover:not(:disabled) { background: var(--sl-accent-hover); }
+  .sl-btn--outline { background: transparent; border-color: currentColor; color: var(--sl-accent); }
+  .sl-btn--outline:hover:not(:disabled) { background: var(--sl-soft); }
+  .sl-card { padding: var(--sl-space-6); background: var(--sl-surface); border: 1px solid var(--sl-border); border-radius: var(--sl-radius-lg); }
+  .sl-field { display: grid; gap: .4rem; }
+  .sl-label { font-weight: 650; }
+  .sl-input { inline-size: 100%; min-block-size: 2.75rem; padding: .6rem .75rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background: var(--sl-surface); color: var(--sl-text); }
+  .sl-input::placeholder { color: var(--sl-muted); opacity: 1; }
+  .sl-input[aria-invalid="true"] { border: 2px solid var(--sl-danger); }
+  .sl-help { font-size: var(--sl-text-sm); color: var(--sl-muted); }
+  .sl-error { color: var(--sl-danger); font-weight: 600; }
+  .sl-check { display: flex; align-items: baseline; gap: .5rem; }
+  .sl-check input { accent-color: var(--sl-accent); inline-size: 1.1em; block-size: 1.1em; }
+  .sl-alert { padding: 1rem; border: 1px solid var(--sl-border); border-inline-start: .3rem solid var(--sl-accent); border-radius: var(--sl-radius); background: var(--sl-surface); }
+  .sl-alert--danger { border-inline-start-color: var(--sl-danger); }
+  .sl-badge { display: inline-block; padding: .15rem .6rem; border: 1px solid currentColor; border-radius: 100vmax; font-size: var(--sl-text-sm); font-weight: 600; color: var(--sl-accent); }
+  .sl-details { padding: 1rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background: var(--sl-surface); }
+  .sl-details > summary { font-weight: 650; }
+  .sl-details[open] > summary { margin-block-end: .75rem; }
+  .sl-skip { position: fixed; inset-block-start: 1rem; inset-inline-start: 1rem; transform: translateY(-200%); z-index: 100; }
+  .sl-skip:focus { transform: none; }
+}
