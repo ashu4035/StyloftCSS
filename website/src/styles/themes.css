@@ -129,3 +129,11 @@
 @media (max-width: 52rem) { .header-inner { gap: .7rem; }.brand-image { width: 2.3rem; height: 2.3rem; }.header-actions { margin-inline-start: auto; }.header-actions .header-cta { display: none; } }
 @media (max-width: 39.99rem) { .mode-switch > span { display: none; }.brand { gap: .35rem; }.brand-image { width: 2rem; height: 2rem; }.mode-switch { padding: .4rem; }.header-actions { gap: 0; } }
 @media (forced-colors: active) { .brand-css { color: LinkText; background: none; }.mode-switch { border-color: ButtonText; } }
+
+/* Brand typography: hosted by Fontshare; framework distributions keep system fonts. */
+:root { --site-heading-font: 'Clash Display', var(--sl-font); }
+h1,h2,h3,h4,h5,h6 { font-family: var(--site-heading-font); }
+
+.hero-copy h1,.docs-page-header h1 { letter-spacing: -.035em; font-weight: 600; }
+.section-heading h2,.build-section h2,.theme-copy h2,.final-cta h2 { letter-spacing: -.025em; }
+@media (max-width: 767px) { .hero-playground { overflow: clip; } }
