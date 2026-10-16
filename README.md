@@ -176,7 +176,7 @@ separately from tested engines; this MVP is not a WCAG conformance certification
 ## Astro documentation website
 
 The complete demo website is in `website/`: a landing page, getting-started guide,
-18 component categories with 103 live previews and matching HTML, layout patterns,
+19 component categories with 107 live previews and matching HTML, layout patterns,
 and a theme/token gallery. It uses StyloftCSS plus a documented brand/demo extension
 stylesheet, with no Bootstrap, Tailwind, or runtime JavaScript.
 
@@ -306,3 +306,11 @@ The playground now has one full-width HTML editor. The CSS editor, Copy CSS cont
 Control polish: field focus uses a 1px outline with a 1px offset, general keyboard focus uses 2px, and control colors transition over 180ms. Optional select.min.css (3,104 raw / 984 gzip bytes) provides Select2-inspired native select styling, grouped options, multiple/disabled states and animated customizable popups where supported. Older browsers retain their native option picker. Load select.min.css after core; examples are in Forms and the playground preview-width control uses the same styling. Reduced motion disables transitions. Core measures 3,313 gzip bytes.
 
 Standalone components: download self-contained CSS from /downloads/components/ (buttons.min.css, cards.min.css, forms.min.css, headers.min.css and other families), or use the component-only link above each gallery. Required tokens and dependencies are included; no core file is needed. See docs/component-packs.md for usage and measured sizes. Header examples now collapse into native keyboard-operated Menu disclosures on narrow containers, with desktop/reverse/center logo arrangements retained on wide layouts. Standalone buttons and headers were verified in isolated pages loading one stylesheet each.
+
+## Credits
+
+StyloftCSS created by **Ashish Verma** ([GitHub](https://github.com/ashu4035)).
+
+Source repository: [ashu4035/StyloftCSS](https://github.com/ashu4035/StyloftCSS).
+
+Tabs: /components/tabs/ and /light/components/tabs/ include four CSS-only examples. Use tabs.min.css after the core or components/tabs.min.css by itself. The responsive variant becomes native accordions below a 48rem container width, preserves open state across resizing, supports keyboard activation and smooth closing in current browsers, and respects reduced motion. Independent groups use unique details names. No tab component JavaScript is needed; full details are in docs/tabs.md. Website body typography now uses Switzer (400/500/600/700) from Fontshare; headings retain Clash Display and code retains its monospace stack. Framework distributions remain font-independent.

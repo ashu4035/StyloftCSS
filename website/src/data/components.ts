@@ -1,3 +1,4 @@
+import {extendTabs} from './tabs';
 import {extendCursors} from './cursors';
 import {extendHeaders} from './headers';
 import {extendEditor} from './editor';
@@ -233,6 +234,7 @@ extendTestimonials(components);
 extendEditor(components);
 extendHeaders(components);
 extendCursors(components);
+extendTabs(components);
 components.find(c=>c.slug==='forms')!.examples.push(
   {title:'Styled dropdown with grouped options',description:'A native select with a clean trigger, themed options and an animated popup in supporting browsers. No search plugin is required.',html:'<div class="sl-stack"><div class="sl-field"><label class="sl-label" for="select-library">Choose a module</label><select class="sl-select" id="select-library"><option value="">Select a module…</option><optgroup label="Essentials"><option value="core">Core framework</option><option value="forms">Forms and selects</option></optgroup><optgroup label="Expression"><option value="motion">Motion</option><option value="cursor">Cursor effects</option></optgroup></select></div><div class="sl-field"><label class="sl-label" for="select-unavailable">Unavailable module</label><select class="sl-select" id="select-unavailable" disabled><option>Coming soon</option></select></div></div>'},
   {title:'Multiple selection',description:'Use Ctrl/Command to choose separate options or Shift for a range. Native multiple-selection behavior is preserved.',html:'<div class="sl-field"><label class="sl-label" for="select-modules">Optional modules</label><select class="sl-select" id="select-modules" multiple size="4" aria-describedby="select-modules-help"><option value="motion">Motion</option><option value="tables">Tables</option><option value="editor">Editor styles</option><option value="header">Headers</option></select><p class="sl-help" id="select-modules-help">Choose one or more modules with your keyboard or pointer.</p></div>'}

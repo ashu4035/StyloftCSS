@@ -1,5 +1,5 @@
 // Documentation playground only. Framework distributions never import this file.
-const modules=['styloft','prose','tables','variants','responsive','motion','button-fx','slider','editor','header','cursor','select'];
+const modules=['styloft','prose','tables','variants','responsive','motion','button-fx','slider','editor','header','cursor','select','tabs'];
 let sharedStyles:Promise<string>|undefined;
 function loadStyles(){
   if(!sharedStyles)sharedStyles=Promise.all([...modules.map(name=>name+'.min.css'),'demo-extensions.css'].map(async name=>{

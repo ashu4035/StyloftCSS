@@ -98,6 +98,14 @@
       "bytes": 3104,
       "gzipBytes": 984
     },
+    "tabs.css": {
+      "bytes": 3552,
+      "gzipBytes": 993
+    },
+    "tabs.min.css": {
+      "bytes": 3157,
+      "gzipBytes": 898
+    },
     "components/buttons.css": {
       "bytes": 11163,
       "gzipBytes": 2873
@@ -177,6 +185,14 @@
     "components/heroes.min.css": {
       "bytes": 16871,
       "gzipBytes": 3968
+    },
+    "components/tabs.css": {
+      "bytes": 14447,
+      "gzipBytes": 3209
+    },
+    "components/tabs.min.css": {
+      "bytes": 12570,
+      "gzipBytes": 2969
     },
     "components/headers.css": {
       "bytes": 22616,

@@ -12,7 +12,7 @@ const out=path.join(root,'test-results');
 fs.mkdirSync(out,{recursive:true});
 const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]);
 const files=walk(dist), pages=files.filter(f=>f.endsWith('.html'));
-assert.equal(pages.length,48,'24 dark pages and 24 light counterparts');
+assert.equal(pages.length,50,'25 dark pages and 25 light counterparts');
 for(const file of files)if(/\.(m?js|cjs)$/.test(file))assert.equal(path.dirname(file),path.join(dist,'_astro'),'Only bundled documentation scripts');
 for(const file of pages){
   const html=fs.readFileSync(file,'utf8');
@@ -50,7 +50,7 @@ try{
   const fresh=async()=>{await page.close();page=await context.newPage();page.on('pageerror',err=>errors.push(err.message));};
   const check=async(name,fn)=>{if(process.env.SITE_CHECK&&!name.includes(process.env.SITE_CHECK))return;await fn();passed.push(name);console.log('PASS '+name);};
   const darkRoutes=['/','/getting-started/','/components/','/layouts/','/themes/','/components/buttons/','/components/cards/','/components/headers/','/components/heroes/','/components/footers/','/components/forms/','/components/accordions/','/components/tables/','/components/grid/','/components/flex/','/components/animations/','/components/feedback/','/components/typography/'];
-  darkRoutes.push('/components/editor/','/components/cursors/');
+  darkRoutes.push('/components/editor/','/components/cursors/','/components/tabs/');
   const routes=[...darkRoutes,...darkRoutes.map(route=>'/light'+route)];
   routes.push('/components/links/','/light/components/links/');
   routes.push('/components/sliders/','/light/components/sliders/','/components/testimonials/','/light/components/testimonials/');
@@ -217,9 +217,9 @@ try{
     const report=JSON.parse(fs.readFileSync(path.join(dist,'css-size-report.json'),'utf8'));
     assert.ok(report.maxPageGzipBytes<report.previousSingleBundle.gzipBytes);
     assert.ok(report.maxPageGzipBytes<11000);
-    assert.equal(report.pages.length,48);
+    assert.equal(report.pages.length,50);
     await page.goto(base+'/components/animations/');
-    assert.ok((await page.locator('link[rel="stylesheet"]').first().getAttribute('href')).includes('/route-'));
+    assert.ok((await page.locator('link[rel="stylesheet"][href^="/_astro/"]').first().getAttribute('href')).includes('/route-'));
     assert.ok((await page.locator('.sl-split').first().getAttribute('aria-label')).length>0);
     assert.equal(await page.locator('.sl-char').first().evaluate(el=>el.closest('[aria-hidden="true"]')!==null),true);
     assert.equal(await page.locator('.sl-scene').count(),1);
@@ -446,6 +446,27 @@ try{
       await standalone.locator('summary').focus();await standalone.keyboard.press('Enter');assert.equal(await standalone.locator('details').evaluate(el=>el.open),true);
       assert.equal(await standalone.locator('link').count(),1);assert.equal(await standalone.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
     }finally{await standalone.close();}
+  });
+  await check('CSS-only tabs become smooth mobile accordions and preserve state without JavaScript',async()=>{
+    const native=await browser.newContext({javaScriptEnabled:false,viewport:{width:1920,height:1000},reducedMotion:'no-preference'});
+    try{const p=await native.newPage();for(const route of ['/components/tabs/','/light/components/tabs/']){
+      await p.setViewportSize({width:1920,height:1000});await p.goto(base+route);
+      const group=p.locator('#example-2 .sl-tabs'),items=group.locator('details');
+      const labels=group.locator('summary');const first=await labels.nth(0).boundingBox(),second=await labels.nth(1).boundingBox();assert.ok(Math.abs(first.y-second.y)<2,'desktop headings share tab row');
+      await labels.nth(1).focus();await p.keyboard.press('Enter');assert.equal(await items.nth(1).evaluate(el=>el.open),true);assert.equal(await items.nth(0).evaluate(el=>el.open),false);
+      await p.setViewportSize({width:375,height:1000});assert.equal(await items.nth(1).evaluate(el=>el.open),true,'open state survives resize');
+      const mobileFirst=await labels.nth(0).boundingBox(),mobileSecond=await labels.nth(1).boundingBox();assert.ok(mobileSecond.y>mobileFirst.y+20,'mobile headings stack');
+      await labels.nth(1).focus();await p.waitForTimeout(450);const heights=[];heights.push((await items.nth(1).boundingBox()).height);await items.nth(1).evaluate(el=>el.open=false);for(let frame=0;frame<20;frame++){await p.waitForTimeout(25);heights.push((await items.nth(1).boundingBox()).height);}
+      const lo=Math.min(...heights),hi=Math.max(...heights);assert.ok(hi-lo>20);assert.ok(heights.filter(h=>h>lo+1&&h<hi-1).length>3,'smooth intermediate closing heights: '+JSON.stringify(heights));
+      await labels.nth(2).focus();await p.keyboard.press('Space');assert.equal(await items.nth(2).evaluate(el=>el.open),true);
+      await p.setViewportSize({width:1920,height:1000});assert.equal(await items.nth(2).evaluate(el=>el.open),true);
+      assert.equal(await p.locator('[role="tablist"]').count(),0,'native disclosure semantics');
+      for(const width of [320,375,767,991,1023,1200,1920]){await p.setViewportSize({width,height:1000});assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);}
+      await p.emulateMedia({reducedMotion:'reduce'});assert.equal(await items.nth(2).evaluate(el=>getComputedStyle(el,'::details-content').transitionDuration),'0s');await p.emulateMedia({reducedMotion:'no-preference'});
+      await p.locator('#example-3 details[name="product-tabs"]').nth(1).evaluate(el=>el.open=true);assert.equal(await p.locator('#example-3 details[name="docs-tabs"]').first().evaluate(el=>el.open),true);
+      assert.equal(await p.locator('body').evaluate(el=>getComputedStyle(el).fontFamily.includes('Switzer')),true);
+      assert.equal(await p.locator('h1').evaluate(el=>getComputedStyle(el).fontFamily.includes('Clash Display')),true);
+    }}finally{await native.close();}
   });
   await page.emulateMedia({reducedMotion:'reduce'}); // Static QA screenshots show all revealed content.
   for(const [name,route,width] of [['home-desktop','/',1440],['home-mobile','/',375],['home-light','/light/',1440],['home-light-mobile','/light/',375],['component-cards','/components/cards/',1440],['component-accordion-mobile','/components/accordions/',375],['table-mobile-dark','/components/tables/',375],['table-mobile-light','/light/components/tables/',375]]){

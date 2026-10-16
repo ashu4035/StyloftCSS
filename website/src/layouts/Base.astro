@@ -15,6 +15,7 @@ import '../../../src/modules/editor.css';
 import '../../../src/modules/header.css';
 import '../../../src/modules/cursor.css';
 import '../../../src/modules/select.css';
+import '../../../src/modules/tabs.css';
 import '../styles/site.css';
 import '../styles/themes.css';
 import '../styles/motion.css';
@@ -35,7 +36,9 @@ const favicon=await getImage({src:mark,width:64,height:64,fit:'contain',format:'
   <link rel="preconnect" href="https://api.fontshare.com"/>
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin/>
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&amp;display=swap"/>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&amp;display=swap"/>
   <title>{title} — StyloftCSS</title><meta name="description" content={description}/>
+  <meta name="author" content="Ashish Verma"/>
   <meta name="theme-color" content={isLight?'#f7fafc':'#060b16'}/>
   <link rel="icon" type="image/png" href={favicon.src}/>
 </head>
@@ -49,6 +52,6 @@ const favicon=await getImage({src:mark,width:64,height:64,fit:'contain',format:'
     <details class="mobile-nav"><summary aria-label="Open navigation">Menu <span aria-hidden="true">+</span></summary><div><a href="/getting-started/">Documentation</a><a href="/components/">Components</a><a href="/layouts/">Layouts</a><a href="/themes/">Themes</a></div></details>
   </nav></header>
   <main id="main" tabindex="-1"><slot/></main>
-  <footer class="site-footer"><div class="sl-container"><div class="footer-top sl-grid sl-md:cols-3 sl-gap-12"><div class="sl-stack"><Brand/><p>Style more.<br/>Load less.</p><span class="footer-version">v0.1.0 · Open source · MIT</span></div><div><h2>Build something</h2><a href="/getting-started/">Getting started</a><a href="/components/">Component library</a><a href="/layouts/">Layout patterns</a><a href="/themes/">Design tokens & themes</a></div><div><h2>Make it yours</h2><a href="/downloads/styloft.min.css" download>Download core CSS</a><a href="/downloads/prose.min.css" download>Download prose module</a><a href="/downloads/tables.min.css" download>Download tables module</a><a href="/downloads/size-report.json">Measured size report</a></div></div><div class="footer-bottom"><p>© 2026 StyloftCSS contributors. MIT licensed.</p><p>Built with Astro. Styled with StyloftCSS.</p><a href="#main">Back to top ↑</a></div></div></footer>
+  <footer class="site-footer"><div class="sl-container"><div class="footer-top sl-grid sl-md:cols-3 sl-gap-12"><div class="sl-stack"><Brand/><p>Style more.<br/>Load less.</p><span class="footer-version">v0.1.0 · Open source · MIT</span><a class="footer-repository" href="https://github.com/ashu4035/StyloftCSS" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a></div><div><h2>Build something</h2><a href="/getting-started/">Getting started</a><a href="/components/">Component library</a><a href="/layouts/">Layout patterns</a><a href="/themes/">Design tokens & themes</a></div><div><h2>Make it yours</h2><a href="/downloads/styloft.min.css" download>Download core CSS</a><a href="/downloads/prose.min.css" download>Download prose module</a><a href="/downloads/tables.min.css" download>Download tables module</a><a href="/downloads/size-report.json">Measured size report</a></div></div><div class="footer-bottom"><p>© 2026 StyloftCSS contributors. MIT licensed.</p><p>StyloftCSS created by <a class="footer-author" href="https://github.com/ashu4035" rel="author">Ashish Verma</a>.</p><a href="#main">Back to top ↑</a></div></div></footer>
 </body>
 </html>

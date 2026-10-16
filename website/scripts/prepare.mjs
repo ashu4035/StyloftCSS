@@ -7,7 +7,7 @@ const framework = path.resolve(root, '..');
 execFileSync(process.execPath, [path.join(framework, 'scripts/build.cjs')], {stdio:'inherit'});
 const dest = path.join(root,'public/downloads');
 fs.mkdirSync(dest,{recursive:true});
-for (const name of ['styloft.css','styloft.min.css','prose.css','prose.min.css','tables.css','tables.min.css','variants.css','variants.min.css','responsive.css','responsive.min.css','motion.css','motion.min.css','button-fx.css','button-fx.min.css','slider.css','slider.min.css','editor.css','editor.min.css','header.css','header.min.css','cursor.css','cursor.min.css','select.css','select.min.css','size-report.json']) {
+for (const name of ['styloft.css','styloft.min.css','prose.css','prose.min.css','tables.css','tables.min.css','variants.css','variants.min.css','responsive.css','responsive.min.css','motion.css','motion.min.css','button-fx.css','button-fx.min.css','slider.css','slider.min.css','editor.css','editor.min.css','header.css','header.min.css','cursor.css','cursor.min.css','select.css','select.min.css','tabs.css','tabs.min.css','size-report.json']) {
   fs.copyFileSync(path.join(framework,'dist',name),path.join(dest,name));
 }
 fs.cpSync(path.join(framework,'dist/components'),path.join(dest,'components'),{recursive:true});

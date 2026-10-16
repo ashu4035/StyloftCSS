@@ -84,6 +84,14 @@
       "layout helpers"
     ]
   },
+  "tabs": {
+    "file": "components/tabs.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "layout helpers"
+    ]
+  },
   "headers": {
     "file": "components/headers.min.css",
     "requiresCore": false,

@@ -32,6 +32,7 @@ module.exports=function(root,banner,order,utilities){
   alerts:{roots:['alert'],css:component(['alert']),dependencies:['tokens']},
   badges:{roots:['badge'],css:component(['badge']),dependencies:['tokens']},
   heroes:{roots:['hero','stack','grid'],css:buttons+component(['card'])+helpers,dependencies:['tokens','buttons','cards','layout helpers']},
+  tabs:{roots:['tabs','tabs-container'],css:read('modules/tabs')+helpers,dependencies:['tokens','layout helpers']},
   headers:{roots:['header'],css:read('modules/header')+buttons+helpers,dependencies:['tokens','buttons','layout helpers']},
   footers:{roots:['footer'],css:variant(['footer'])+buttons+helpers,dependencies:['tokens','buttons','layout helpers']},
   sliders:{roots:['slider','range'],css:read('modules/slider')+helpers+component(['badge']),dependencies:['tokens','layout helpers','badges']},

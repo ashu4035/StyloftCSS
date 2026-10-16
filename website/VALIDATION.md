@@ -2,8 +2,8 @@
 
 Astro 7.4.0, Node 22.22.2, Playwright 1.62.1, Edge 155.0.4283.45 (Chromium), Windows.
 
-The catalog contains 103 examples across 18 categories; 48 static pages cover both
-dark and light modes. All 6 framework structural checks and 25 website
+The catalog contains 107 examples across 19 categories; 50 static pages cover both
+dark and light modes. All 6 framework structural checks and 26 website
 browser check groups pass. Framework distributions remain CSS-only. Documentation pages include one approved playground module; no inline event-handler attributes are used.
 All local links/assets resolve. Framework browser checks also passed in the previous
 expansion; the core source remains unchanged for this slider/button update.
@@ -27,7 +27,7 @@ Gzip level 9, decimal bytes. Server settings may produce different transfer size
 | cursor.min.css | 3572 | 956 |
 | select.min.css | 3104 | 984 |
 
-Largest production-page CSS: 9414 gzip bytes; original single-bundle
+Largest production-page CSS: 9567 gzip bytes; original single-bundle
 baseline: 12,604. Development intentionally keeps full source styles. Framework
 distribution files remain self-contained, unpruned, and independent of the website.
 
@@ -82,3 +82,5 @@ The playground now has one full-width HTML editor. The CSS editor, Copy CSS cont
 Control polish: field focus uses a 1px outline with a 1px offset, general keyboard focus uses 2px, and control colors transition over 180ms. Optional select.min.css (3,104 raw / 984 gzip bytes) provides Select2-inspired native select styling, grouped options, multiple/disabled states and animated customizable popups where supported. Older browsers retain their native option picker. Load select.min.css after core; examples are in Forms and the playground preview-width control uses the same styling. Reduced motion disables transitions. Core measures 3,313 gzip bytes.
 
 Standalone components: download self-contained CSS from /downloads/components/ (buttons.min.css, cards.min.css, forms.min.css, headers.min.css and other families), or use the component-only link above each gallery. Required tokens and dependencies are included; no core file is needed. See docs/component-packs.md for usage and measured sizes. Header examples now collapse into native keyboard-operated Menu disclosures on narrow containers, with desktop/reverse/center logo arrangements retained on wide layouts. Standalone buttons and headers were verified in isolated pages loading one stylesheet each.
+
+Tabs: /components/tabs/ and /light/components/tabs/ include four CSS-only examples. Use tabs.min.css after the core or components/tabs.min.css by itself. The responsive variant becomes native accordions below a 48rem container width, preserves open state across resizing, supports keyboard activation and smooth closing in current browsers, and respects reduced motion. Independent groups use unique details names. No tab component JavaScript is needed; full details are in docs/tabs.md. Website body typography now uses Switzer (400/500/600/700) from Fontshare; headings retain Clash Display and code retains its monospace stack. Framework distributions remain font-independent.

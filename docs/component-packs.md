@@ -49,4 +49,6 @@ Gzip level 9, decimal bytes. Token and listed dependency costs are included.
 | animations | 21376 | 4678 | tokens, buttons, cards, layout helpers |
 | cursors | 6689 | 1779 | tokens |
 
+| tabs | 12570 | 2969 | tokens, layout helpers |
+
 The machine-readable dependency manifest is dist/components/manifest.json; actual compressed sizes are recorded in dist/size-report.json.

@@ -26,7 +26,7 @@ and `npm run site:test`. In PowerShell with restrictive script policies, use
 
 - `src/layouts/Base.astro`: site header, native mobile menu, footer, CSS imports.
 - `src/layouts/Docs.astro`: documentation navigation.
-- `src/data/components.ts`: 18 categories and 103 exact-preview HTML examples.
+- `src/data/components.ts`: 19 categories and 107 exact-preview HTML examples.
 - `src/components/Demo.astro`: live markup plus native source-code disclosure.
 - `src/styles/site.css`: brand styling and documented `demo-*` extensions.
 - `src/pages/`: homepage, getting started, component index/detail pages, layouts,
@@ -58,8 +58,8 @@ live under `/light/`; navigation stays within the chosen mode, including reloads
 Bookmark a light URL to return in light mode. Opening a root URL always starts dark;
 theme navigation uses no cookie, local storage, or runtime script. `src/pages/light/[...path].astro`
 reuses the original pages, while `src/middleware.ts` and `src/lib/theme.ts` rewrite
-links at build time (and during local development). The site has 24 pages per mode,
-48 static pages total. `src/styles/themes.css` contains the website theme layer.
+links at build time (and during local development). The site has 25 pages per mode,
+50 static pages total. `src/styles/themes.css` contains the website theme layer.
 Theme-preview cards retain their independent explicit light/dark scopes. Hover transitions are CSS-only and enabled only when the
 user has no reduced-motion preference. Native details controls support keyboard
 interaction with no runtime script. Code blocks can be selected and copied normally.
@@ -105,7 +105,7 @@ the pass. Framework distribution files are never pruned. Development mode keeps
 complete source styles; to inspect reduced production transfer, run site:build and
 site:preview from the repository root. Deploy website/dist as a whole.
 
-The catalog has 103 examples across 18 categories, with 24 routes in each mode.
+The catalog has 107 examples across 19 categories, with 25 routes in each mode.
 Expanded snippets are authored in src/data/expanded.ts, including build-time
 grapheme splitting with Intl.Segmenter. Public variants, motion and pixel breakpoints
 come from the optional framework modules, rather than website-only demo classes.
@@ -166,4 +166,6 @@ Control polish: field focus uses a 1px outline with a 1px offset, general keyboa
 
 Standalone components: download self-contained CSS from /downloads/components/ (buttons.min.css, cards.min.css, forms.min.css, headers.min.css and other families), or use the component-only link above each gallery. Required tokens and dependencies are included; no core file is needed. See docs/component-packs.md for usage and measured sizes. Header examples now collapse into native keyboard-operated Menu disclosures on narrow containers, with desktop/reverse/center logo arrangements retained on wide layouts. Standalone buttons and headers were verified in isolated pages loading one stylesheet each.
 
-Heading typography uses Clash Display from Fontshare's official hosted CSS (weights 500/600/700, font-display: swap), with preconnections to the API/CDN. Semantic h1–h6 use --site-heading-font; body text retains the system stack. Framework CSS and standalone packs remain font-independent. Browser checks verified the font loads on dark/light home and header pages and reflow at 320, 375, 768 and 1440px.
+Heading typography uses Clash Display from Fontshare's official hosted CSS (weights 500/600/700, font-display: swap), with preconnections to the API/CDN. Semantic h1–h6 use --site-heading-font; body text uses Switzer. Framework CSS and standalone packs remain font-independent. Browser checks verified the font loads on dark/light home and header pages and reflow at 320, 375, 768 and 1440px.
+
+Tabs: /components/tabs/ and /light/components/tabs/ include four CSS-only examples. Use tabs.min.css after the core or components/tabs.min.css by itself. The responsive variant becomes native accordions below a 48rem container width, preserves open state across resizing, supports keyboard activation and smooth closing in current browsers, and respects reduced motion. Independent groups use unique details names. No tab component JavaScript is needed; full details are in docs/tabs.md. Website body typography now uses Switzer (400/500/600/700) from Fontshare; headings retain Clash Display and code retains its monospace stack. Framework distributions remain font-independent.

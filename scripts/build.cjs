@@ -52,7 +52,7 @@ const outputs = {};
 const core = banner + order + files.map(name => fs.readFileSync(path.join(root, 'src', name + '.css'), 'utf8')).join('\n') + '\n' + utilities();
 outputs['styloft.css'] = core;
 outputs['styloft.min.css'] = compact(core);
-for (const name of ['prose','tables','variants','responsive','motion','button-fx','slider','editor','header','cursor','select']) {
+for (const name of ['prose','tables','variants','responsive','motion','button-fx','slider','editor','header','cursor','select','tabs']) {
   const css = banner + order + fs.readFileSync(path.join(root, 'src/modules', name + '.css'), 'utf8');
   outputs[name + '.css'] = css;
   outputs[name + '.min.css'] = compact(css);
