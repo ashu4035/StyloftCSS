@@ -11,7 +11,7 @@ const dist=path.join(root,'dist');
 const out=path.join(root,'test-results');
 fs.mkdirSync(out,{recursive:true});
 const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]);
-const files=walk(dist), pages=files.filter(f=>f.endsWith('.html'));
+const files=walk(dist), pages=files.filter(f=>f.endsWith('.html')&&!/^google[a-f0-9]+\.html$/i.test(path.basename(f)));
 const reference=JSON.parse(fs.readFileSync(path.join(root,'src/data/reference-manifest.json')));
 const expectedPages=50+reference.newCategories.length*2;
 assert.equal(pages.length,expectedPages,'every dark page has a light counterpart');

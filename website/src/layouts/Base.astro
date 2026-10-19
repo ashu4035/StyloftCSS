@@ -32,6 +32,8 @@ import '../styles/motion.css';
 import '../styles/catalog.css';
 import '../styles/code-editor.css';
 import '../styles/typography.css';
+import '../styles/fonts.css';
+import fontFiles from '../../public/fonts/manifest.json';
 const { title='Lightweight CSS Framework & Components', description='A modular CSS framework with zero runtime JavaScript. Explore live StyloftCSS components, layouts, and themes.', section='home' }=Astro.props;
 const isLight=Astro.url.pathname.startsWith('/light/');
 const theme=isLight?'light':'dark';
@@ -53,10 +55,7 @@ const favicon=await getImage({src:mark,width:64,height:64,fit:'contain',format:'
 <html lang="en" data-theme={theme}>
 <head>
   <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <link rel="preconnect" href="https://api.fontshare.com"/>
-  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin/>
-  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&amp;display=swap"/>
-  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&amp;display=swap"/>
+  {fontFiles.filter(f=>(f.family==='Clash Display'&&f.weight==='600')||(f.family==='Switzer'&&f.weight==='400')).map(f=><link rel="preload" href={'/fonts/'+f.file} as="font" type="font/woff2" crossorigin/>)}
   <link rel="canonical" href={canonical}/>
   <meta name="robots" content={isError?'noindex, follow':'index, follow, max-image-preview:large'}/>
   <meta property="og:type" content="website"/>
