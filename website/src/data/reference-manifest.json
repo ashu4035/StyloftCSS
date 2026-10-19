@@ -1,0 +1,222 @@
+{
+  "reference": "https://heroui.com/en/docs/react/components",
+  "componentNames": [
+    "Accordion",
+    "Alert",
+    "AlertDialog",
+    "Autocomplete",
+    "Avatar",
+    "AvatarGroup",
+    "Badge",
+    "Breadcrumbs",
+    "Button",
+    "ButtonGroup",
+    "Calendar",
+    "Card",
+    "Checkbox",
+    "CheckboxGroup",
+    "Chip",
+    "CloseButton",
+    "ColorArea",
+    "ColorField",
+    "ColorPicker",
+    "ColorSlider",
+    "ColorSwatch",
+    "ColorSwatchPicker",
+    "ComboBox",
+    "DateField",
+    "DatePicker",
+    "DateRangePicker",
+    "Description",
+    "Disclosure",
+    "DisclosureGroup",
+    "Drawer",
+    "Dropdown",
+    "ErrorMessage",
+    "FieldError",
+    "Fieldset",
+    "Form",
+    "Input",
+    "InputGroup",
+    "InputOTP",
+    "Kbd",
+    "Label",
+    "Link",
+    "ListBox",
+    "Meter",
+    "Modal",
+    "NumberField",
+    "Pagination",
+    "Popover",
+    "ProgressBar",
+    "ProgressCircle",
+    "RadioGroup",
+    "RangeCalendar",
+    "ScrollShadow",
+    "SearchField",
+    "Select",
+    "Separator",
+    "Skeleton",
+    "Slider",
+    "Spinner",
+    "Surface",
+    "Switch",
+    "Table",
+    "Tabs",
+    "TagGroup",
+    "TextArea",
+    "TextField",
+    "TimeField",
+    "Toast",
+    "ToggleButton",
+    "ToggleButtonGroup",
+    "Toolbar",
+    "Tooltip",
+    "Typography"
+  ],
+  "newCategories": [
+    "avatars",
+    "breadcrumbs",
+    "pagination",
+    "selection",
+    "chips",
+    "collections",
+    "text-fields",
+    "form-patterns",
+    "pickers",
+    "colors",
+    "dates",
+    "status",
+    "surfaces",
+    "keyboard",
+    "modals",
+    "alert-dialogs",
+    "drawers",
+    "popovers",
+    "tooltips",
+    "toasts",
+    "component-reference"
+  ],
+  "categories": [
+    {
+      "slug": "avatars",
+      "name": "Avatars & groups",
+      "group": "Media",
+      "module": "media"
+    },
+    {
+      "slug": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "group": "Essentials",
+      "module": "navigation"
+    },
+    {
+      "slug": "pagination",
+      "name": "Pagination",
+      "group": "Essentials",
+      "module": "navigation"
+    },
+    {
+      "slug": "selection",
+      "name": "Selection controls",
+      "group": "Controls",
+      "module": "fields"
+    },
+    {
+      "slug": "chips",
+      "name": "Chips & tag groups",
+      "group": "Collections",
+      "module": "collections"
+    },
+    {
+      "slug": "collections",
+      "name": "Dropdown & listbox",
+      "group": "Collections",
+      "module": "collections"
+    },
+    {
+      "slug": "text-fields",
+      "name": "Text & input patterns",
+      "group": "Essentials",
+      "module": "fields"
+    },
+    {
+      "slug": "form-patterns",
+      "name": "Labels, help & forms",
+      "group": "Essentials",
+      "module": "fields"
+    },
+    {
+      "slug": "pickers",
+      "name": "Autocomplete & combobox",
+      "group": "Collections",
+      "module": "fields"
+    },
+    {
+      "slug": "colors",
+      "name": "Color controls",
+      "group": "Colors",
+      "module": "colors"
+    },
+    {
+      "slug": "dates",
+      "name": "Dates & calendars",
+      "group": "Date & time",
+      "module": "dates"
+    },
+    {
+      "slug": "status",
+      "name": "Progress & loading",
+      "group": "Data & feedback",
+      "module": "status"
+    },
+    {
+      "slug": "surfaces",
+      "name": "Surfaces & utilities",
+      "group": "Layout",
+      "module": "surfaces"
+    },
+    {
+      "slug": "keyboard",
+      "name": "Keyboard hints",
+      "group": "Essentials",
+      "module": "surfaces"
+    },
+    {
+      "slug": "modals",
+      "name": "Modal dialogs",
+      "group": "Overlays",
+      "module": "overlays"
+    },
+    {
+      "slug": "alert-dialogs",
+      "name": "Alert dialogs",
+      "group": "Overlays",
+      "module": "overlays"
+    },
+    {
+      "slug": "drawers",
+      "name": "Drawers",
+      "group": "Overlays",
+      "module": "overlays"
+    },
+    {
+      "slug": "popovers",
+      "name": "Popovers",
+      "group": "Overlays",
+      "module": "overlays"
+    },
+    {
+      "slug": "tooltips",
+      "name": "Tooltips",
+      "group": "Overlays",
+      "module": "overlays"
+    },
+    {
+      "slug": "toasts",
+      "name": "Toast notifications",
+      "group": "Overlays",
+      "module": "overlays"
+    }
+  ]
+}

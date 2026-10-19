@@ -1,4 +1,5 @@
 ---
+import {siteUrl} from '../../site.config.mjs';
 import Icon from '../components/Icon.astro';
 import Brand from '../components/Brand.astro';
 import {getImage} from 'astro:assets';
@@ -16,17 +17,36 @@ import '../../../src/modules/header.css';
 import '../../../src/modules/cursor.css';
 import '../../../src/modules/select.css';
 import '../../../src/modules/tabs.css';
+import '../../../src/modules/collections.css';
+import '../../../src/modules/fields.css';
+import '../../../src/modules/colors.css';
+import '../../../src/modules/dates.css';
+import '../../../src/modules/overlays.css';
+import '../../../src/modules/status.css';
+import '../../../src/modules/media.css';
+import '../../../src/modules/navigation.css';
+import '../../../src/modules/surfaces.css';
 import '../styles/site.css';
 import '../styles/themes.css';
 import '../styles/motion.css';
 import '../styles/catalog.css';
 import '../styles/code-editor.css';
-const { title='Build lighter. Create freely.', description='A modular CSS framework with zero runtime JavaScript. Explore live StyloftCSS components, layouts, and themes.', section='home' }=Astro.props;
+import '../styles/typography.css';
+const { title='Lightweight CSS Framework & Components', description='A modular CSS framework with zero runtime JavaScript. Explore live StyloftCSS components, layouts, and themes.', section='home' }=Astro.props;
 const isLight=Astro.url.pathname.startsWith('/light/');
 const theme=isLight?'light':'dark';
 const pathWithoutTheme=Astro.url.pathname.replace(/^\/light(?=\/)/,'');
 const darkPath=/^\/404(?:\.html)?\/?$/.test(pathWithoutTheme)?'/404.html':pathWithoutTheme;
 const togglePath=isLight?darkPath:(darkPath==='/404.html'?'/light/404/':`/light${darkPath}`);
+const canonical=new URL(darkPath,siteUrl).href;
+const isError=/^\/404(?:\.html)?\/?$/.test(darkPath);
+const pageTitle=title+' — StyloftCSS';
+const socialImage=new URL('/social-preview.png',siteUrl).href;
+const structuredData={'@context':'https://schema.org','@graph':[
+  {'@type':'WebSite','@id':siteUrl+'/#website',name:'StyloftCSS',url:siteUrl+'/',description:'A modular CSS framework with zero runtime JavaScript.',inLanguage:'en'},
+  {'@type':'WebPage','@id':canonical+'#webpage',url:canonical,name:pageTitle,description,isPartOf:{'@id':siteUrl+'/#website'},inLanguage:'en'},
+  ...(darkPath==='/'?[{'@type':'SoftwareSourceCode',name:'StyloftCSS',description:'A modular CSS framework with CSS-only components, design tokens and optional component packs.',codeRepository:'https://github.com/ashu4035/StyloftCSS',programmingLanguage:'CSS',license:'https://opensource.org/license/mit',author:{'@type':'Person',name:'Ashish Verma',url:'https://github.com/ashu4035'}}]:[])
+]};
 const favicon=await getImage({src:mark,width:64,height:64,fit:'contain',format:'png'});
 ---
 <!doctype html>
@@ -37,7 +57,20 @@ const favicon=await getImage({src:mark,width:64,height:64,fit:'contain',format:'
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin/>
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&amp;display=swap"/>
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&amp;display=swap"/>
-  <title>{title} — StyloftCSS</title><meta name="description" content={description}/>
+  <link rel="canonical" href={canonical}/>
+  <meta name="robots" content={isError?'noindex, follow':'index, follow, max-image-preview:large'}/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="StyloftCSS"/>
+  <meta property="og:title" content={pageTitle}/>
+  <meta property="og:description" content={description}/>
+  <meta property="og:url" content={canonical}/>
+  <meta property="og:image" content={socialImage}/>
+  <meta property="og:image:alt" content="StyloftCSS — Style more. Load less."/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content={pageTitle}/>
+  <meta name="twitter:description" content={description}/>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g,'\\u003c')}/>
+  <title>{pageTitle}</title><meta name="description" content={description}/>
   <meta name="author" content="Ashish Verma"/>
   <meta name="theme-color" content={isLight?'#f7fafc':'#060b16'}/>
   <link rel="icon" type="image/png" href={favicon.src}/>

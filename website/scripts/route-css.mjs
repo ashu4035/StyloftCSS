@@ -16,6 +16,8 @@ const bytes=css=>({bytes:Buffer.byteLength(css),gzipBytes:zlib.gzipSync(css,{lev
 for(const file of pages){
   let html=fs.readFileSync(file,'utf8');
   const classes=new Set([...html.matchAll(/\bclass="([^"]*)"/g)].flatMap(m=>m[1].split(/\s+/)));
+  // The playground creates its overlay and Prism tokens only when opened.
+  if(html.includes('class="example-source"'))for(const name of ['playground__code-layer','playground__highlight','token','tag','doctype','attr-name','attr-value','entity','punctuation','comment'])classes.add(name);
   const links=[...html.matchAll(/href="(\/_astro\/[^"?]+\.css)"/g)].map(m=>m[1]);
   let before=0,after=0,raw=0;
   for(const link of new Set(links)){

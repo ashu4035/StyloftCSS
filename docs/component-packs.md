@@ -24,11 +24,11 @@ The sl-header container switches to its native details Menu disclosure below 44r
 
 ## Measured files
 
-Gzip level 9, decimal bytes. Token and listed dependency costs are included.
+Gzip level 9, decimal bytes. 41 standalone packs.
 
 | Pack | Raw bytes | Gzip bytes | Includes |
 | --- | ---: | ---: | --- |
-| buttons | 9989 | 2628 | tokens, button variants, button effects |
+| buttons | 12616 | 2981 | tokens, button variants, button effects |
 | cards | 11332 | 2935 | tokens, layout helpers, hover effects |
 | forms | 13487 | 3243 | tokens, select, layout helpers |
 | accordions | 10537 | 2748 | tokens, layout helpers, disclosure motion |
@@ -38,6 +38,7 @@ Gzip level 9, decimal bytes. Token and listed dependency costs are included.
 | alerts | 3081 | 1127 | tokens |
 | badges | 3025 | 1131 | tokens |
 | heroes | 16871 | 3968 | tokens, buttons, cards, layout helpers |
+| tabs | 12570 | 2969 | tokens, layout helpers |
 | headers | 19873 | 4597 | tokens, buttons, layout helpers |
 | footers | 16532 | 3948 | tokens, buttons, layout helpers |
 | sliders | 11660 | 3001 | tokens, layout helpers, badges |
@@ -48,7 +49,25 @@ Gzip level 9, decimal bytes. Token and listed dependency costs are included.
 | layout | 11393 | 2588 | tokens, layout helpers, responsive variants |
 | animations | 21376 | 4678 | tokens, buttons, cards, layout helpers |
 | cursors | 6689 | 1779 | tokens |
+| avatars | 11012 | 2747 | tokens, media, layout helpers |
+| breadcrumbs | 9524 | 2459 | tokens, navigation, layout helpers |
+| pagination | 10227 | 2666 | tokens, navigation, layout helpers |
+| selection | 19185 | 4411 | tokens, fields, layout helpers, input primitives, buttons |
+| chips | 17769 | 4158 | tokens, collections, layout helpers, buttons |
+| collections | 17960 | 4237 | tokens, collections, layout helpers, buttons |
+| text-fields | 18199 | 4183 | tokens, fields, layout helpers, input primitives, buttons |
+| form-patterns | 19394 | 4366 | tokens, fields, layout helpers, input primitives, buttons |
+| pickers | 17689 | 4138 | tokens, fields, layout helpers, input primitives, buttons |
+| colors | 12893 | 2941 | tokens, colors, layout helpers, input primitives |
+| dates | 12083 | 2990 | tokens, dates, layout helpers, input primitives |
+| status | 12030 | 2933 | tokens, status, layout helpers |
+| surfaces | 18648 | 4270 | tokens, surfaces, layout helpers, buttons |
+| keyboard | 16583 | 3987 | tokens, surfaces, layout helpers, buttons |
+| modals | 18021 | 4276 | tokens, overlays, layout helpers, buttons |
+| alert-dialogs | 18021 | 4276 | tokens, overlays, layout helpers, buttons |
+| drawers | 18613 | 4368 | tokens, overlays, layout helpers, buttons |
+| popovers | 18043 | 4310 | tokens, overlays, layout helpers, buttons |
+| tooltips | 17108 | 4098 | tokens, overlays, layout helpers, buttons |
+| toasts | 18273 | 4331 | tokens, overlays, layout helpers, buttons |
 
-| tabs | 12570 | 2969 | tokens, layout helpers |
-
-The machine-readable dependency manifest is dist/components/manifest.json; actual compressed sizes are recorded in dist/size-report.json.
+Machine-readable manifests: `dist/components/manifest.json` and `dist/size-report.json`.

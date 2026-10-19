@@ -29,3 +29,25 @@
 .playground__result { inline-size: 100%; min-inline-size: 0; block-size: 24rem; min-block-size: 12rem; max-block-size: 60rem; resize: vertical; overflow: hidden; margin-inline: auto; border-block-start: 1px solid var(--code-border); }
 .playground__result iframe { display: block; inline-size: 100%; block-size: 100%; border: 0; background: var(--sl-bg); }
 @media (max-width: 767px) { .playground__panes { grid-template-columns: minmax(0,1fr); }.playground__pane + .playground__pane { border-inline-start: 0; }.playground__input { block-size: 14rem; } }
+
+/* Paint syntax behind a real textarea, preserving native typing and accessibility. */
+.playground__code-layer { position: relative; display: block; flex: 1 1 0; min-inline-size: 0; overflow: hidden; }
+.example-source .playground__highlight,.playground__code-layer textarea,.playground__gutter { font: .85rem/1.8 var(--sl-mono); letter-spacing: normal; tab-size: 2; }
+.example-source .playground__highlight,.playground__code-layer textarea { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; max-block-size: none; margin: 0; padding: 1rem .8rem; border: 0; border-radius: 0; white-space: pre; overflow-wrap: normal; word-break: normal; }
+.example-source .playground__highlight { background: transparent; color: var(--sl-text); overflow: hidden; pointer-events: none; user-select: none; }
+.playground__code-layer textarea { z-index: 1; background: transparent; color: transparent; -webkit-text-fill-color: transparent; caret-color: var(--sl-text); overflow: auto; }
+.playground__code-layer textarea::selection { background: rgb(95 185 240 / .3); color: transparent; }
+.playground__highlight .token { font: inherit; }
+.playground__highlight :is(.tag,.doctype) { color: #006c7a; }
+.playground__highlight .attr-name { color: #7043ac; }
+.playground__highlight :is(.attr-value,.entity) { color: #88521a; }
+.playground__highlight :is(.punctuation,.comment) { color: #536581; }
+:root[data-theme="dark"] .playground__highlight :is(.tag,.doctype) { color: #67e8f9; }
+:root[data-theme="dark"] .playground__highlight .attr-name { color: #c4b5fd; }
+:root[data-theme="dark"] .playground__highlight :is(.attr-value,.entity) { color: #fbd38d; }
+:root[data-theme="dark"] .playground__highlight :is(.punctuation,.comment) { color: #a7b7cf; }
+@media (forced-colors: active) {
+ .playground__highlight { display: none; }
+ .playground__code-layer textarea { color: CanvasText; -webkit-text-fill-color: CanvasText; caret-color: CanvasText; }
+ .playground__code-layer textarea::selection { background: Highlight; color: HighlightText; -webkit-text-fill-color: HighlightText; }
+}

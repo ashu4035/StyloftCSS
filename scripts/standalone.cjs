@@ -15,7 +15,7 @@ function subset(css,pattern){
 module.exports=function(root,banner,order,utilities){
  const read=name=>fs.readFileSync(path.join(root,'src',name+'.css'),'utf8');
  const components=read('components'),variants=read('modules/variants'),motion=read('modules/motion');
- const rules=names=>new RegExp('\\.sl-(?:'+names.join('|')+')(?![a-zA-Z0-9_])');
+ const rules=names=>new RegExp('\\.sl-(?:'+names.join('|')+')(?![a-zA-Z0-9])');
  const component=names=>subset(components,rules(names));
  const variant=names=>subset(variants,rules(names));
  const hover=subset(motion,rules(['hover-lift','hover-tilt','hover-glow','hover-zoom','hover-fill','hover-sheen']));
@@ -44,6 +44,13 @@ module.exports=function(root,banner,order,utilities){
   animations:{roots:['scene','reveal','stagger'],css:read('modules/motion')+buttons+component(['card'])+helpers,dependencies:['tokens','buttons','cards','layout helpers']},
   cursors:{roots:['cursor-zone','cursor-site'],css:read('modules/cursor'),dependencies:['tokens']}
  };
+ const reference=require('./reference-packs.json');
+ for(const [name,item] of Object.entries(reference)){
+  const css=item.full?read('modules/'+item.module):subset(read('modules/'+item.module),rules(item.roots));
+  specs[name]={roots:item.roots,css:css+helpers+(item.inputs?component(['field','label','input','help','error','check']):'')+(item.buttons?buttons:''),dependencies:['tokens',item.module,'layout helpers',...(item.inputs?['input primitives']:[]),...(item.buttons?['buttons']:[])]};
+ }
+ specs.buttons.css+=subset(read('modules/collections'),rules(['button-group','toggle']))+subset(read('modules/overlays'),rules(['close']));
+ specs.buttons.roots.push('toggle','button-group','close');
  const outputs={},manifest={};
  for(const [name,spec] of Object.entries(specs)){
   const scope=':where('+spec.roots.map(c=>'.sl-'+c).join(',')+')';

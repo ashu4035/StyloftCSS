@@ -1,8 +1,7 @@
 # StyloftCSS website
 
 An Astro static website, styled with the local StyloftCSS framework. No Bootstrap,
-Tailwind, UI library, external fonts, or runtime scripts. Astro is a development
-dependency; production output is HTML, CSS, SVG, PNG/WebP logos, and CSS download assets.
+Tailwind or React UI library. Framework components use CSS and native HTML. The website loads Fontshare fonts and an approved documentation-only playground script. Astro builds static production assets.
 
 ## Local development
 
@@ -26,7 +25,7 @@ and `npm run site:test`. In PowerShell with restrictive script policies, use
 
 - `src/layouts/Base.astro`: site header, native mobile menu, footer, CSS imports.
 - `src/layouts/Docs.astro`: documentation navigation.
-- `src/data/components.ts`: 19 categories and 107 exact-preview HTML examples.
+- `src/data/components.ts`: 40 categories and 168 exact-preview HTML examples.
 - `src/components/Demo.astro`: live markup plus native source-code disclosure.
 - `src/styles/site.css`: brand styling and documented `demo-*` extensions.
 - `src/pages/`: homepage, getting started, component index/detail pages, layouts,
@@ -59,7 +58,7 @@ Bookmark a light URL to return in light mode. Opening a root URL always starts d
 theme navigation uses no cookie, local storage, or runtime script. `src/pages/light/[...path].astro`
 reuses the original pages, while `src/middleware.ts` and `src/lib/theme.ts` rewrite
 links at build time (and during local development). The site has 25 pages per mode,
-50 static pages total. `src/styles/themes.css` contains the website theme layer.
+92 static pages total. `src/styles/themes.css` contains the website theme layer.
 Theme-preview cards retain their independent explicit light/dark scopes. Hover transitions are CSS-only and enabled only when the
 user has no reduced-motion preference. Native details controls support keyboard
 interaction with no runtime script. Code blocks can be selected and copied normally.
@@ -105,7 +104,7 @@ the pass. Framework distribution files are never pruned. Development mode keeps
 complete source styles; to inspect reduced production transfer, run site:build and
 site:preview from the repository root. Deploy website/dist as a whole.
 
-The catalog has 107 examples across 19 categories, with 25 routes in each mode.
+The catalog has 168 examples across 40 categories, with 46 routes in each mode.
 Expanded snippets are authored in src/data/expanded.ts, including build-time
 grapheme splitting with Intl.Segmenter. Public variants, motion and pixel breakpoints
 come from the optional framework modules, rather than website-only demo classes.
@@ -156,7 +155,7 @@ Header layouts: load header.min.css after the core for left-logo/right-menu, rig
 
 Cursor effects: load cursor.min.css after the core and add sl-cursor-site sl-cursor-pulse to body for the site-wide ring and action-pointer treatment. This is enabled on the demo website. See /components/cursors/ and /light/components/cursors/ for section-specific ring, crosshair, text, grab, pulsing, and hover-glow examples. The optional module measures 3,572 raw / 956 gzip bytes; core remains 3,313 gzip bytes. Pulsing swaps three cursor images discretely. Touch and forced-color modes retain native cursors; reduced motion keeps the custom ring static. Pointer trails and mouse-drag scrolling require application JavaScript and are not implemented by this CSS.
 
-Interactive documentation playground: open View HTML under any example to edit HTML and StyloftCSS classes, use automatic preview or Run (Ctrl/Command+Enter), reset the example, copy HTML, and select mobile/tablet/full preview widths. The documentation script initializes each editor only when opened. Native textareas preserve normal keyboard navigation; highlighted read-only HTML remains available without JavaScript. Results run in a sandboxed iframe with scripts, forms and external network resources blocked by sandbox/CSP policy; framework CSS and demo extensions are preloaded. Edits are temporary and do not change files or persist after reload. Text editing uses native textareas; syntax highlighting is provided in the no-JavaScript source view. Framework packages remain CSS-only.
+Interactive documentation playground: open View HTML under any example to edit HTML and StyloftCSS classes, use automatic preview or Run (Ctrl/Command+Enter), reset the example, copy HTML, and select mobile/tablet/full preview widths. The documentation script initializes each editor only when opened. Native textareas preserve normal keyboard navigation; highlighted read-only HTML remains available without JavaScript. Results run in a sandboxed iframe with scripts, forms and external network resources blocked by sandbox/CSP policy; framework CSS and demo extensions are preloaded. Edits are temporary and do not change files or persist after reload. Text editing uses native textareas; syntax highlighting is provided both during editing and in the no-JavaScript source view. Framework packages remain CSS-only.
 
 Playground formatting: initial HTML is formatted at build time with Prettier (two-space indentation, 88-column target). Format or Alt+Shift+F formats the current HTML; invalid syntax leaves edits unchanged. The browser HTML formatter/parser modules load only when formatting is requested. The parent page fetches and caches framework CSS, then embeds it into the script-blocked sandbox; this avoids Astro development-server 403 responses to opaque-origin stylesheet requests. Regression checks cover formatted source, formatting errors, and actual framework styling inside the preview in addition to editing/reset/copy behavior.
 
@@ -169,3 +168,8 @@ Standalone components: download self-contained CSS from /downloads/components/ (
 Heading typography uses Clash Display from Fontshare's official hosted CSS (weights 500/600/700, font-display: swap), with preconnections to the API/CDN. Semantic h1–h6 use --site-heading-font; body text uses Switzer. Framework CSS and standalone packs remain font-independent. Browser checks verified the font loads on dark/light home and header pages and reflow at 320, 375, 768 and 1440px.
 
 Tabs: /components/tabs/ and /light/components/tabs/ include four CSS-only examples. Use tabs.min.css after the core or components/tabs.min.css by itself. The responsive variant becomes native accordions below a 48rem container width, preserves open state across resizing, supports keyboard activation and smooth closing in current browsers, and respects reduced motion. Independent groups use unique details names. No tab component JavaScript is needed; full details are in docs/tabs.md. Website body typography now uses Switzer (400/500/600/700) from Fontshare; headings retain Clash Display and code retains its monospace stack. Framework distributions remain font-independent.
+
+Live code highlighting: the HTML playground uses Prism syntax colors over a native textarea, with matching monospace metrics and synchronized scrolling. Tags, attributes, quoted values and comments have theme-aware colors. The painted layer is hidden from assistive technology; the textarea remains the editable control. Forced-color mode shows native text instead. Production CSS explicitly preserves the runtime-created overlay/token classes. Focused checks verified typing, formatting, copying, live preview, syntax colors, scroll alignment, escaped user markup and high-contrast behavior in both themes.
+
+
+HeroUI catalog coverage: 72 names are mapped to StyloftCSS examples or documented native alternatives at `/components/component-reference/`. See [coverage and limitations](../docs/component-reference.md).

@@ -12,12 +12,18 @@ const out=path.join(root,'test-results');
 fs.mkdirSync(out,{recursive:true});
 const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]);
 const files=walk(dist), pages=files.filter(f=>f.endsWith('.html'));
-assert.equal(pages.length,50,'25 dark pages and 25 light counterparts');
+const reference=JSON.parse(fs.readFileSync(path.join(root,'src/data/reference-manifest.json')));
+const expectedPages=50+reference.newCategories.length*2;
+assert.equal(pages.length,expectedPages,'every dark page has a light counterpart');
 for(const file of files)if(/\.(m?js|cjs)$/.test(file))assert.equal(path.dirname(file),path.join(dist,'_astro'),'Only bundled documentation scripts');
 for(const file of pages){
   const html=fs.readFileSync(file,'utf8');
   assert.doesNotMatch(html,/\son\w+\s*=/i,`No inline event handlers: ${file}`);
-  const scripts=[...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)];
+  const jsonLd=[...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)];
+  assert.equal(jsonLd.length,1,'One structured data graph');
+  JSON.parse(jsonLd[0][1]);
+  const executableHtml=html.replace(/<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/g,'');
+  const scripts=[...executableHtml.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)];
   assert.equal(scripts.length,html.includes('class="example-source"')?1:0,'Only the approved documentation playground script');
   for(const [,attrs,body] of scripts){assert.ok(attrs.includes('type="module"'));if(!attrs.includes('src=')){assert.ok(body.includes('script-src'));assert.ok(body.includes('Preview updated'));}}
   for(const match of html.matchAll(/(?:href|src)="([^"#?]+)(?:[?#][^"]*)?"/g)){
@@ -51,6 +57,7 @@ try{
   const check=async(name,fn)=>{if(process.env.SITE_CHECK&&!name.includes(process.env.SITE_CHECK))return;await fn();passed.push(name);console.log('PASS '+name);};
   const darkRoutes=['/','/getting-started/','/components/','/layouts/','/themes/','/components/buttons/','/components/cards/','/components/headers/','/components/heroes/','/components/footers/','/components/forms/','/components/accordions/','/components/tables/','/components/grid/','/components/flex/','/components/animations/','/components/feedback/','/components/typography/'];
   darkRoutes.push('/components/editor/','/components/cursors/','/components/tabs/');
+  darkRoutes.push(...reference.newCategories.map(slug=>'/components/'+slug+'/'));
   const routes=[...darkRoutes,...darkRoutes.map(route=>'/light'+route)];
   routes.push('/components/links/','/light/components/links/');
   routes.push('/components/sliders/','/light/components/sliders/','/components/testimonials/','/light/components/testimonials/');
@@ -60,7 +67,7 @@ try{
       const response=await page.goto(base+route);assert.equal(response.status(),200,route);
       assert.equal(await page.locator('h1').count(),1,route);
       const ids=await page.locator('[id]').evaluateAll(els=>els.map(el=>el.id));assert.equal(new Set(ids).size,ids.length,'duplicate IDs '+route);
-      assert.equal(await page.locator('script').count(),(await page.locator('.example-source').count())>0?1:0);
+      assert.equal(await page.locator('script:not([type="application/ld+json"])').count(),(await page.locator('.example-source').count())>0?1:0);
       const missing=await page.locator('a[href^="#"]').evaluateAll(els=>els.filter(el=>el.hash&&!document.getElementById(el.hash.slice(1))).map(el=>el.hash));assert.deepEqual(missing,[],route);
     }
     assert.deepEqual(errors,[]);
@@ -217,7 +224,7 @@ try{
     const report=JSON.parse(fs.readFileSync(path.join(dist,'css-size-report.json'),'utf8'));
     assert.ok(report.maxPageGzipBytes<report.previousSingleBundle.gzipBytes);
     assert.ok(report.maxPageGzipBytes<11000);
-    assert.equal(report.pages.length,50);
+    assert.equal(report.pages.length,expectedPages);
     await page.goto(base+'/components/animations/');
     assert.ok((await page.locator('link[rel="stylesheet"][href^="/_astro/"]').first().getAttribute('href')).includes('/route-'));
     assert.ok((await page.locator('.sl-split').first().getAttribute('aria-label')).length>0);
@@ -319,7 +326,7 @@ try{
       await track.focus();await page.keyboard.press('ArrowRight');await page.waitForTimeout(500);
       assert.ok(await track.evaluate(el=>el.scrollLeft>0),'keyboard scroll');
       assert.equal(await page.locator('#example-3 figcaption').count(),3);
-      assert.equal(await page.locator('script').count(),1);
+      assert.equal(await page.locator('script:not([type="application/ld+json"])').count(),1);
     }
     await page.emulateMedia({reducedMotion:'no-preference'});
   });
@@ -377,6 +384,11 @@ try{
       assert.equal(await source.locator('[data-css],[data-copy-css]').count(),0,'no CSS editor or controls');await html.waitFor();
       const original=await html.inputValue();const result=source.frameLocator('iframe');
       assert.ok(original.split('\n').length>5,'initial code is formatted');
+      const highlighted=source.locator('.playground__highlight');assert.equal(await highlighted.getAttribute('aria-hidden'),'true');
+      assert.ok(await highlighted.locator('.token.tag').count()>0);assert.ok(await highlighted.locator('.token.attr-name').count()>0);
+      assert.notEqual(await highlighted.locator('.token.tag').first().evaluate(el=>getComputedStyle(el).color),await highlighted.locator('.token.attr-name').first().evaluate(el=>getComputedStyle(el).color),'tags and attributes have distinct syntax colors');
+      assert.equal(await highlighted.evaluate(el=>getComputedStyle(el).font),await html.evaluate(el=>getComputedStyle(el).font),'paint and caret use matching metrics');
+
       await result.locator('.sl-badge').first().waitFor();
       await page.waitForTimeout(300);
       assert.equal(await result.locator('.sl-badge').first().evaluate(el=>getComputedStyle(el).borderTopStyle),'solid','framework CSS loads inside sandbox');
@@ -398,10 +410,16 @@ try{
       await source.locator('[data-run]').click();await result.locator('#safe').waitFor();
       assert.equal(await source.locator('iframe').getAttribute('sandbox'),'');
       assert.equal(await result.locator('body').getAttribute('data-executed'),null);
+      assert.equal(await highlighted.locator('script,img').count(),0,'highlighting escapes user HTML');
       await source.locator('[data-reset]').click();assert.equal(await html.inputValue(),original);
       for(const width of [320,375,768,1440]){await page.setViewportSize({width,height:1000});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'opened playground at '+width);}
       await source.locator('[data-width]').selectOption('375');assert.ok((await source.locator('[data-result]').boundingBox()).width<=375);
       assert.equal(await page.locator('.code-editor[data-ready]').count(),1,'only opened example initializes');
+      await html.fill(Array.from({length:40},(_,i)=>'<p class="sl-text-center" title="'+('long value '.repeat(30))+'">Line '+i+'</p>').join('\n'));
+      await html.evaluate(el=>{el.scrollTop=100;el.scrollLeft=150;el.dispatchEvent(new Event('scroll'));});
+      assert.equal(await highlighted.evaluate(el=>el.scrollTop),await html.evaluate(el=>el.scrollTop));assert.equal(await highlighted.evaluate(el=>el.scrollLeft),await html.evaluate(el=>el.scrollLeft));
+      await page.emulateMedia({forcedColors:'active'});assert.equal(await highlighted.isVisible(),false);assert.notEqual(await html.evaluate(el=>getComputedStyle(el).webkitTextFillColor),'rgba(0, 0, 0, 0)');await page.emulateMedia({forcedColors:'none'});
+
     }
     const noJS=await browser.newContext({javaScriptEnabled:false});try{const p=await noJS.newPage();await p.goto(base+'/components/flex/');await p.locator('.example-source').first().locator('summary').click();assert.equal(await p.locator('.example-source').first().locator('pre code').isVisible(),true);assert.equal(await p.locator('iframe').count(),0);}finally{await noJS.close();}
   });
@@ -467,6 +485,26 @@ try{
       assert.equal(await p.locator('body').evaluate(el=>getComputedStyle(el).fontFamily.includes('Switzer')),true);
       assert.equal(await p.locator('h1').evaluate(el=>getComputedStyle(el).fontFamily.includes('Clash Display')),true);
     }}finally{await native.close();}
+  });
+  await check('72 reference components map to examples and new native controls work without JavaScript',async()=>{
+    const native=await browser.newContext({javaScriptEnabled:false,viewport:{width:375,height:900},reducedMotion:'reduce'});
+    try{const p=await native.newPage();
+      for(const prefix of ['','/light']){
+        await p.goto(base+prefix+'/components/component-reference/');
+        const links=p.locator('.example-canvas .sl-card h3 a');assert.equal(await links.count(),72);
+        const labels=await links.allTextContents();assert.equal(new Set(labels).size,72);
+        for(const link of await links.all()){const href=await link.getAttribute('href'),url=new URL(href,base),target=path.join(dist,url.pathname,'index.html');assert.ok(fs.readFileSync(target,'utf8').includes('id="'+url.hash.slice(1)+'"'),href);}
+        await p.goto(base+prefix+'/components/modals/');const opener=p.getByRole('button',{name:'Open dialog',exact:true});await opener.click();assert.equal(await p.locator('dialog').evaluate(el=>el.matches(':modal')),true);await p.keyboard.press('Escape');assert.equal(await p.locator('dialog').isVisible(),false);assert.equal(await opener.evaluate(el=>el===document.activeElement),true);
+        await p.goto(base+prefix+'/components/drawers/');await p.getByRole('button',{name:'Open drawer',exact:true}).click();assert.equal(await p.locator('dialog').isVisible(),true);assert.ok((await p.locator('dialog').boundingBox()).width<=375);await p.locator('dialog .sl-close').click();assert.equal(await p.locator('dialog').isVisible(),false);
+        await p.goto(base+prefix+'/components/popovers/');await p.getByRole('button',{name:'Show popover',exact:true}).click();assert.equal(await p.locator('[popover]').evaluate(el=>el.matches(':popover-open')),true);await p.keyboard.press('Escape');assert.equal(await p.locator('[popover]').isVisible(),false);
+        await p.goto(base+prefix+'/components/selection/');const preference=p.getByRole('switch',{name:'Enable sample preference',exact:true});assert.equal(await preference.isChecked(),true);await preference.focus();await p.keyboard.press('Space');assert.equal(await preference.isChecked(),false);const studio=p.getByRole('radio',{name:'Studio',exact:true});await studio.check();assert.equal(await studio.isChecked(),true);
+        await p.goto(base+prefix+'/components/collections/');await p.locator('.sl-dropdown > summary').click();assert.equal(await p.locator('.sl-dropdown nav').isVisible(),true);await p.locator('#ref-listbox').selectOption(['StyloftCSS','Astro']);assert.equal(await p.locator('#ref-listbox option:checked').count(),2);
+        await p.goto(base+prefix+'/components/text-fields/');await p.locator('#ref-otp').fill('123456');assert.equal(await p.locator('#ref-otp').evaluate(el=>el.checkValidity()),true);await p.locator('#ref-number').fill('30');assert.equal(await p.locator('#ref-number').evaluate(el=>el.checkValidity()),false);
+        await p.goto(base+prefix+'/components/dates/');await p.getByRole('radio',{name:'October 19, 2026',exact:true}).locator('..').click();assert.equal(await p.getByRole('radio',{name:'October 19, 2026',exact:true}).isChecked(),true);await p.locator('#ref-date-field').fill('2026-11-20');assert.equal(await p.locator('#ref-date-field').inputValue(),'2026-11-20');
+        await p.goto(base+prefix+'/components/colors/');await p.getByRole('radio',{name:'Teal',exact:true}).locator('..').click();assert.equal(await p.getByRole('radio',{name:'Teal',exact:true}).isChecked(),true);
+        await p.goto(base+prefix+'/components/status/');assert.equal(await p.locator('progress').getAttribute('value'),'64');assert.equal(await p.locator('.sl-loading').evaluate(el=>getComputedStyle(el).animationName),'none');
+      }
+    }finally{await native.close();}
   });
   await page.emulateMedia({reducedMotion:'reduce'}); // Static QA screenshots show all revealed content.
   for(const [name,route,width] of [['home-desktop','/',1440],['home-mobile','/',375],['home-light','/light/',1440],['home-light-mobile','/light/',375],['component-cards','/components/cards/',1440],['component-accordion-mobile','/components/accordions/',375],['table-mobile-dark','/components/tables/',375],['table-mobile-light','/light/components/tables/',375]]){

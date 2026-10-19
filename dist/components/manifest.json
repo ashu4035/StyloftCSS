@@ -176,5 +176,205 @@
     "includes": [
       "tokens"
     ]
+  },
+  "avatars": {
+    "file": "components/avatars.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "media",
+      "layout helpers"
+    ]
+  },
+  "breadcrumbs": {
+    "file": "components/breadcrumbs.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "navigation",
+      "layout helpers"
+    ]
+  },
+  "pagination": {
+    "file": "components/pagination.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "navigation",
+      "layout helpers"
+    ]
+  },
+  "selection": {
+    "file": "components/selection.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "fields",
+      "layout helpers",
+      "input primitives",
+      "buttons"
+    ]
+  },
+  "chips": {
+    "file": "components/chips.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "collections",
+      "layout helpers",
+      "buttons"
+    ]
+  },
+  "collections": {
+    "file": "components/collections.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "collections",
+      "layout helpers",
+      "buttons"
+    ]
+  },
+  "text-fields": {
+    "file": "components/text-fields.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "fields",
+      "layout helpers",
+      "input primitives",
+      "buttons"
+    ]
+  },
+  "form-patterns": {
+    "file": "components/form-patterns.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "fields",
+      "layout helpers",
+      "input primitives",
+      "buttons"
+    ]
+  },
+  "pickers": {
+    "file": "components/pickers.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "fields",
+      "layout helpers",
+      "input primitives",
+      "buttons"
+    ]
+  },
+  "colors": {
+    "file": "components/colors.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "colors",
+      "layout helpers",
+      "input primitives"
+    ]
+  },
+  "dates": {
+    "file": "components/dates.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "dates",
+      "layout helpers",
+      "input primitives"
+    ]
+  },
+  "status": {
+    "file": "components/status.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "status",
+      "layout helpers"
+    ]
+  },
+  "surfaces": {
+    "file": "components/surfaces.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "surfaces",
+      "layout helpers",
+      "buttons"
+    ]
+  },
+  "keyboard": {
+    "file": "components/keyboard.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "surfaces",
+      "layout helpers",
+      "buttons"
+    ]
+  },
+  "modals": {
+    "file": "components/modals.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "overlays",
+      "layout helpers",
+      "buttons"
+    ]
+  },
+  "alert-dialogs": {
+    "file": "components/alert-dialogs.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "overlays",
+      "layout helpers",
+      "buttons"
+    ]
+  },
+  "drawers": {
+    "file": "components/drawers.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "overlays",
+      "layout helpers",
+      "buttons"
+    ]
+  },
+  "popovers": {
+    "file": "components/popovers.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "overlays",
+      "layout helpers",
+      "buttons"
+    ]
+  },
+  "tooltips": {
+    "file": "components/tooltips.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "overlays",
+      "layout helpers",
+      "buttons"
+    ]
+  },
+  "toasts": {
+    "file": "components/toasts.min.css",
+    "requiresCore": false,
+    "includes": [
+      "tokens",
+      "overlays",
+      "layout helpers",
+      "buttons"
+    ]
   }
 }

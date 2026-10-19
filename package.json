@@ -26,7 +26,16 @@
     "./cursor": "./dist/cursor.css",
     "./select": "./dist/select.css",
     "./components/*": "./dist/components/*.css",
-    "./tabs": "./dist/tabs.css"
+    "./tabs": "./dist/tabs.css",
+    "./collections": "./dist/collections.css",
+    "./fields": "./dist/fields.css",
+    "./colors": "./dist/colors.css",
+    "./dates": "./dist/dates.css",
+    "./overlays": "./dist/overlays.css",
+    "./status": "./dist/status.css",
+    "./media": "./dist/media.css",
+    "./navigation": "./dist/navigation.css",
+    "./surfaces": "./dist/surfaces.css"
   },
   "scripts": {
     "build": "node scripts/build.cjs",

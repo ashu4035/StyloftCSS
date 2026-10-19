@@ -1,0 +1,47 @@
+/* Website readability: rem sizes retain browser text-size preferences. */
+body { font-size: 1.0625rem; }
+.desktop-nav a,.mobile-nav summary { font-size: .9375rem; }
+.header-cta { font-size: .875rem; }
+.announcement { font-size: .8125rem; }
+.sidebar-link { font-size: .9375rem; line-height: 1.6; }
+.sidebar-eyebrow,.sidebar-tip .sidebar-eyebrow { font-size: .75rem; }
+.sidebar-link span,.sidebar-link small { font-size: .75rem; }
+.sidebar-tip p,.sidebar-tip a,.breadcrumbs { font-size: .875rem; }
+.docs-page-header > p { font-size: 1.0625rem; }
+.example-heading h2 { font-size: 1.25rem; }
+.example-heading p,.usage-note p,.guide-section > p,.guide-section ul,.catalog-card p { font-size: 1.0625rem; line-height: 1.75; }
+.usage-note h2 { font-size: 1rem; letter-spacing: normal; }
+.framework-extension,.example-source > summary,.docs-next a { font-size: .9375rem; line-height: 1.65; }
+.preview-label,.source-hint,.doc-tags span,.catalog-meta,.section-line > span { font-size: .8125rem; }
+.catalog-card h3,.section-line h2 { font-size: 1.125rem; }
+.footer-top p,.footer-top > div:not(:first-child) a { font-size: .9375rem; }
+.footer-top h2 { font-size: 1rem; letter-spacing: normal; }
+.footer-version,.footer-bottom { font-size: .8125rem; line-height: 1.7; }
+.hero-copy > p,.principles p,.section-heading > p,.section-copy p,.theme-copy p { font-size: 1.0625rem; line-height: 1.8; }
+.hero-secondary,.download-link,.hero-footnote,.final-cta > p { font-size: .875rem; }
+.example-source .code-editor__code,.example-source .playground__highlight,.playground__code-layer textarea,.playground__gutter { font-size: .9375rem; line-height: 1.8; }
+.code-editor__file,.playground__result-bar,.playground__auto { font-size: .875rem; }
+.code-editor__language,.code-editor__status,.playground__pane-title { font-size: .8125rem; }
+@media (min-width: 992px) { .docs-shell { grid-template-columns: 15rem minmax(0,1fr); gap: 2.5rem; } }
+
+/* Separate navigation groups from their destinations and headings from prose. */
+:root[data-theme] .docs-sidebar .sidebar-eyebrow {
+  font-family: var(--sl-font); font-size: .8125rem; font-weight: 750;
+  line-height: 1.4; letter-spacing: .1em; color: var(--sl-accent);
+  margin: 0 .65rem .65rem; padding-block: .65rem;
+  border-block-end: 1px solid var(--site-line);
+}
+.docs-sidebar .sidebar-group { margin-block-start: 2rem; }
+:root[data-theme] .docs-sidebar .sidebar-link { color: var(--sl-muted); font-weight: 400; }
+:root[data-theme] .docs-sidebar .sidebar-link:hover { color: var(--sl-text); }
+:root[data-theme] .docs-sidebar .sidebar-link.active { color: var(--sl-accent); font-weight: 650; }
+:root[data-theme] :is(.example-heading h2,.guide-section > h2,.section-line h2) {
+  font-size: 1.5rem; font-weight: 650; line-height: 1.3;
+  letter-spacing: -.015em; color: var(--sl-text); margin-block-end: .75rem;
+}
+:root[data-theme] :is(.example-heading p,.usage-note p,.catalog-card p) { color: var(--sl-muted); font-weight: 400; }
+:root[data-theme] :is(.usage-note h2,.footer-top h2) {
+  font-family: var(--sl-font); font-size: 1.125rem; font-weight: 700;
+  line-height: 1.4; letter-spacing: normal; color: var(--sl-text); margin-block-end: .75rem;
+}
+:root[data-theme] .catalog-card h3 { font-size: 1.25rem; font-weight: 650; color: var(--sl-text); line-height: 1.35; }

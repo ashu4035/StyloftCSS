@@ -11,6 +11,15 @@ for (const name of ['styloft.css','styloft.min.css','prose.css','prose.min.css',
   fs.copyFileSync(path.join(framework,'dist',name),path.join(dest,name));
 }
 fs.cpSync(path.join(framework,'dist/components'),path.join(dest,'components'),{recursive:true});
+for(const file of ['collections.css','collections.min.css'])fs.copyFileSync(path.join(framework,'dist',file),path.join(dest,file));
+for(const file of ['fields.css','fields.min.css'])fs.copyFileSync(path.join(framework,'dist',file),path.join(dest,file));
+for(const file of ['colors.css','colors.min.css'])fs.copyFileSync(path.join(framework,'dist',file),path.join(dest,file));
+for(const file of ['dates.css','dates.min.css'])fs.copyFileSync(path.join(framework,'dist',file),path.join(dest,file));
+for(const file of ['overlays.css','overlays.min.css'])fs.copyFileSync(path.join(framework,'dist',file),path.join(dest,file));
+for(const file of ['status.css','status.min.css'])fs.copyFileSync(path.join(framework,'dist',file),path.join(dest,file));
+for(const file of ['media.css','media.min.css'])fs.copyFileSync(path.join(framework,'dist',file),path.join(dest,file));
+for(const file of ['navigation.css','navigation.min.css'])fs.copyFileSync(path.join(framework,'dist',file),path.join(dest,file));
+for(const file of ['surfaces.css','surfaces.min.css'])fs.copyFileSync(path.join(framework,'dist',file),path.join(dest,file));
 // The demo styles stay separate from the measured framework core and site branding.
 const siteCSS=fs.readFileSync(path.join(root,'src/styles/site.css'),'utf8');
 const start=siteCSS.indexOf('.demo-narrow {');

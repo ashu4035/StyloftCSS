@@ -1,5 +1,6 @@
+import Prism from 'prismjs';
 // Documentation playground only. Framework distributions never import this file.
-const modules=['styloft','prose','tables','variants','responsive','motion','button-fx','slider','editor','header','cursor','select','tabs'];
+const modules=['styloft','prose','tables','variants','responsive','motion','button-fx','slider','editor','header','cursor','select','tabs','collections','fields','colors','dates','overlays','status','media','navigation','surfaces'];
 let sharedStyles:Promise<string>|undefined;
 function loadStyles(){
   if(!sharedStyles)sharedStyles=Promise.all([...modules.map(name=>name+'.min.css'),'demo-extensions.css'].map(async name=>{
@@ -23,13 +24,26 @@ for(const disclosure of document.querySelectorAll<HTMLDetailsElement>('.example-
     const auto=editor.querySelector<HTMLInputElement>('[data-auto]')!;
     const status=editor.querySelector<HTMLElement>('[data-status]')!;
     const result=editor.querySelector<HTMLElement>('[data-result]')!;
+    const layer=document.createElement('span');
+    layer.className='playground__code-layer';
+    const highlighted=document.createElement('pre');
+    highlighted.className='playground__highlight';
+    highlighted.setAttribute('aria-hidden','true');
+    html.before(layer);layer.append(highlighted,html);
+    let highlightedValue:string|undefined;
     const initialHTML=html.value;
     let timer:ReturnType<typeof setTimeout>;
     let revision=0;
     const lines=(field:HTMLTextAreaElement)=>{
-      const gutter=field.parentElement!.querySelector<HTMLElement>('[data-lines]')!;
+      const gutter=field.closest('.playground__input')!.querySelector<HTMLElement>('[data-lines]')!;
       gutter.textContent=Array.from({length:field.value.split('\n').length},(_,i)=>i+1).join('\n');
       gutter.scrollTop=field.scrollTop;
+      if(highlightedValue!==field.value){
+        highlighted.innerHTML=Prism.highlight(field.value,Prism.languages.markup,'markup')+'\n';
+        highlightedValue=field.value;
+      }
+      highlighted.scrollTop=field.scrollTop;
+      highlighted.scrollLeft=field.scrollLeft;
     };
     const run=async()=>{
       clearTimeout(timer);

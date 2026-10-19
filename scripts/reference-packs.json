@@ -1,0 +1,221 @@
+{
+  "avatars": {
+    "module": "media",
+    "roots": [
+      "person",
+      "avatar-group",
+      "avatar-status"
+    ],
+    "full": false,
+    "inputs": false,
+    "buttons": false
+  },
+  "breadcrumbs": {
+    "module": "navigation",
+    "roots": [
+      "breadcrumbs"
+    ],
+    "full": false,
+    "inputs": false,
+    "buttons": false
+  },
+  "pagination": {
+    "module": "navigation",
+    "roots": [
+      "pagination"
+    ],
+    "full": false,
+    "inputs": false,
+    "buttons": false
+  },
+  "selection": {
+    "module": "fields",
+    "roots": [
+      "choice",
+      "switch",
+      "fieldset"
+    ],
+    "full": false,
+    "inputs": true,
+    "buttons": true
+  },
+  "chips": {
+    "module": "collections",
+    "roots": [
+      "chip",
+      "toggle"
+    ],
+    "full": false,
+    "inputs": false,
+    "buttons": true
+  },
+  "collections": {
+    "module": "collections",
+    "roots": [
+      "dropdown",
+      "listbox"
+    ],
+    "full": false,
+    "inputs": false,
+    "buttons": true
+  },
+  "text-fields": {
+    "module": "fields",
+    "roots": [
+      "input-group",
+      "otp",
+      "field",
+      "input"
+    ],
+    "full": false,
+    "inputs": true,
+    "buttons": true
+  },
+  "form-patterns": {
+    "module": "fields",
+    "roots": [
+      "fieldset",
+      "choice",
+      "field",
+      "input",
+      "error",
+      "label",
+      "help"
+    ],
+    "full": false,
+    "inputs": true,
+    "buttons": true
+  },
+  "pickers": {
+    "module": "fields",
+    "roots": [
+      "field",
+      "input"
+    ],
+    "full": false,
+    "inputs": true,
+    "buttons": true
+  },
+  "colors": {
+    "module": "colors",
+    "roots": [
+      "color-area",
+      "color-range",
+      "color-input",
+      "swatch",
+      "swatch-choice",
+      "field",
+      "input"
+    ],
+    "full": false,
+    "inputs": true,
+    "buttons": false
+  },
+  "dates": {
+    "module": "dates",
+    "roots": [
+      "calendar",
+      "date-range",
+      "field",
+      "input"
+    ],
+    "full": false,
+    "inputs": true,
+    "buttons": false
+  },
+  "status": {
+    "module": "status",
+    "roots": [
+      "progress",
+      "meter",
+      "progress-circle",
+      "skeleton",
+      "loading"
+    ],
+    "full": true,
+    "inputs": false,
+    "buttons": false
+  },
+  "surfaces": {
+    "module": "surfaces",
+    "roots": [
+      "panel",
+      "separator",
+      "toolbar",
+      "scroll-shadow"
+    ],
+    "full": false,
+    "inputs": false,
+    "buttons": true
+  },
+  "keyboard": {
+    "module": "surfaces",
+    "roots": [
+      "kbd"
+    ],
+    "full": false,
+    "inputs": false,
+    "buttons": true
+  },
+  "modals": {
+    "module": "overlays",
+    "roots": [
+      "dialog",
+      "close"
+    ],
+    "full": false,
+    "inputs": false,
+    "buttons": true
+  },
+  "alert-dialogs": {
+    "module": "overlays",
+    "roots": [
+      "dialog",
+      "close"
+    ],
+    "full": false,
+    "inputs": false,
+    "buttons": true
+  },
+  "drawers": {
+    "module": "overlays",
+    "roots": [
+      "drawer",
+      "dialog",
+      "close"
+    ],
+    "full": false,
+    "inputs": false,
+    "buttons": true
+  },
+  "popovers": {
+    "module": "overlays",
+    "roots": [
+      "popover",
+      "close"
+    ],
+    "full": false,
+    "inputs": false,
+    "buttons": true
+  },
+  "tooltips": {
+    "module": "overlays",
+    "roots": [
+      "tooltip"
+    ],
+    "full": false,
+    "inputs": false,
+    "buttons": true
+  },
+  "toasts": {
+    "module": "overlays",
+    "roots": [
+      "popover",
+      "toast",
+      "close"
+    ],
+    "full": false,
+    "inputs": false,
+    "buttons": true
+  }
+}

@@ -176,7 +176,7 @@ separately from tested engines; this MVP is not a WCAG conformance certification
 ## Astro documentation website
 
 The complete demo website is in `website/`: a landing page, getting-started guide,
-19 component categories with 107 live previews and matching HTML, layout patterns,
+40 component categories with 168 live previews and matching HTML, layout patterns,
 and a theme/token gallery. It uses StyloftCSS plus a documented brand/demo extension
 stylesheet, with no Bootstrap, Tailwind, or runtime JavaScript.
 
@@ -314,3 +314,6 @@ StyloftCSS created by **Ashish Verma** ([GitHub](https://github.com/ashu4035)).
 Source repository: [ashu4035/StyloftCSS](https://github.com/ashu4035/StyloftCSS).
 
 Tabs: /components/tabs/ and /light/components/tabs/ include four CSS-only examples. Use tabs.min.css after the core or components/tabs.min.css by itself. The responsive variant becomes native accordions below a 48rem container width, preserves open state across resizing, supports keyboard activation and smooth closing in current browsers, and respects reduced motion. Independent groups use unique details names. No tab component JavaScript is needed; full details are in docs/tabs.md. Website body typography now uses Switzer (400/500/600/700) from Fontshare; headings retain Clash Display and code retains its monospace stack. Framework distributions remain font-independent.
+
+
+HeroUI catalog coverage: 72 names are mapped to StyloftCSS examples or documented native alternatives at `/components/component-reference/`. See [coverage and limitations](docs/component-reference.md).
