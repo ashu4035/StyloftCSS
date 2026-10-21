@@ -44,10 +44,10 @@ const darkPath=/^\/404(?:\.html)?\/?$/.test(pathWithoutTheme)?'/404.html':pathWi
 const togglePath=isLight?darkPath:(darkPath==='/404.html'?'/light/404/':`/light${darkPath}`);
 const canonical=new URL(darkPath,siteUrl).href;
 const isError=/^\/404(?:\.html)?\/?$/.test(darkPath);
-const pageTitle=title+' — StyloftCSS';
+const pageTitle=darkPath==='/'?'StyloftCSS — '+title:title+' — StyloftCSS';
 const socialImage=new URL('/social-preview.png',siteUrl).href;
 const structuredData={'@context':'https://schema.org','@graph':[
-  {'@type':'WebSite','@id':siteUrl+'/#website',name:'StyloftCSS',url:siteUrl+'/',description:'A modular CSS framework with zero runtime JavaScript.',inLanguage:'en'},
+  {'@type':'WebSite','@id':siteUrl+'/#website',name:'StyloftCSS',alternateName:['Styloft CSS','styloftcss.pages.dev'],url:siteUrl+'/',description:'A modular CSS framework with zero runtime JavaScript.',inLanguage:'en'},
   {'@type':'WebPage','@id':canonical+'#webpage',url:canonical,name:pageTitle,description,isPartOf:{'@id':siteUrl+'/#website'},inLanguage:'en'},
   ...(darkPath==='/'?[{'@type':'SoftwareSourceCode',name:'StyloftCSS',description:'A modular CSS framework with CSS-only components, design tokens and optional component packs.',codeRepository:'https://github.com/ashu4035/StyloftCSS',programmingLanguage:'CSS',license:'https://opensource.org/license/mit',author:{'@type':'Person',name:'Ashish Verma',url:'https://github.com/ashu4035'}}]:[])
 ]};

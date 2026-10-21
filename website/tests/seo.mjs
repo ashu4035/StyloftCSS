@@ -13,7 +13,17 @@ for(const file of pages){
  const title=html.match(/<title>(.*?)<\/title>/)[1];
  assert.ok(html.match(/name="description" content="[^"]+"/),file+' description');
  const data=html.match(/<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/);
- assert.ok(data,file+' schema');assert.equal(JSON.parse(data[1])['@graph'][1].url,expected);
+ assert.ok(data,file+' schema');
+ const graph=JSON.parse(data[1])['@graph'];assert.equal(graph[1].url,expected);
+ const websites=graph.filter(node=>node['@type']==='WebSite');
+ assert.equal(websites.length,1,'One consistent WebSite identity');
+ assert.equal(websites[0].name,'StyloftCSS');assert.equal(websites[0].url,siteUrl+'/');
+ assert.deepEqual(websites[0].alternateName,['Styloft CSS','styloftcss.pages.dev']);
+ assert.ok(html.includes('property="og:site_name" content="StyloftCSS"'));
+ if(route==='/'||route==='/light/'){
+  assert.ok(title.startsWith('StyloftCSS — '),'Homepage title leads with brand');
+  assert.ok(html.includes('StyloftCSS is a modular CSS framework'),'Visible homepage brand description');
+ }
  assert.doesNotMatch(html,/<link[^>]+href="https:\/\/(?:api|cdn)\.fontshare\.com/,'No external render-blocking font CSS');
  assert.equal((html.match(/as="font"/g)||[]).length,2,'Only heading and body fonts preloaded');
  assert.ok(html.includes('property="og:url" content="'+expected+'"'));
