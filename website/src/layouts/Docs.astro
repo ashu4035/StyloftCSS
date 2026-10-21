@@ -6,7 +6,7 @@ const {title,description,active='getting-started',section='components'}=Astro.pr
 <Base title={title} description={description} section={section}>
   <div class="sl-container docs-shell">
     <aside class="docs-sidebar" aria-label="Documentation sidebar">
-      <span class="sidebar-eyebrow">THE FRAMEWORK</span>
+      <a class="docs-search-link" href="/search/">Search components &amp; classes</a><span class="sidebar-eyebrow">THE FRAMEWORK</span><a class="sidebar-link" href="/guides/">Guides &amp; releases</a>
       <a class:list={['sidebar-link',{active:active==='getting-started'}]} href="/getting-started/" aria-current={active==='getting-started'?'page':undefined}>Getting started <span>↗</span></a>
       <a class:list={['sidebar-link',{active:active==='overview'}]} href="/components/" aria-current={active==='overview'?'page':undefined}>All components <span>{components.length}</span></a>
       <a class:list={['sidebar-link',{active:active==='layouts'}]} href="/layouts/" aria-current={active==='layouts'?'page':undefined}>Layout patterns</a>

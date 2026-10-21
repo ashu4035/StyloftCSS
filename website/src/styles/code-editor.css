@@ -48,6 +48,6 @@
 :root[data-theme="dark"] .playground__highlight :is(.punctuation,.comment) { color: #a7b7cf; }
 @media (forced-colors: active) {
  .playground__highlight { display: none; }
- .playground__code-layer textarea { color: CanvasText; -webkit-text-fill-color: CanvasText; caret-color: CanvasText; }
+ .playground__code-layer textarea { color: CanvasText; -webkit-text-fill-color: currentColor; caret-color: CanvasText; background: Canvas; forced-color-adjust: none; }
  .playground__code-layer textarea::selection { background: Highlight; color: HighlightText; -webkit-text-fill-color: HighlightText; }
 }

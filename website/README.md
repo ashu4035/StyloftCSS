@@ -1,7 +1,7 @@
 # StyloftCSS website
 
 An Astro static website, styled with the local StyloftCSS framework. No Bootstrap,
-Tailwind or React UI library. Framework components use CSS and native HTML. The website loads Fontshare fonts and an approved documentation-only playground script. Astro builds static production assets.
+Tailwind or React UI library. Framework components use CSS and native HTML. The website self-hosts Fontshare fonts and includes approved documentation search, action tracking, GA4 and playground scripts. Astro builds static production assets.
 
 ## Local development
 
@@ -58,7 +58,7 @@ Bookmark a light URL to return in light mode. Opening a root URL always starts d
 theme navigation uses no cookie, local storage, or runtime script. `src/pages/light/[...path].astro`
 reuses the original pages, while `src/middleware.ts` and `src/lib/theme.ts` rewrite
 links at build time (and during local development). The site has 25 pages per mode,
-92 static pages total. `src/styles/themes.css` contains the website theme layer.
+96 static pages total. `src/styles/themes.css` contains the website theme layer.
 Theme-preview cards retain their independent explicit light/dark scopes. Hover transitions are CSS-only and enabled only when the
 user has no reduced-motion preference. Native details controls support keyboard
 interaction with no runtime script. Code blocks can be selected and copied normally.
@@ -104,7 +104,7 @@ the pass. Framework distribution files are never pruned. Development mode keeps
 complete source styles; to inspect reduced production transfer, run site:build and
 site:preview from the repository root. Deploy website/dist as a whole.
 
-The catalog has 168 examples across 40 categories, with 46 routes in each mode.
+The catalog has 168 examples across 40 categories, with 48 routes in each mode.
 Expanded snippets are authored in src/data/expanded.ts, including build-time
 grapheme splitting with Intl.Segmenter. Public variants, motion and pixel breakpoints
 come from the optional framework modules, rather than website-only demo classes.
@@ -173,3 +173,6 @@ Live code highlighting: the HTML playground uses Prism syntax colors over a nati
 
 
 HeroUI catalog coverage: 72 names are mapped to StyloftCSS examples or documented native alternatives at `/components/component-reference/`. See [coverage and limitations](../docs/component-reference.md).
+
+
+Search components and 349 generated CSS classes at `/search/`. Installation, two tutorials, complete page templates and versioned ZIP downloads are at `/guides/`. Both routes have light-theme counterparts. Run `npm run site:test:expansion` from the root for search, analytics-event, archive-checksum and representative axe-core accessibility checks. See `docs/improvements.md`, `docs/accessibility.md` and `docs/launch-kit.md` for coverage and publication limits.

@@ -38,3 +38,6 @@ const motion=`
 `;
 const motionCSS=fs.readFileSync(path.join(root,'src/styles/motion.css'),'utf8');
 fs.writeFileSync(path.join(dest,'demo-extensions.css'),'/*! StyloftCSS website demo extensions | MIT | Requires core CSS */\n'+siteCSS.slice(start,end)+motion+motionCSS);
+
+await import('./class-reference.mjs');
+await import('./release.mjs');

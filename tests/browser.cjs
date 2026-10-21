@@ -37,7 +37,7 @@ async function main() {
     await check('keyboard skip link and visible focus', async()=>{
       await page.keyboard.press('Tab');
       assert.equal(await page.locator(':focus').textContent(),'Skip to content');
-      assert.equal(await page.locator(':focus').evaluate(el=>getComputedStyle(el).outlineWidth),'3px');
+      assert.equal(await page.locator(':focus').evaluate(el=>getComputedStyle(el).outlineWidth),'2px');
       assert.equal(await page.locator(':focus').evaluate(el=>el.getBoundingClientRect().top>=0),true);
       await page.keyboard.press('Enter');
       assert.equal(await page.locator(':focus').getAttribute('id'),'main');

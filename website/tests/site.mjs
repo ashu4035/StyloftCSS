@@ -11,9 +11,9 @@ const dist=path.join(root,'dist');
 const out=path.join(root,'test-results');
 fs.mkdirSync(out,{recursive:true});
 const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]);
-const files=walk(dist), pages=files.filter(f=>f.endsWith('.html')&&!/^google[a-f0-9]+\.html$/i.test(path.basename(f)));
+const files=walk(dist), pages=files.filter(f=>f.endsWith('.html')&&!/^google[a-f0-9]+\.html$/i.test(path.basename(f))&&!f.includes(path.sep+'downloads'+path.sep));
 const reference=JSON.parse(fs.readFileSync(path.join(root,'src/data/reference-manifest.json')));
-const expectedPages=50+reference.newCategories.length*2;
+const expectedPages=54+reference.newCategories.length*2;
 assert.equal(pages.length,expectedPages,'every dark page has a light counterpart');
 for(const file of files)if(/\.(m?js|cjs)$/.test(file))assert.equal(path.dirname(file),path.join(dist,'_astro'),'Only bundled documentation scripts');
 for(const file of pages){
@@ -29,8 +29,8 @@ for(const file of pages){
   assert.ok(analytics[1][2].includes("gtag('config', 'G-FXJQZFLQF5')"));
   const executableHtml=html.replace(/<script\b[^>]*data-styloft-analytics[^>]*>[\s\S]*?<\/script>/g,'').replace(/<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/g,'');
   const scripts=[...executableHtml.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)];
-  assert.equal(scripts.length,html.includes('class="example-source"')?1:0,'Only the approved documentation playground script');
-  for(const [,attrs,body] of scripts){assert.ok(attrs.includes('type="module"'));if(!attrs.includes('src=')){assert.ok(body.includes('script-src'));assert.ok(body.includes('Preview updated'));}}
+  assert.equal(scripts.length,html.includes('class="example-source"')?2:1,'Only the approved documentation playground script');
+  for(const [,attrs,body] of scripts){assert.ok(attrs.includes('type="module"'));if(!attrs.includes('src=')){if(body.includes('playground_action')){assert.ok(body.includes('data-search'));assert.ok(body.includes('css_download'));}else{assert.ok(body.includes('script-src'));assert.ok(body.includes('Preview updated'));}}}
   for(const match of html.matchAll(/(?:href|src)="([^"#?]+)(?:[?#][^"]*)?"/g)){
     const link=match[1]; if(!link.startsWith('/'))continue;
     const local=path.join(dist,decodeURIComponent(link));
@@ -63,6 +63,7 @@ try{
   const fresh=async()=>{await page.close();page=await context.newPage();page.on('pageerror',err=>errors.push(err.message));};
   const check=async(name,fn)=>{if(process.env.SITE_CHECK&&!name.includes(process.env.SITE_CHECK))return;await fn();passed.push(name);console.log('PASS '+name);};
   const darkRoutes=['/','/getting-started/','/components/','/layouts/','/themes/','/components/buttons/','/components/cards/','/components/headers/','/components/heroes/','/components/footers/','/components/forms/','/components/accordions/','/components/tables/','/components/grid/','/components/flex/','/components/animations/','/components/feedback/','/components/typography/'];
+  darkRoutes.push('/search/','/guides/');
   darkRoutes.push('/components/editor/','/components/cursors/','/components/tabs/');
   darkRoutes.push(...reference.newCategories.map(slug=>'/components/'+slug+'/'));
   const routes=[...darkRoutes,...darkRoutes.map(route=>'/light'+route)];
@@ -74,7 +75,7 @@ try{
       const response=await page.goto(base+route);assert.equal(response.status(),200,route);
       assert.equal(await page.locator('h1').count(),1,route);
       const ids=await page.locator('[id]').evaluateAll(els=>els.map(el=>el.id));assert.equal(new Set(ids).size,ids.length,'duplicate IDs '+route);
-      assert.equal(await page.locator('script:not([type="application/ld+json"]):not([data-styloft-analytics])').count(),(await page.locator('.example-source').count())>0?1:0);
+      assert.equal(await page.locator('script:not([type="application/ld+json"]):not([data-styloft-analytics])').count(),(await page.locator('.example-source').count())>0?2:1);
       const missing=await page.locator('a[href^="#"]').evaluateAll(els=>els.filter(el=>el.hash&&!document.getElementById(el.hash.slice(1))).map(el=>el.hash));assert.deepEqual(missing,[],route);
     }
     assert.deepEqual(errors,[]);
@@ -333,7 +334,7 @@ try{
       await track.focus();await page.keyboard.press('ArrowRight');await page.waitForTimeout(500);
       assert.ok(await track.evaluate(el=>el.scrollLeft>0),'keyboard scroll');
       assert.equal(await page.locator('#example-3 figcaption').count(),3);
-      assert.equal(await page.locator('script:not([type="application/ld+json"]):not([data-styloft-analytics])').count(),1);
+      assert.equal(await page.locator('script:not([type="application/ld+json"]):not([data-styloft-analytics])').count(),2);
     }
     await page.emulateMedia({reducedMotion:'no-preference'});
   });
@@ -380,6 +381,7 @@ try{
       await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await panel.evaluate(el=>getComputedStyle(el).animationName),'none');
     }
     const touch=await browser.newContext({viewport:{width:375,height:900},isMobile:true,hasTouch:true});
+    await touch.route(/https:\/\/(?:[^/]+\.)?(?:googletagmanager\.com|google-analytics\.com)\//,route=>route.abort());
     try{const p=await touch.newPage();await p.goto(base+'/components/cursors/');assert.equal(await p.locator('body').evaluate(el=>getComputedStyle(el).cursor),'auto');}finally{await touch.close();}
     await page.emulateMedia({forcedColors:'active'});assert.equal(await page.locator('body').evaluate(el=>getComputedStyle(el).cursor),'auto');await page.emulateMedia({forcedColors:'none'});
   });
@@ -517,6 +519,6 @@ try{
   for(const [name,route,width] of [['home-desktop','/',1440],['home-mobile','/',375],['home-light','/light/',1440],['home-light-mobile','/light/',375],['component-cards','/components/cards/',1440],['component-accordion-mobile','/components/accordions/',375],['table-mobile-dark','/components/tables/',375],['table-mobile-light','/light/components/tables/',375]]){
     await page.setViewportSize({width,height:1000});await page.goto(base+route);await page.screenshot({path:path.join(out,name+'.png'),fullPage:true});
   }
-  const report={date:'2026-10-16',browser:browser.version(),builtPages:pages.length,checks:passed.length,passed};
+  const report={date:new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata'}).format(new Date()),browser:browser.version(),builtPages:pages.length,checks:passed.length,passed};
   fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
 }finally{if(browser)await browser.close();await new Promise(resolve=>server.close(resolve));}

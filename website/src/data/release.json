@@ -1,0 +1,10 @@
+{
+  "version": "0.1.0",
+  "status": "release candidate",
+  "archive": "/downloads/releases/0.1.0/styloftcss-0.1.0-b436ccc14e18.zip",
+  "checksum": "/downloads/releases/0.1.0/styloftcss-0.1.0-b436ccc14e18.zip.sha256",
+  "sha256": "b436ccc14e1842008243e1ce13a7a2f66595224881761a2c85216904b5e31e4a",
+  "bytes": 344091,
+  "core": "/downloads/releases/0.1.0/styloft.min.css",
+  "examples": "/downloads/releases/0.1.0/examples/"
+}

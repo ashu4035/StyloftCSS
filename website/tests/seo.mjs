@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {siteUrl} from '../site.config.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../dist');
 const walk=p=>fs.readdirSync(p,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(p,e.name)):[path.join(p,e.name)]);
-const pages=walk(root).filter(p=>p.endsWith('.html')&&!/^google[a-f0-9]+\.html$/i.test(path.basename(p))),canonicalPages=new Set(),titles=new Set();
+const pages=walk(root).filter(p=>p.endsWith('.html')&&!/^google[a-f0-9]+\.html$/i.test(path.basename(p))&&!p.includes(path.sep+'downloads'+path.sep)),canonicalPages=new Set(),titles=new Set();
 for(const file of pages){
  const html=fs.readFileSync(file,'utf8'),route='/'+path.relative(root,file).replaceAll('\\','/').replace(/index\.html$/,'');
  const expected=new URL(route.replace(/^\/light(?=\/)/,'').replace(/^\/404\/$/,'/404.html'),siteUrl).href;

@@ -10,7 +10,7 @@ import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const dist=path.join(root,'dist');
 const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]);
-const pages=walk(dist).filter(f=>f.endsWith('.html')&&!/^google[a-f0-9]+\.html$/i.test(path.basename(f)));
+const pages=walk(dist).filter(f=>f.endsWith('.html')&&!/^google[a-f0-9]+\.html$/i.test(path.basename(f))&&!f.includes(path.sep+'downloads'+path.sep));
 const sources=new Map(),outputs=new Set(),metrics=[];
 const bytes=css=>({bytes:Buffer.byteLength(css),gzipBytes:zlib.gzipSync(css,{level:9}).length});
 for(const file of pages){

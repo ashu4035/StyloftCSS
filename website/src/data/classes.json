@@ -1,0 +1,3598 @@
+[
+  {
+    "name": "sl-alert",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding: 1rem; border: 1px solid var(--sl-border); border-inline-start: .3rem solid var(--sl-accent); border-radius: var(--sl-radius); background: var(--sl-surface)"
+    ]
+  },
+  {
+    "name": "sl-alert--danger",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "border-inline-start-color: var(--sl-danger)"
+    ]
+  },
+  {
+    "name": "sl-auto-grid",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "display: grid; gap: var(--sl-gap, 1rem); grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--sl-card-min, 16rem)), 1fr))"
+    ]
+  },
+  {
+    "name": "sl-avatar",
+    "modules": [
+      "variants"
+    ],
+    "declarations": [
+      "display: inline-grid; place-items: center; inline-size: 3rem; block-size: 3rem; border: 1px solid var(--sl-border); border-radius: 50%; background: var(--sl-soft); color: var(--sl-accent); font-weight: 700"
+    ]
+  },
+  {
+    "name": "sl-avatar-group",
+    "modules": [
+      "media"
+    ],
+    "declarations": [
+      "display: flex; align-items: center; padding-inline-start: .5rem",
+      "margin-inline-start: -.5rem"
+    ]
+  },
+  {
+    "name": "sl-avatar-status",
+    "modules": [
+      "media"
+    ],
+    "declarations": [
+      "position: relative; display: inline-flex",
+      "content: ''; position: absolute; inset-inline-end: .1rem; inset-block-end: .1rem; inline-size: .65rem; block-size: .65rem; border: 2px solid var(--sl-surface); border-radius: 50%; background: var(--sl-success)"
+    ]
+  },
+  {
+    "name": "sl-badge",
+    "modules": [
+      "core",
+      "tables"
+    ],
+    "declarations": [
+      "display: inline-block; padding: .15rem .6rem; border: 1px solid currentColor; border-radius: 100vmax; font-size: var(--sl-text-sm); font-weight: 600; color: var(--sl-accent)",
+      "white-space: normal"
+    ]
+  },
+  {
+    "name": "sl-block",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "display: block"
+    ]
+  },
+  {
+    "name": "sl-bold",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "font-weight: 700"
+    ]
+  },
+  {
+    "name": "sl-breadcrumbs",
+    "modules": [
+      "navigation"
+    ],
+    "declarations": [
+      "display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; list-style: none; padding: 0; margin: 0",
+      "display: inline-flex; align-items: center; gap: .5rem"
+    ]
+  },
+  {
+    "name": "sl-btn",
+    "modules": [
+      "core",
+      "button-fx",
+      "collections",
+      "header",
+      "variants"
+    ],
+    "declarations": [
+      "border-color: ButtonText",
+      "display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-block-size: 2.75rem; padding: .6rem 1.1rem; border: 1px solid transparent; border-radius: var(--sl-radius); background: var(--sl-accent); color: var(--sl-on-accent); text-decoration: none; font-weight: 650; line-height: 1.3; text-align: center",
+      "background: var(--sl-accent-hover)",
+      "position: relative; isolation: isolate; overflow: hidden; min-block-size: 3rem; padding: .8rem 1.4rem; border: 1px solid var(--sl-accent); background: var(--sl-fx-bg,var(--sl-surface)); color: var(--sl-fx-color,var(--sl-accent))",
+      "background: var(--sl-fx-bg,var(--sl-surface)); color: var(--sl-fx-color,var(--sl-accent))",
+      "border: 2px solid transparent",
+      "box-shadow: 0 6px 0 var(--sl-accent-hover)",
+      "transition: color 350ms ease,box-shadow 350ms ease,transform 350ms cubic-bezier(.2,.7,.2,1)",
+      "border-radius: .35rem",
+      "text-underline-offset: .3em",
+      "inline-size: 1.1em; block-size: 1.1em; flex-shrink: 0"
+    ]
+  },
+  {
+    "name": "sl-btn--fill",
+    "modules": [
+      "variants"
+    ],
+    "declarations": [
+      "background: var(--sl-accent); color: var(--sl-on-accent)"
+    ]
+  },
+  {
+    "name": "sl-btn--ghost",
+    "modules": [
+      "variants"
+    ],
+    "declarations": [
+      "background: transparent; color: var(--sl-accent)",
+      "background: var(--sl-soft); color: var(--sl-accent)",
+      "border-color: transparent"
+    ]
+  },
+  {
+    "name": "sl-btn--icon",
+    "modules": [
+      "variants"
+    ],
+    "declarations": [
+      "aspect-ratio: 1; padding: .6rem",
+      "inline-size: 1.1em; block-size: 1.1em; flex-shrink: 0"
+    ]
+  },
+  {
+    "name": "sl-btn--lg",
+    "modules": [
+      "variants"
+    ],
+    "declarations": [
+      "min-block-size: 3.25rem; padding: .85rem 1.5rem; font-size: 1.125rem"
+    ]
+  },
+  {
+    "name": "sl-btn--md",
+    "modules": [
+      "variants"
+    ],
+    "declarations": [
+      "min-block-size: 2.75rem; padding: .6rem 1.1rem; font-size: 1rem"
+    ]
+  },
+  {
+    "name": "sl-btn--outline",
+    "modules": [
+      "core",
+      "variants"
+    ],
+    "declarations": [
+      "background: transparent; border-color: currentColor; color: var(--sl-accent)",
+      "background: var(--sl-soft)",
+      "border-color: transparent"
+    ]
+  },
+  {
+    "name": "sl-btn--pill",
+    "modules": [
+      "variants"
+    ],
+    "declarations": [
+      "border-radius: 100vmax"
+    ]
+  },
+  {
+    "name": "sl-btn--sm",
+    "modules": [
+      "variants"
+    ],
+    "declarations": [
+      "min-block-size: 2.25rem; padding: .4rem .7rem; font-size: .8rem"
+    ]
+  },
+  {
+    "name": "sl-btn--soft",
+    "modules": [
+      "variants"
+    ],
+    "declarations": [
+      "background: var(--sl-soft); color: var(--sl-accent)"
+    ]
+  },
+  {
+    "name": "sl-button-group",
+    "modules": [
+      "collections"
+    ],
+    "declarations": [
+      "display: inline-flex; flex-wrap: wrap; gap: 1px; padding: .25rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background: var(--sl-soft)",
+      "border-radius: .35rem"
+    ]
+  },
+  {
+    "name": "sl-calendar",
+    "modules": [
+      "collections",
+      "colors",
+      "dates",
+      "fields",
+      "media",
+      "navigation",
+      "overlays",
+      "status",
+      "surfaces"
+    ],
+    "declarations": [
+      "transition: background-color 220ms ease,color 220ms ease,border-color 220ms ease,box-shadow 220ms ease,translate 220ms ease,outline-color 220ms ease",
+      "inline-size: 100%; max-inline-size: 26rem; border-collapse: separate; border-spacing: .25rem; table-layout: fixed; text-align: center",
+      "padding: .75rem; font-weight: 650",
+      "font-size: .8rem; color: var(--sl-muted); padding: .5rem 0",
+      "padding: 0",
+      "display: grid; place-items: center; min-block-size: 2.5rem; position: relative; border-radius: var(--sl-radius); cursor: pointer",
+      "position: absolute; inline-size: 1px; block-size: 1px; opacity: 0",
+      "display: grid; place-items: center; inline-size: 100%; min-block-size: 2.5rem; border: 1px solid transparent; border-radius: var(--sl-radius)",
+      "background: var(--sl-accent); color: var(--sl-on-accent)",
+      "outline: 2px solid var(--sl-focus); outline-offset: -2px",
+      "background: var(--sl-soft)"
+    ]
+  },
+  {
+    "name": "sl-card",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding: var(--sl-space-6); background: var(--sl-surface); border: 1px solid var(--sl-border); border-radius: var(--sl-radius-lg)"
+    ]
+  },
+  {
+    "name": "sl-card--accent",
+    "modules": [
+      "variants"
+    ],
+    "declarations": [
+      "border-block-start: .25rem solid var(--sl-accent)"
+    ]
+  },
+  {
+    "name": "sl-card--horizontal",
+    "modules": [
+      "variants"
+    ],
+    "declarations": [
+      "display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem",
+      "flex: 1 1 12rem; min-inline-size: 0"
+    ]
+  },
+  {
+    "name": "sl-card--outline",
+    "modules": [
+      "variants"
+    ],
+    "declarations": [
+      "background: transparent; border: 2px solid var(--sl-border)"
+    ]
+  },
+  {
+    "name": "sl-char",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "display: inline-block",
+      "animation: sl-reveal 1s linear both; animation-timeline: view(block); animation-range: entry 0% entry 50%",
+      "animation-range: entry calc(var(--sl-i,0) * 3%) entry calc(40% + var(--sl-i,0) * 3%)"
+    ]
+  },
+  {
+    "name": "sl-check",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "display: flex; align-items: baseline; gap: .5rem",
+      "accent-color: var(--sl-accent); inline-size: 1.1em; block-size: 1.1em"
+    ]
+  },
+  {
+    "name": "sl-chip",
+    "modules": [
+      "collections",
+      "colors",
+      "dates",
+      "fields",
+      "media",
+      "navigation",
+      "overlays",
+      "status",
+      "surfaces"
+    ],
+    "declarations": [
+      "display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .75rem; border: 1px solid var(--sl-border); border-radius: 99rem; background: var(--sl-soft); font-size: var(--sl-text-sm)",
+      "transition: background-color 220ms ease,color 220ms ease,border-color 220ms ease,box-shadow 220ms ease,translate 220ms ease,outline-color 220ms ease"
+    ]
+  },
+  {
+    "name": "sl-choice",
+    "modules": [
+      "collections",
+      "colors",
+      "dates",
+      "fields",
+      "media",
+      "navigation",
+      "overlays",
+      "status",
+      "surfaces"
+    ],
+    "declarations": [
+      "transition: background-color 220ms ease,color 220ms ease,border-color 220ms ease,box-shadow 220ms ease,translate 220ms ease,outline-color 220ms ease",
+      "display: flex; align-items: center; gap: .65rem; min-block-size: 2.75rem",
+      "inline-size: 1.15rem; block-size: 1.15rem; accent-color: var(--sl-accent); flex-shrink: 0"
+    ]
+  },
+  {
+    "name": "sl-close",
+    "modules": [
+      "collections",
+      "colors",
+      "dates",
+      "fields",
+      "media",
+      "navigation",
+      "overlays",
+      "status",
+      "surfaces"
+    ],
+    "declarations": [
+      "transition: background-color 220ms ease,color 220ms ease,border-color 220ms ease,box-shadow 220ms ease,translate 220ms ease,outline-color 220ms ease",
+      "display: inline-grid; place-items: center; min-inline-size: 2.75rem; min-block-size: 2.75rem; padding: .4rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background: var(--sl-surface); color: var(--sl-text); font: inherit; cursor: pointer",
+      "background: var(--sl-soft)"
+    ]
+  },
+  {
+    "name": "sl-cluster",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "display: flex; flex-wrap: wrap; align-items: center; gap: var(--sl-gap, 1rem)"
+    ]
+  },
+  {
+    "name": "sl-color-area",
+    "modules": [
+      "colors"
+    ],
+    "declarations": [
+      "min-block-size: 12rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background: linear-gradient(to top,#000,transparent),linear-gradient(to right,#fff,transparent),var(--sl-color,#6556dd)"
+    ]
+  },
+  {
+    "name": "sl-color-input",
+    "modules": [
+      "colors"
+    ],
+    "declarations": [
+      "inline-size: 4rem; block-size: 2.75rem; padding: .2rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background: var(--sl-surface)"
+    ]
+  },
+  {
+    "name": "sl-color-range",
+    "modules": [
+      "colors"
+    ],
+    "declarations": [
+      "inline-size: 100%; min-block-size: 2.75rem; accent-color: var(--sl-accent)"
+    ]
+  },
+  {
+    "name": "sl-cols-1",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 1"
+    ]
+  },
+  {
+    "name": "sl-cols-10",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 10"
+    ]
+  },
+  {
+    "name": "sl-cols-11",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 11"
+    ]
+  },
+  {
+    "name": "sl-cols-12",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 12"
+    ]
+  },
+  {
+    "name": "sl-cols-2",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 2"
+    ]
+  },
+  {
+    "name": "sl-cols-3",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 3"
+    ]
+  },
+  {
+    "name": "sl-cols-4",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 4"
+    ]
+  },
+  {
+    "name": "sl-cols-5",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 5"
+    ]
+  },
+  {
+    "name": "sl-cols-6",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 6"
+    ]
+  },
+  {
+    "name": "sl-cols-7",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 7"
+    ]
+  },
+  {
+    "name": "sl-cols-8",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 8"
+    ]
+  },
+  {
+    "name": "sl-cols-9",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 9"
+    ]
+  },
+  {
+    "name": "sl-column",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "flex-direction: column"
+    ]
+  },
+  {
+    "name": "sl-container",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "inline-size: min(100% - 2rem, var(--sl-container)); margin-inline: auto"
+    ]
+  },
+  {
+    "name": "sl-cursor-action",
+    "modules": [
+      "cursor"
+    ],
+    "declarations": [
+      "cursor: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20d%3D%22M7%205v21l6-6%205%209%205-3-5-8h9Z%22%20fill%3D%22%23a78bfa%22%20stroke%3D%22%2306101d%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E\") 7 5, pointer"
+    ]
+  },
+  {
+    "name": "sl-cursor-glow",
+    "modules": [
+      "cursor"
+    ],
+    "declarations": [
+      "transition: border-color 300ms ease,box-shadow 300ms ease",
+      "border-color: var(--sl-accent); box-shadow: inset 0 0 36px var(--sl-soft),0 0 0 3px var(--sl-soft)"
+    ]
+  },
+  {
+    "name": "sl-cursor-grab",
+    "modules": [
+      "cursor"
+    ],
+    "declarations": [
+      "cursor: grab",
+      "cursor: grabbing"
+    ]
+  },
+  {
+    "name": "sl-cursor-precision",
+    "modules": [
+      "cursor"
+    ],
+    "declarations": [
+      "cursor: crosshair"
+    ]
+  },
+  {
+    "name": "sl-cursor-pulse",
+    "modules": [
+      "cursor"
+    ],
+    "declarations": [
+      "animation: sl-cursor-breathe 1400ms steps(1,end) infinite"
+    ]
+  },
+  {
+    "name": "sl-cursor-ring",
+    "modules": [
+      "cursor"
+    ],
+    "declarations": [
+      "--sl-cursor-small: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%2306101d%22%20stroke-width%3D%224%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%2322d3ee%22%20stroke-width%3D%222%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%222%22%20fill%3D%22%2322d3ee%22%20stroke%3D%22%2306101d%22%20stroke-width%3D%221%22%2F%3E%3C%2Fsvg%3E\") 16 16, auto; --sl-cursor-normal: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%2306101d%22%20stroke-width%3D%224%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%2322d3ee%22%20stroke-width%3D%222%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%222%22%20fill%3D%22%2322d3ee%22%20stroke%3D%22%2306101d%22%20stroke-width%3D%221%22%2F%3E%3C%2Fsvg%3E\") 16 16, auto; --sl-cursor-large: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%2306101d%22%20stroke-width%3D%224%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%2322d3ee%22%20stroke-width%3D%222%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%222%22%20fill%3D%22%2322d3ee%22%20stroke%3D%22%2306101d%22%20stroke-width%3D%221%22%2F%3E%3C%2Fsvg%3E\") 16 16, auto; cursor: var(--sl-cursor-normal)"
+    ]
+  },
+  {
+    "name": "sl-cursor-site",
+    "modules": [
+      "cursor"
+    ],
+    "declarations": [
+      "--sl-cursor-small: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%2306101d%22%20stroke-width%3D%224%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%2322d3ee%22%20stroke-width%3D%222%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%222%22%20fill%3D%22%2322d3ee%22%20stroke%3D%22%2306101d%22%20stroke-width%3D%221%22%2F%3E%3C%2Fsvg%3E\") 16 16, auto; --sl-cursor-normal: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%2306101d%22%20stroke-width%3D%224%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%2322d3ee%22%20stroke-width%3D%222%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%222%22%20fill%3D%22%2322d3ee%22%20stroke%3D%22%2306101d%22%20stroke-width%3D%221%22%2F%3E%3C%2Fsvg%3E\") 16 16, auto; --sl-cursor-large: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%2306101d%22%20stroke-width%3D%224%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%2322d3ee%22%20stroke-width%3D%222%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%222%22%20fill%3D%22%2322d3ee%22%20stroke%3D%22%2306101d%22%20stroke-width%3D%221%22%2F%3E%3C%2Fsvg%3E\") 16 16, auto; cursor: var(--sl-cursor-normal)",
+      "cursor: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20d%3D%22M7%205v21l6-6%205%209%205-3-5-8h9Z%22%20fill%3D%22%23a78bfa%22%20stroke%3D%22%2306101d%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E\") 7 5, pointer",
+      "cursor: text",
+      "cursor: not-allowed"
+    ]
+  },
+  {
+    "name": "sl-cursor-text",
+    "modules": [
+      "cursor"
+    ],
+    "declarations": [
+      "cursor: text"
+    ]
+  },
+  {
+    "name": "sl-cursor-zone",
+    "modules": [
+      "cursor"
+    ],
+    "declarations": [
+      "padding: 1.5rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius-lg); background: var(--sl-surface)"
+    ]
+  },
+  {
+    "name": "sl-cursor-zoom",
+    "modules": [
+      "cursor"
+    ],
+    "declarations": [
+      "cursor: zoom-in"
+    ]
+  },
+  {
+    "name": "sl-date-range",
+    "modules": [
+      "dates"
+    ],
+    "declarations": [
+      "display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem",
+      "grid-template-columns: minmax(0,1fr)"
+    ]
+  },
+  {
+    "name": "sl-details",
+    "modules": [
+      "core",
+      "motion"
+    ],
+    "declarations": [
+      "padding: 1rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background: var(--sl-surface)",
+      "display: flex; align-items: center; justify-content: space-between; gap: 1rem; list-style: none; font-weight: 650; cursor: pointer",
+      "display: none",
+      "content: \"\"",
+      "content: \"\"; flex: 0 0 .5rem; inline-size: .5rem; block-size: .5rem; margin-inline-start: auto; margin-inline-end: .2rem; border-inline-end: 2px solid currentColor; border-block-end: 2px solid currentColor; rotate: 45deg",
+      "rotate: 225deg",
+      "padding-block-start: .75rem",
+      "transition: rotate 360ms cubic-bezier(.2,.7,.2,1)",
+      "interpolate-size: allow-keywords",
+      "block-size: 0; overflow: clip; transition: block-size 360ms cubic-bezier(.2,.7,.2,1), content-visibility 360ms allow-discrete",
+      "block-size: auto"
+    ]
+  },
+  {
+    "name": "sl-details--flush",
+    "modules": [
+      "variants"
+    ],
+    "declarations": [
+      "border-inline: 0; border-block-start: 0; border-radius: 0; background: transparent"
+    ]
+  },
+  {
+    "name": "sl-dialog",
+    "modules": [
+      "overlays"
+    ],
+    "declarations": [
+      "inline-size: min(32rem,calc(100% - 2rem)); max-block-size: calc(100dvh - 2rem); padding: 1.5rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius-lg); background: var(--sl-surface); color: var(--sl-text); box-shadow: var(--sl-shadow); overflow: auto",
+      "background: rgb(0 0 0 / .6)",
+      "opacity: 0; transition: opacity 220ms ease,display 220ms allow-discrete,overlay 220ms allow-discrete",
+      "opacity: 1",
+      "opacity: 0"
+    ]
+  },
+  {
+    "name": "sl-dialog__head",
+    "modules": [
+      "overlays"
+    ],
+    "declarations": [
+      "display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-block-end: 1rem"
+    ]
+  },
+  {
+    "name": "sl-down-1023:block",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "display: block"
+    ]
+  },
+  {
+    "name": "sl-down-1023:cols-1",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "--sl-cols: 1"
+    ]
+  },
+  {
+    "name": "sl-down-1023:cols-2",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "--sl-cols: 2"
+    ]
+  },
+  {
+    "name": "sl-down-1023:cols-3",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "--sl-cols: 3"
+    ]
+  },
+  {
+    "name": "sl-down-1023:cols-4",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "--sl-cols: 4"
+    ]
+  },
+  {
+    "name": "sl-down-1023:column",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "flex-direction: column"
+    ]
+  },
+  {
+    "name": "sl-down-1023:hidden",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "display: none"
+    ]
+  },
+  {
+    "name": "sl-down-1200:block",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "display: block"
+    ]
+  },
+  {
+    "name": "sl-down-1200:cols-1",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "--sl-cols: 1"
+    ]
+  },
+  {
+    "name": "sl-down-1200:cols-2",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "--sl-cols: 2"
+    ]
+  },
+  {
+    "name": "sl-down-1200:cols-3",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "--sl-cols: 3"
+    ]
+  },
+  {
+    "name": "sl-down-1200:cols-4",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "--sl-cols: 4"
+    ]
+  },
+  {
+    "name": "sl-down-1200:column",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "flex-direction: column"
+    ]
+  },
+  {
+    "name": "sl-down-1200:hidden",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "display: none"
+    ]
+  },
+  {
+    "name": "sl-down-767:block",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "display: block"
+    ]
+  },
+  {
+    "name": "sl-down-767:cols-1",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "--sl-cols: 1"
+    ]
+  },
+  {
+    "name": "sl-down-767:cols-2",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "--sl-cols: 2"
+    ]
+  },
+  {
+    "name": "sl-down-767:cols-3",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "--sl-cols: 3"
+    ]
+  },
+  {
+    "name": "sl-down-767:cols-4",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "--sl-cols: 4"
+    ]
+  },
+  {
+    "name": "sl-down-767:column",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "flex-direction: column"
+    ]
+  },
+  {
+    "name": "sl-down-767:hidden",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "display: none"
+    ]
+  },
+  {
+    "name": "sl-down-991:block",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "display: block"
+    ]
+  },
+  {
+    "name": "sl-down-991:cols-1",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "--sl-cols: 1"
+    ]
+  },
+  {
+    "name": "sl-down-991:cols-2",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "--sl-cols: 2"
+    ]
+  },
+  {
+    "name": "sl-down-991:cols-3",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "--sl-cols: 3"
+    ]
+  },
+  {
+    "name": "sl-down-991:cols-4",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "--sl-cols: 4"
+    ]
+  },
+  {
+    "name": "sl-down-991:column",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "flex-direction: column"
+    ]
+  },
+  {
+    "name": "sl-down-991:hidden",
+    "modules": [
+      "responsive"
+    ],
+    "declarations": [
+      "display: none"
+    ]
+  },
+  {
+    "name": "sl-drawer",
+    "modules": [
+      "overlays"
+    ],
+    "declarations": [
+      "position: fixed; inset-block: 0; inset-inline-end: 0; margin: 0 0 0 auto; block-size: 100dvh; max-block-size: 100dvh; border-radius: var(--sl-radius-lg) 0 0 var(--sl-radius-lg)",
+      "translate: 100% 0; transition: translate 300ms ease,opacity 220ms ease,display 300ms allow-discrete,overlay 300ms allow-discrete",
+      "translate: 0 0",
+      "translate: 100% 0"
+    ]
+  },
+  {
+    "name": "sl-dropdown",
+    "modules": [
+      "collections"
+    ],
+    "declarations": [
+      "position: relative; inline-size: fit-content; max-inline-size: 100%",
+      "list-style: none; cursor: pointer",
+      "display: none"
+    ]
+  },
+  {
+    "name": "sl-dropdown__items",
+    "modules": [
+      "collections",
+      "colors",
+      "dates",
+      "fields",
+      "media",
+      "navigation",
+      "overlays",
+      "status",
+      "surfaces"
+    ],
+    "declarations": [
+      "display: grid; gap: .3rem; min-inline-size: min(15rem,100%); padding: .65rem; margin-block-start: .5rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background: var(--sl-surface); box-shadow: var(--sl-shadow)",
+      "padding: .55rem .7rem; border-radius: .35rem",
+      "background: var(--sl-soft)",
+      "transition: background-color 220ms ease,color 220ms ease,border-color 220ms ease,box-shadow 220ms ease,translate 220ms ease,outline-color 220ms ease"
+    ]
+  },
+  {
+    "name": "sl-editor",
+    "modules": [
+      "editor"
+    ],
+    "declarations": [
+      "min-inline-size: 0; border: 1px solid var(--sl-border); border-radius: var(--sl-radius-lg); background: var(--sl-surface); color: var(--sl-text)"
+    ]
+  },
+  {
+    "name": "sl-editor__content",
+    "modules": [
+      "editor"
+    ],
+    "declarations": [
+      "min-block-size: 14rem; padding: 1.25rem; overflow-wrap: anywhere; line-height: 1.7; caret-color: var(--sl-accent)",
+      "outline: 2px solid var(--sl-focus); outline-offset: -4px",
+      "margin-block-start: 1rem",
+      "line-height: 1.3",
+      "font-size: var(--sl-text-xl)",
+      "font-size: var(--sl-text-lg)",
+      "padding-inline-start: 1.5rem",
+      "margin-block-start: .25rem",
+      "padding-inline-start: 1rem; border-inline-start: 3px solid var(--sl-accent); color: var(--sl-muted)",
+      "max-inline-size: 100%; overflow: auto; padding: 1rem; border-radius: var(--sl-radius); background: var(--sl-soft)",
+      "max-inline-size: 100%; block-size: auto; border-radius: var(--sl-radius)",
+      "min-block-size: 7rem; padding: 1rem",
+      "min-block-size: 0",
+      "padding: 1rem"
+    ]
+  },
+  {
+    "name": "sl-editor__footer",
+    "modules": [
+      "editor"
+    ],
+    "declarations": [
+      "display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; padding: .75rem 1.25rem; border-block-start: 1px solid var(--sl-border); color: var(--sl-muted); font-size: var(--sl-text-sm)",
+      "padding-inline: 1rem"
+    ]
+  },
+  {
+    "name": "sl-editor__group",
+    "modules": [
+      "editor"
+    ],
+    "declarations": [
+      "display: flex; flex-wrap: wrap; align-items: center; gap: .25rem"
+    ]
+  },
+  {
+    "name": "sl-editor__tool",
+    "modules": [
+      "editor"
+    ],
+    "declarations": [
+      "display: inline-flex; align-items: center; justify-content: center; gap: .4rem; min-inline-size: 2.75rem; min-block-size: 2.75rem; padding: .5rem .7rem; border: 1px solid transparent; border-radius: var(--sl-radius); background: transparent; color: inherit; font: inherit; line-height: 1.2; cursor: pointer",
+      "background: var(--sl-surface); border-color: var(--sl-border); color: var(--sl-accent)",
+      "opacity: .55; cursor: not-allowed",
+      "inline-size: 1.1em; block-size: 1.1em",
+      "transition: background-color 200ms ease,border-color 200ms ease,color 200ms ease"
+    ]
+  },
+  {
+    "name": "sl-editor__toolbar",
+    "modules": [
+      "editor"
+    ],
+    "declarations": [
+      "display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; padding: .65rem; border-block-end: 1px solid var(--sl-border); border-start-start-radius: inherit; border-start-end-radius: inherit; background: var(--sl-soft)"
+    ]
+  },
+  {
+    "name": "sl-editor--compact",
+    "modules": [
+      "editor"
+    ],
+    "declarations": [
+      "min-block-size: 7rem; padding: 1rem"
+    ]
+  },
+  {
+    "name": "sl-editor--invalid",
+    "modules": [
+      "editor"
+    ],
+    "declarations": [
+      "border-color: var(--sl-danger)"
+    ]
+  },
+  {
+    "name": "sl-editor--readonly",
+    "modules": [
+      "editor"
+    ],
+    "declarations": [
+      "min-block-size: 0"
+    ]
+  },
+  {
+    "name": "sl-error",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "color: var(--sl-danger); font-weight: 600"
+    ]
+  },
+  {
+    "name": "sl-field",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "display: grid; gap: .4rem"
+    ]
+  },
+  {
+    "name": "sl-fieldset",
+    "modules": [
+      "fields"
+    ],
+    "declarations": [
+      "min-inline-size: 0; padding: 1.25rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius)",
+      "padding-inline: .4rem; font-weight: 650"
+    ]
+  },
+  {
+    "name": "sl-flex",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "min-inline-size: 0",
+      "display: flex; gap: var(--sl-gap, 1rem)",
+      "display: flex"
+    ]
+  },
+  {
+    "name": "sl-footer",
+    "modules": [
+      "variants"
+    ],
+    "declarations": [
+      "padding: 2rem; background: var(--sl-surface); border-block-start: 1px solid var(--sl-border)"
+    ]
+  },
+  {
+    "name": "sl-fx-arrow",
+    "modules": [
+      "button-fx"
+    ],
+    "declarations": [
+      "display: inline-block; transform: rotate(-45deg)",
+      "transition: transform 400ms cubic-bezier(.2,.7,.2,1)",
+      "transform: translateX(7px) rotate(0)"
+    ]
+  },
+  {
+    "name": "sl-fx-depth",
+    "modules": [
+      "button-fx"
+    ],
+    "declarations": [
+      "--sl-fx-bg: var(--sl-accent); --sl-fx-color: var(--sl-on-accent)",
+      "box-shadow: 0 6px 0 var(--sl-accent-hover)",
+      "transform: translateY(3px); box-shadow: 0 3px 0 var(--sl-accent-hover)",
+      "transform: translateY(6px); box-shadow: none"
+    ]
+  },
+  {
+    "name": "sl-fx-diagonal",
+    "modules": [
+      "button-fx"
+    ],
+    "declarations": [
+      "content: \"\"; position: absolute; z-index: -1; pointer-events: none; background: var(--sl-accent)",
+      "inset: -10% -30%; transform: skewX(-20deg) translateX(-120%)",
+      "transition: transform 450ms cubic-bezier(.2,.7,.2,1)",
+      "transform: skewX(-20deg) translateX(0)",
+      "--sl-fx-color: var(--sl-on-accent)"
+    ]
+  },
+  {
+    "name": "sl-fx-doors",
+    "modules": [
+      "button-fx"
+    ],
+    "declarations": [
+      "--sl-fx-color: var(--sl-on-accent)",
+      "content: \"\"; position: absolute; inset-block: 0; inline-size: 51%; background: var(--sl-accent); z-index: -1; pointer-events: none",
+      "inset-inline-start: 0",
+      "inset-inline-end: 0",
+      "transition: translate 450ms cubic-bezier(.2,.7,.2,1)",
+      "--sl-fx-color: var(--sl-accent)",
+      "translate: -100% 0",
+      "translate: 100% 0"
+    ]
+  },
+  {
+    "name": "sl-fx-frame",
+    "modules": [
+      "button-fx"
+    ],
+    "declarations": [
+      "content: \"\"; position: absolute; inset: 4px; border: 2px solid currentColor; border-radius: .2rem; pointer-events: none",
+      "border-inline: 0; scale: 0 1",
+      "border-block: 0; scale: 1 0",
+      "transition: scale 400ms ease",
+      "scale: 1"
+    ]
+  },
+  {
+    "name": "sl-fx-label",
+    "modules": [
+      "button-fx"
+    ],
+    "declarations": [
+      "display: grid; overflow: hidden",
+      "grid-area: 1/1",
+      "translate: 0 150%",
+      "transition: translate 400ms cubic-bezier(.2,.7,.2,1)",
+      "translate: 0 -150%",
+      "translate: 0 0"
+    ]
+  },
+  {
+    "name": "sl-fx-orbit",
+    "modules": [
+      "button-fx"
+    ],
+    "declarations": [
+      "--sl-fx-bg: linear-gradient(var(--sl-surface),var(--sl-surface)) padding-box,conic-gradient(from var(--sl-orbit),var(--sl-accent),#a78bfa,#38bdf8,var(--sl-accent)) border-box",
+      "border: 2px solid transparent",
+      "animation: sl-orbit 1800ms linear infinite"
+    ]
+  },
+  {
+    "name": "sl-fx-runway",
+    "modules": [
+      "button-fx"
+    ],
+    "declarations": [
+      "transform: translateX(7px) rotate(0)"
+    ]
+  },
+  {
+    "name": "sl-fx-spotlight",
+    "modules": [
+      "button-fx"
+    ],
+    "declarations": [
+      "content: \"\"; position: absolute; z-index: -1; pointer-events: none; background: var(--sl-accent)",
+      "inline-size: 3rem; block-size: 3rem; border-radius: 50%; inset-inline-start: -1.5rem; inset-block-end: -1.5rem; scale: 0",
+      "transition: scale 550ms cubic-bezier(.2,.7,.2,1)",
+      "scale: 12",
+      "--sl-fx-color: var(--sl-on-accent)"
+    ]
+  },
+  {
+    "name": "sl-fx-swap",
+    "modules": [
+      "button-fx"
+    ],
+    "declarations": [
+      "translate: 0 -150%",
+      "translate: 0 0"
+    ]
+  },
+  {
+    "name": "sl-gap-0",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-gap: var(--sl-space-0); gap: var(--sl-space-0)"
+    ]
+  },
+  {
+    "name": "sl-gap-1",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-gap: var(--sl-space-1); gap: var(--sl-space-1)"
+    ]
+  },
+  {
+    "name": "sl-gap-12",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-gap: var(--sl-space-12); gap: var(--sl-space-12)"
+    ]
+  },
+  {
+    "name": "sl-gap-16",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-gap: var(--sl-space-16); gap: var(--sl-space-16)"
+    ]
+  },
+  {
+    "name": "sl-gap-2",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-gap: var(--sl-space-2); gap: var(--sl-space-2)"
+    ]
+  },
+  {
+    "name": "sl-gap-3",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-gap: var(--sl-space-3); gap: var(--sl-space-3)"
+    ]
+  },
+  {
+    "name": "sl-gap-4",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-gap: var(--sl-space-4); gap: var(--sl-space-4)"
+    ]
+  },
+  {
+    "name": "sl-gap-6",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-gap: var(--sl-space-6); gap: var(--sl-space-6)"
+    ]
+  },
+  {
+    "name": "sl-gap-8",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-gap: var(--sl-space-8); gap: var(--sl-space-8)"
+    ]
+  },
+  {
+    "name": "sl-grid",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 1; display: grid; gap: var(--sl-gap, 1rem); grid-template-columns: repeat(var(--sl-cols, 1), minmax(0, 1fr))",
+      "min-inline-size: 0",
+      "display: grid"
+    ]
+  },
+  {
+    "name": "sl-grow",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "flex-grow: 1"
+    ]
+  },
+  {
+    "name": "sl-header",
+    "modules": [
+      "header"
+    ],
+    "declarations": [
+      "container: sl-header / inline-size; border: 1px solid var(--sl-border); border-radius: var(--sl-radius-lg); background: var(--sl-surface); color: var(--sl-text)"
+    ]
+  },
+  {
+    "name": "sl-header__brand",
+    "modules": [
+      "header"
+    ],
+    "declarations": [
+      "display: inline-flex; align-items: center; gap: .5rem; inline-size: fit-content; color: var(--sl-text); font-weight: 750; text-decoration: none; white-space: nowrap",
+      "inline-size: 2rem; block-size: 2rem; object-fit: contain",
+      "color: var(--sl-accent)",
+      "grid-column: 2; grid-row: 1; justify-self: center",
+      "grid-column: 1; grid-row: 1; justify-self: start; align-self: start; margin-block-start: .375rem; position: relative; z-index: 1",
+      "grid-column: 2; justify-self: end"
+    ]
+  },
+  {
+    "name": "sl-header__menu",
+    "modules": [
+      "header"
+    ],
+    "declarations": [
+      "display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: .75rem 1.25rem; min-inline-size: 0",
+      "text-underline-offset: .3em",
+      "justify-content: flex-start",
+      "display: none"
+    ]
+  },
+  {
+    "name": "sl-header__menu--end",
+    "modules": [
+      "header"
+    ],
+    "declarations": [
+      "grid-column: 3; grid-row: 1"
+    ]
+  },
+  {
+    "name": "sl-header__menu--start",
+    "modules": [
+      "header"
+    ],
+    "declarations": [
+      "grid-column: 1; grid-row: 1; justify-content: flex-start"
+    ]
+  },
+  {
+    "name": "sl-header__mobile",
+    "modules": [
+      "header"
+    ],
+    "declarations": [
+      "display: none; min-inline-size: 0",
+      "display: flex; align-items: center; gap: .6rem; inline-size: fit-content; min-block-size: 2.75rem; margin-inline-start: auto; padding: .45rem .75rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); list-style: none; cursor: pointer",
+      "display: none",
+      "transition: rotate 220ms ease",
+      "rotate: 90deg",
+      "interpolate-size: allow-keywords",
+      "block-size: 0; overflow: clip; transition: block-size 300ms ease,content-visibility 300ms allow-discrete",
+      "block-size: auto",
+      "display: block; grid-column: 1 / -1; grid-row: 1",
+      "margin-inline-start: 0; margin-inline-end: auto"
+    ]
+  },
+  {
+    "name": "sl-header__mobile-nav",
+    "modules": [
+      "header"
+    ],
+    "declarations": [
+      "display: flex; flex-direction: column; gap: .4rem; padding: .75rem .3rem .3rem",
+      "padding: .65rem .75rem; border-radius: var(--sl-radius); color: var(--sl-accent)",
+      "background: var(--sl-soft)",
+      "transition: background-color 180ms ease,color 180ms ease"
+    ]
+  },
+  {
+    "name": "sl-header__row",
+    "modules": [
+      "header"
+    ],
+    "declarations": [
+      "display: grid; grid-template-columns: auto minmax(0,1fr); align-items: center; gap: 1.5rem; padding: 1rem",
+      "grid-template-columns: minmax(0,1fr) auto",
+      "grid-template-columns: minmax(0,1fr) auto minmax(0,1fr)",
+      "grid-template-columns: minmax(0,1fr) auto; gap: 0; align-items: start",
+      "display: none",
+      "grid-column: 1; grid-row: 1; justify-self: start; align-self: start; margin-block-start: .375rem; position: relative; z-index: 1"
+    ]
+  },
+  {
+    "name": "sl-header__top",
+    "modules": [
+      "header"
+    ],
+    "declarations": [
+      "display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem; padding: .65rem 1rem; border-block-end: 1px solid var(--sl-border); border-start-start-radius: inherit; border-start-end-radius: inherit; background: var(--sl-soft); font-size: var(--sl-text-sm)",
+      "display: flex; flex-wrap: wrap; gap: .5rem 1rem"
+    ]
+  },
+  {
+    "name": "sl-header--center",
+    "modules": [
+      "header"
+    ],
+    "declarations": [
+      "grid-template-columns: minmax(0,1fr) auto minmax(0,1fr)",
+      "grid-column: 2; grid-row: 1; justify-self: center",
+      "grid-column: 1; grid-row: 1; justify-content: flex-start",
+      "grid-column: 3; grid-row: 1",
+      "grid-template-columns: minmax(0,1fr) auto; gap: 0; align-items: start",
+      "grid-column: 1; grid-row: 1; justify-self: start; align-self: start; margin-block-start: .375rem; position: relative; z-index: 1"
+    ]
+  },
+  {
+    "name": "sl-header--reverse",
+    "modules": [
+      "header"
+    ],
+    "declarations": [
+      "grid-template-columns: minmax(0,1fr) auto",
+      "justify-content: flex-start",
+      "grid-template-columns: minmax(0,1fr) auto; gap: 0; align-items: start",
+      "grid-column: 2; justify-self: end",
+      "margin-inline-start: 0; margin-inline-end: auto"
+    ]
+  },
+  {
+    "name": "sl-help",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "font-size: var(--sl-text-sm); color: var(--sl-muted)"
+    ]
+  },
+  {
+    "name": "sl-hidden",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "display: none"
+    ]
+  },
+  {
+    "name": "sl-hover-fill",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "position: relative",
+      "background: linear-gradient(var(--sl-accent),var(--sl-accent)) 0 100% / 100% 0 no-repeat; color: var(--sl-accent); border: 1px solid currentColor",
+      "transition: transform 300ms cubic-bezier(.2,.7,.2,1), box-shadow 300ms ease, border-color 300ms ease, background-size 300ms ease, color 300ms ease",
+      "background-image: linear-gradient(var(--sl-accent),var(--sl-accent)); background-color: transparent; background-size: 100% 100%; color: var(--sl-on-accent)"
+    ]
+  },
+  {
+    "name": "sl-hover-glow",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "position: relative",
+      "transition: transform 300ms cubic-bezier(.2,.7,.2,1), box-shadow 300ms ease, border-color 300ms ease, background-size 300ms ease, color 300ms ease",
+      "box-shadow: 0 0 0 4px var(--sl-soft),0 0 28px var(--sl-soft); border-color: var(--sl-accent)"
+    ]
+  },
+  {
+    "name": "sl-hover-lift",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "position: relative",
+      "transition: transform 300ms cubic-bezier(.2,.7,.2,1), box-shadow 300ms ease, border-color 300ms ease, background-size 300ms ease, color 300ms ease",
+      "transform: translateY(-6px); box-shadow: 0 16px 32px rgb(0 0 0 / .14)"
+    ]
+  },
+  {
+    "name": "sl-hover-sheen",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "position: relative",
+      "overflow: hidden; isolation: isolate",
+      "content: \"\"; position: absolute; inset: -50%; background: linear-gradient(110deg,transparent 35%,rgb(255 255 255 / .3) 50%,transparent 65%); translate: -80% 0; pointer-events: none",
+      "transition: transform 300ms cubic-bezier(.2,.7,.2,1), box-shadow 300ms ease, border-color 300ms ease, background-size 300ms ease, color 300ms ease",
+      "transition: translate 550ms ease",
+      "translate: 80% 0"
+    ]
+  },
+  {
+    "name": "sl-hover-tilt",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "position: relative",
+      "transition: transform 300ms cubic-bezier(.2,.7,.2,1), box-shadow 300ms ease, border-color 300ms ease, background-size 300ms ease, color 300ms ease",
+      "transform: perspective(800px) rotateX(3deg) rotateY(-3deg)"
+    ]
+  },
+  {
+    "name": "sl-hover-zoom",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "position: relative",
+      "transition: transform 300ms cubic-bezier(.2,.7,.2,1), box-shadow 300ms ease, border-color 300ms ease, background-size 300ms ease, color 300ms ease",
+      "transform: scale(1.025)"
+    ]
+  },
+  {
+    "name": "sl-input",
+    "modules": [
+      "core",
+      "fields",
+      "select"
+    ],
+    "declarations": [
+      "inline-size: 100%; min-block-size: 2.75rem; padding: .6rem .75rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background: var(--sl-surface); color: var(--sl-text)",
+      "border-color: var(--sl-focus); outline: 1px solid var(--sl-focus); outline-offset: 1px",
+      "color: var(--sl-muted); opacity: 1",
+      "border: 2px solid var(--sl-danger)",
+      "min-inline-size: 0; border: 0; background: transparent",
+      "inline-size: 100%; min-block-size: 2.75rem; padding: .6rem 2.5rem .6rem .8rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background-color: var(--sl-surface); color: var(--sl-text); font: inherit; line-height: 1.4; appearance: none; background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%23818ca4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\"); background-repeat: no-repeat; background-position: right .8rem center; cursor: pointer",
+      "border-color: var(--sl-accent)",
+      "background: var(--sl-surface); color: var(--sl-text)",
+      "min-block-size: 9rem; padding: .5rem; background-image: none",
+      "padding: .5rem .75rem; border-radius: .35rem",
+      "appearance: base-select",
+      "background-image: none; padding-inline-end: .8rem; align-items: center",
+      "color: var(--sl-muted)",
+      "rotate: 180deg",
+      "margin-block-start: .4rem; padding: .35rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background: var(--sl-surface); color: var(--sl-text); box-shadow: var(--sl-shadow); max-block-size: 18rem",
+      "padding: .65rem .8rem; gap: .75rem; border-radius: .35rem",
+      "background: var(--sl-soft); color: var(--sl-accent)",
+      "color: var(--sl-accent)",
+      "transition: rotate 200ms ease",
+      "opacity: 0; translate: 0 -.25rem; transition: opacity 180ms ease,translate 180ms ease,display 180ms allow-discrete,overlay 180ms allow-discrete",
+      "opacity: 1; translate: 0 0",
+      "opacity: 0; translate: 0 -.25rem",
+      "transition: background-color 160ms ease,color 160ms ease",
+      "transition: border-color 180ms ease,background-color 180ms ease,color 180ms ease,outline-color 180ms ease",
+      "appearance: auto; background-image: none"
+    ]
+  },
+  {
+    "name": "sl-input-group",
+    "modules": [
+      "fields"
+    ],
+    "declarations": [
+      "display: flex; align-items: center; min-inline-size: 0; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background: var(--sl-surface)",
+      "padding: .65rem .8rem; color: var(--sl-muted)",
+      "min-inline-size: 0; border: 0; background: transparent",
+      "border-color: var(--sl-focus)"
+    ]
+  },
+  {
+    "name": "sl-items-center",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "align-items: center"
+    ]
+  },
+  {
+    "name": "sl-items-start",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "align-items: flex-start"
+    ]
+  },
+  {
+    "name": "sl-justify-between",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "justify-content: space-between"
+    ]
+  },
+  {
+    "name": "sl-justify-center",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "justify-content: center"
+    ]
+  },
+  {
+    "name": "sl-kbd",
+    "modules": [
+      "surfaces"
+    ],
+    "declarations": [
+      "display: inline-block; padding: .2rem .5rem; border: 1px solid var(--sl-border); border-block-end-width: 3px; border-radius: .35rem; background: var(--sl-soft); color: var(--sl-text); font: .85em var(--sl-mono)"
+    ]
+  },
+  {
+    "name": "sl-label",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "font-weight: 650"
+    ]
+  },
+  {
+    "name": "sl-lg:block",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "display: block"
+    ]
+  },
+  {
+    "name": "sl-lg:cols-1",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 1"
+    ]
+  },
+  {
+    "name": "sl-lg:cols-10",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 10"
+    ]
+  },
+  {
+    "name": "sl-lg:cols-11",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 11"
+    ]
+  },
+  {
+    "name": "sl-lg:cols-12",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 12"
+    ]
+  },
+  {
+    "name": "sl-lg:cols-2",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 2"
+    ]
+  },
+  {
+    "name": "sl-lg:cols-3",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 3"
+    ]
+  },
+  {
+    "name": "sl-lg:cols-4",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 4"
+    ]
+  },
+  {
+    "name": "sl-lg:cols-5",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 5"
+    ]
+  },
+  {
+    "name": "sl-lg:cols-6",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 6"
+    ]
+  },
+  {
+    "name": "sl-lg:cols-7",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 7"
+    ]
+  },
+  {
+    "name": "sl-lg:cols-8",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 8"
+    ]
+  },
+  {
+    "name": "sl-lg:cols-9",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 9"
+    ]
+  },
+  {
+    "name": "sl-lg:column",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "flex-direction: column"
+    ]
+  },
+  {
+    "name": "sl-lg:flex",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "display: flex"
+    ]
+  },
+  {
+    "name": "sl-lg:grid",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "display: grid"
+    ]
+  },
+  {
+    "name": "sl-lg:hidden",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "display: none"
+    ]
+  },
+  {
+    "name": "sl-lg:row",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "flex-direction: row"
+    ]
+  },
+  {
+    "name": "sl-link",
+    "modules": [
+      "variants"
+    ],
+    "declarations": [
+      "display: inline-flex; align-items: center; gap: .4em; text-underline-offset: .25em",
+      "inline-size: 1.1em; block-size: 1.1em; flex-shrink: 0"
+    ]
+  },
+  {
+    "name": "sl-link--underline",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "background: linear-gradient(currentColor,currentColor) 0 100% / 0 2px no-repeat; text-decoration: none; padding-block-end: .2em",
+      "transition: transform 300ms cubic-bezier(.2,.7,.2,1), box-shadow 300ms ease, border-color 300ms ease, background-size 300ms ease, color 300ms ease",
+      "background-size: 100% 2px"
+    ]
+  },
+  {
+    "name": "sl-listbox",
+    "modules": [
+      "collections",
+      "colors",
+      "dates",
+      "fields",
+      "media",
+      "navigation",
+      "overlays",
+      "status",
+      "surfaces"
+    ],
+    "declarations": [
+      "inline-size: 100%; min-block-size: 12rem; padding: .4rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background: var(--sl-surface); color: var(--sl-text); font: inherit",
+      "padding: .65rem .8rem; border-radius: .35rem",
+      "background: var(--sl-soft); color: var(--sl-accent)",
+      "transition: background-color 220ms ease,color 220ms ease,border-color 220ms ease,box-shadow 220ms ease,translate 220ms ease,outline-color 220ms ease"
+    ]
+  },
+  {
+    "name": "sl-loading",
+    "modules": [
+      "status"
+    ],
+    "declarations": [
+      "display: inline-block; inline-size: 1.5rem; block-size: 1.5rem; border: .2rem solid var(--sl-soft); border-block-start-color: var(--sl-accent); border-radius: 50%",
+      "animation: sl-loading-spin 900ms linear infinite"
+    ]
+  },
+  {
+    "name": "sl-m-0",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin: var(--sl-space-0)"
+    ]
+  },
+  {
+    "name": "sl-m-1",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin: var(--sl-space-1)"
+    ]
+  },
+  {
+    "name": "sl-m-12",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin: var(--sl-space-12)"
+    ]
+  },
+  {
+    "name": "sl-m-16",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin: var(--sl-space-16)"
+    ]
+  },
+  {
+    "name": "sl-m-2",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin: var(--sl-space-2)"
+    ]
+  },
+  {
+    "name": "sl-m-3",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin: var(--sl-space-3)"
+    ]
+  },
+  {
+    "name": "sl-m-4",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin: var(--sl-space-4)"
+    ]
+  },
+  {
+    "name": "sl-m-6",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin: var(--sl-space-6)"
+    ]
+  },
+  {
+    "name": "sl-m-8",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin: var(--sl-space-8)"
+    ]
+  },
+  {
+    "name": "sl-md:block",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "display: block"
+    ]
+  },
+  {
+    "name": "sl-md:cols-1",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 1"
+    ]
+  },
+  {
+    "name": "sl-md:cols-10",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 10"
+    ]
+  },
+  {
+    "name": "sl-md:cols-11",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 11"
+    ]
+  },
+  {
+    "name": "sl-md:cols-12",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 12"
+    ]
+  },
+  {
+    "name": "sl-md:cols-2",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 2"
+    ]
+  },
+  {
+    "name": "sl-md:cols-3",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 3"
+    ]
+  },
+  {
+    "name": "sl-md:cols-4",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 4"
+    ]
+  },
+  {
+    "name": "sl-md:cols-5",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 5"
+    ]
+  },
+  {
+    "name": "sl-md:cols-6",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 6"
+    ]
+  },
+  {
+    "name": "sl-md:cols-7",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 7"
+    ]
+  },
+  {
+    "name": "sl-md:cols-8",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 8"
+    ]
+  },
+  {
+    "name": "sl-md:cols-9",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 9"
+    ]
+  },
+  {
+    "name": "sl-md:column",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "flex-direction: column"
+    ]
+  },
+  {
+    "name": "sl-md:flex",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "display: flex"
+    ]
+  },
+  {
+    "name": "sl-md:grid",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "display: grid"
+    ]
+  },
+  {
+    "name": "sl-md:hidden",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "display: none"
+    ]
+  },
+  {
+    "name": "sl-md:row",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "flex-direction: row"
+    ]
+  },
+  {
+    "name": "sl-measure",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "max-inline-size: var(--sl-measure)"
+    ]
+  },
+  {
+    "name": "sl-meter",
+    "modules": [
+      "status"
+    ],
+    "declarations": [
+      "inline-size: 100%; block-size: 1.25rem; accent-color: var(--sl-accent)"
+    ]
+  },
+  {
+    "name": "sl-mx-0",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-inline: var(--sl-space-0)"
+    ]
+  },
+  {
+    "name": "sl-mx-1",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-inline: var(--sl-space-1)"
+    ]
+  },
+  {
+    "name": "sl-mx-12",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-inline: var(--sl-space-12)"
+    ]
+  },
+  {
+    "name": "sl-mx-16",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-inline: var(--sl-space-16)"
+    ]
+  },
+  {
+    "name": "sl-mx-2",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-inline: var(--sl-space-2)"
+    ]
+  },
+  {
+    "name": "sl-mx-3",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-inline: var(--sl-space-3)"
+    ]
+  },
+  {
+    "name": "sl-mx-4",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-inline: var(--sl-space-4)"
+    ]
+  },
+  {
+    "name": "sl-mx-6",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-inline: var(--sl-space-6)"
+    ]
+  },
+  {
+    "name": "sl-mx-8",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-inline: var(--sl-space-8)"
+    ]
+  },
+  {
+    "name": "sl-mx-auto",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-inline: auto"
+    ]
+  },
+  {
+    "name": "sl-my-0",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-block: var(--sl-space-0)"
+    ]
+  },
+  {
+    "name": "sl-my-1",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-block: var(--sl-space-1)"
+    ]
+  },
+  {
+    "name": "sl-my-12",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-block: var(--sl-space-12)"
+    ]
+  },
+  {
+    "name": "sl-my-16",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-block: var(--sl-space-16)"
+    ]
+  },
+  {
+    "name": "sl-my-2",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-block: var(--sl-space-2)"
+    ]
+  },
+  {
+    "name": "sl-my-3",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-block: var(--sl-space-3)"
+    ]
+  },
+  {
+    "name": "sl-my-4",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-block: var(--sl-space-4)"
+    ]
+  },
+  {
+    "name": "sl-my-6",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-block: var(--sl-space-6)"
+    ]
+  },
+  {
+    "name": "sl-my-8",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-block: var(--sl-space-8)"
+    ]
+  },
+  {
+    "name": "sl-nav",
+    "modules": [
+      "variants"
+    ],
+    "declarations": [
+      "display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem; background: var(--sl-surface); border: 1px solid var(--sl-border); border-radius: var(--sl-radius)"
+    ]
+  },
+  {
+    "name": "sl-otp",
+    "modules": [
+      "fields"
+    ],
+    "declarations": [
+      "font-family: var(--sl-mono); letter-spacing: .65em; max-inline-size: 18rem"
+    ]
+  },
+  {
+    "name": "sl-p-0",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding: var(--sl-space-0)"
+    ]
+  },
+  {
+    "name": "sl-p-1",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding: var(--sl-space-1)"
+    ]
+  },
+  {
+    "name": "sl-p-12",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding: var(--sl-space-12)"
+    ]
+  },
+  {
+    "name": "sl-p-16",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding: var(--sl-space-16)"
+    ]
+  },
+  {
+    "name": "sl-p-2",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding: var(--sl-space-2)"
+    ]
+  },
+  {
+    "name": "sl-p-3",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding: var(--sl-space-3)"
+    ]
+  },
+  {
+    "name": "sl-p-4",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding: var(--sl-space-4)"
+    ]
+  },
+  {
+    "name": "sl-p-6",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding: var(--sl-space-6)"
+    ]
+  },
+  {
+    "name": "sl-p-8",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding: var(--sl-space-8)"
+    ]
+  },
+  {
+    "name": "sl-pagination",
+    "modules": [
+      "collections",
+      "colors",
+      "dates",
+      "fields",
+      "media",
+      "navigation",
+      "overlays",
+      "status",
+      "surfaces"
+    ],
+    "declarations": [
+      "transition: background-color 220ms ease,color 220ms ease,border-color 220ms ease,box-shadow 220ms ease,translate 220ms ease,outline-color 220ms ease",
+      "display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; list-style: none; padding: 0; margin: 0",
+      "display: inline-grid; place-items: center; min-inline-size: 2.75rem; min-block-size: 2.75rem; padding: .4rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); text-decoration: none",
+      "background: var(--sl-accent); color: var(--sl-on-accent)",
+      "background: var(--sl-soft); color: var(--sl-accent)"
+    ]
+  },
+  {
+    "name": "sl-panel",
+    "modules": [
+      "collections",
+      "colors",
+      "dates",
+      "fields",
+      "media",
+      "navigation",
+      "overlays",
+      "status",
+      "surfaces"
+    ],
+    "declarations": [
+      "transition: background-color 220ms ease,color 220ms ease,border-color 220ms ease,box-shadow 220ms ease,translate 220ms ease,outline-color 220ms ease",
+      "min-inline-size: 0; padding: 1.5rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius-lg); background: var(--sl-surface); color: var(--sl-text)"
+    ]
+  },
+  {
+    "name": "sl-panel--soft",
+    "modules": [
+      "surfaces"
+    ],
+    "declarations": [
+      "background: var(--sl-soft)"
+    ]
+  },
+  {
+    "name": "sl-parallax",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "animation: sl-reveal 1s linear both; animation-timeline: view(block); animation-range: entry 0% entry 50%",
+      "animation-name: sl-parallax; animation-range: cover 0% cover 100%",
+      "animation-play-state: paused"
+    ]
+  },
+  {
+    "name": "sl-person",
+    "modules": [
+      "collections",
+      "colors",
+      "dates",
+      "fields",
+      "media",
+      "navigation",
+      "overlays",
+      "status",
+      "surfaces"
+    ],
+    "declarations": [
+      "transition: background-color 220ms ease,color 220ms ease,border-color 220ms ease,box-shadow 220ms ease,translate 220ms ease,outline-color 220ms ease",
+      "display: inline-grid; place-items: center; inline-size: 3rem; block-size: 3rem; flex-shrink: 0; border: 2px solid var(--sl-surface); border-radius: 50%; background: var(--sl-soft); color: var(--sl-accent); font-weight: 650; overflow: hidden",
+      "margin-inline-start: -.5rem"
+    ]
+  },
+  {
+    "name": "sl-person--lg",
+    "modules": [
+      "media"
+    ],
+    "declarations": [
+      "inline-size: 4rem; block-size: 4rem"
+    ]
+  },
+  {
+    "name": "sl-person--sm",
+    "modules": [
+      "media"
+    ],
+    "declarations": [
+      "inline-size: 2.25rem; block-size: 2.25rem"
+    ]
+  },
+  {
+    "name": "sl-popover",
+    "modules": [
+      "overlays"
+    ],
+    "declarations": [
+      "position: fixed; inset: 20vh auto auto 50%; translate: -50% 0; inline-size: min(22rem,calc(100% - 2rem)); padding: 1.25rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background: var(--sl-surface); color: var(--sl-text); box-shadow: var(--sl-shadow)",
+      "inset: auto; position-area: bottom; position-try-fallbacks: flip-block; translate: 0 0; margin: .5rem 0",
+      "opacity: 0; transition: opacity 220ms ease,display 220ms allow-discrete,overlay 220ms allow-discrete",
+      "opacity: 1",
+      "opacity: 0"
+    ]
+  },
+  {
+    "name": "sl-progress",
+    "modules": [
+      "status"
+    ],
+    "declarations": [
+      "inline-size: 100%; block-size: .75rem; accent-color: var(--sl-accent); border: 0; border-radius: 99rem; overflow: hidden",
+      "background: var(--sl-soft)",
+      "background: var(--sl-accent)"
+    ]
+  },
+  {
+    "name": "sl-progress-circle",
+    "modules": [
+      "status"
+    ],
+    "declarations": [
+      "display: grid; place-items: center; inline-size: 6rem; block-size: 6rem; position: relative; border-radius: 50%; background: conic-gradient(var(--sl-accent) var(--sl-progress,60%),var(--sl-soft) 0)",
+      "content: ''; position: absolute; inset: .5rem; border-radius: 50%; background: var(--sl-surface)",
+      "position: relative; font-weight: 650"
+    ]
+  },
+  {
+    "name": "sl-prose",
+    "modules": [
+      "prose"
+    ],
+    "declarations": [
+      "max-inline-size: var(--sl-measure)",
+      "margin-block-start: 1.25em",
+      "padding-inline-start: 1.5em",
+      "margin-block-start: .4em",
+      "border-inline-start: .25rem solid var(--sl-accent); padding-inline-start: 1rem; color: var(--sl-muted)",
+      "padding: .1em .3em; border-radius: .25rem; background: var(--sl-soft)"
+    ]
+  },
+  {
+    "name": "sl-px-0",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding-inline: var(--sl-space-0)"
+    ]
+  },
+  {
+    "name": "sl-px-1",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding-inline: var(--sl-space-1)"
+    ]
+  },
+  {
+    "name": "sl-px-12",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding-inline: var(--sl-space-12)"
+    ]
+  },
+  {
+    "name": "sl-px-16",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding-inline: var(--sl-space-16)"
+    ]
+  },
+  {
+    "name": "sl-px-2",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding-inline: var(--sl-space-2)"
+    ]
+  },
+  {
+    "name": "sl-px-3",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding-inline: var(--sl-space-3)"
+    ]
+  },
+  {
+    "name": "sl-px-4",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding-inline: var(--sl-space-4)"
+    ]
+  },
+  {
+    "name": "sl-px-6",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding-inline: var(--sl-space-6)"
+    ]
+  },
+  {
+    "name": "sl-px-8",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding-inline: var(--sl-space-8)"
+    ]
+  },
+  {
+    "name": "sl-py-0",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding-block: var(--sl-space-0)"
+    ]
+  },
+  {
+    "name": "sl-py-1",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding-block: var(--sl-space-1)"
+    ]
+  },
+  {
+    "name": "sl-py-12",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding-block: var(--sl-space-12)"
+    ]
+  },
+  {
+    "name": "sl-py-16",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding-block: var(--sl-space-16)"
+    ]
+  },
+  {
+    "name": "sl-py-2",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding-block: var(--sl-space-2)"
+    ]
+  },
+  {
+    "name": "sl-py-3",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding-block: var(--sl-space-3)"
+    ]
+  },
+  {
+    "name": "sl-py-4",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding-block: var(--sl-space-4)"
+    ]
+  },
+  {
+    "name": "sl-py-6",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding-block: var(--sl-space-6)"
+    ]
+  },
+  {
+    "name": "sl-py-8",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "padding-block: var(--sl-space-8)"
+    ]
+  },
+  {
+    "name": "sl-range",
+    "modules": [
+      "slider"
+    ],
+    "declarations": [
+      "inline-size: 100%; min-block-size: 2.75rem; accent-color: var(--sl-accent)"
+    ]
+  },
+  {
+    "name": "sl-reveal",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "animation: sl-reveal 1s linear both; animation-timeline: view(block); animation-range: entry 0% entry 50%",
+      "animation-play-state: paused"
+    ]
+  },
+  {
+    "name": "sl-reveal-left",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "animation: sl-reveal 1s linear both; animation-timeline: view(block); animation-range: entry 0% entry 50%",
+      "animation-name: sl-slide-left",
+      "animation-play-state: paused"
+    ]
+  },
+  {
+    "name": "sl-reveal-scale",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "animation: sl-reveal 1s linear both; animation-timeline: view(block); animation-range: entry 0% entry 50%",
+      "animation-name: sl-scale-in",
+      "animation-play-state: paused"
+    ]
+  },
+  {
+    "name": "sl-reveal-text",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "animation: sl-reveal 1s linear both; animation-timeline: view(block); animation-range: entry 0% entry 50%",
+      "animation-name: sl-text-mask",
+      "animation-play-state: paused"
+    ]
+  },
+  {
+    "name": "sl-rounded",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "border-radius: var(--sl-radius)"
+    ]
+  },
+  {
+    "name": "sl-row",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "flex-direction: row"
+    ]
+  },
+  {
+    "name": "sl-scene",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; align-items: start",
+      "grid-template-columns: minmax(0,1fr)"
+    ]
+  },
+  {
+    "name": "sl-scene__step",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "min-block-size: 40vh; padding-block: 2rem"
+    ]
+  },
+  {
+    "name": "sl-scene__visual",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "position: sticky; top: 6rem; padding: 2rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius-lg); background: var(--sl-soft)",
+      "position: static"
+    ]
+  },
+  {
+    "name": "sl-scroll-progress",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "block-size: .3rem; background: var(--sl-accent); transform-origin: left",
+      "animation: sl-progress 1s linear both; animation-timeline: scroll(root block)"
+    ]
+  },
+  {
+    "name": "sl-scroll-shadow",
+    "modules": [
+      "surfaces"
+    ],
+    "declarations": [
+      "max-block-size: 12rem; overflow: auto; padding: 1rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background: linear-gradient(var(--sl-surface) 30%,transparent) center top,linear-gradient(transparent,var(--sl-surface) 70%) center bottom,radial-gradient(farthest-side at 50% 0,rgb(0 0 0 / .22),transparent) center top,radial-gradient(farthest-side at 50% 100%,rgb(0 0 0 / .22),transparent) center bottom; background-repeat: no-repeat; background-size: 100% 2rem,100% 2rem,100% .8rem,100% .8rem; background-attachment: local,local,scroll,scroll"
+    ]
+  },
+  {
+    "name": "sl-select",
+    "modules": [
+      "select"
+    ],
+    "declarations": [
+      "inline-size: 100%; min-block-size: 2.75rem; padding: .6rem 2.5rem .6rem .8rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background-color: var(--sl-surface); color: var(--sl-text); font: inherit; line-height: 1.4; appearance: none; background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%23818ca4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\"); background-repeat: no-repeat; background-position: right .8rem center; cursor: pointer",
+      "border-color: var(--sl-accent)",
+      "border-color: var(--sl-focus); outline: 1px solid var(--sl-focus); outline-offset: 1px",
+      "background: var(--sl-surface); color: var(--sl-text)",
+      "min-block-size: 9rem; padding: .5rem; background-image: none",
+      "padding: .5rem .75rem; border-radius: .35rem",
+      "appearance: base-select",
+      "background-image: none; padding-inline-end: .8rem; align-items: center",
+      "color: var(--sl-muted)",
+      "rotate: 180deg",
+      "margin-block-start: .4rem; padding: .35rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background: var(--sl-surface); color: var(--sl-text); box-shadow: var(--sl-shadow); max-block-size: 18rem",
+      "padding: .65rem .8rem; gap: .75rem; border-radius: .35rem",
+      "background: var(--sl-soft); color: var(--sl-accent)",
+      "color: var(--sl-accent)",
+      "transition: rotate 200ms ease",
+      "opacity: 0; translate: 0 -.25rem; transition: opacity 180ms ease,translate 180ms ease,display 180ms allow-discrete,overlay 180ms allow-discrete",
+      "opacity: 1; translate: 0 0",
+      "opacity: 0; translate: 0 -.25rem",
+      "transition: background-color 160ms ease,color 160ms ease",
+      "transition: border-color 180ms ease,background-color 180ms ease,color 180ms ease,outline-color 180ms ease",
+      "appearance: auto; background-image: none"
+    ]
+  },
+  {
+    "name": "sl-separator",
+    "modules": [
+      "surfaces"
+    ],
+    "declarations": [
+      "border: 0; border-block-start: 1px solid var(--sl-border); margin-block: 1rem"
+    ]
+  },
+  {
+    "name": "sl-shadow",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "box-shadow: var(--sl-shadow)"
+    ]
+  },
+  {
+    "name": "sl-sidebar",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "display: flex; flex-wrap: wrap; gap: var(--sl-gap, 1.5rem)",
+      "flex: 1 1 15rem",
+      "flex: 999 1 50%; min-inline-size: min(100%, 20rem)"
+    ]
+  },
+  {
+    "name": "sl-skeleton",
+    "modules": [
+      "status"
+    ],
+    "declarations": [
+      "min-block-size: 1rem; border-radius: .5rem; background: linear-gradient(100deg,var(--sl-soft) 30%,var(--sl-surface) 50%,var(--sl-soft) 70%); background-size: 200% 100%",
+      "animation: sl-skeleton-shimmer 1.8s linear infinite"
+    ]
+  },
+  {
+    "name": "sl-skeleton--cover",
+    "modules": [
+      "status"
+    ],
+    "declarations": [
+      "min-block-size: 8rem"
+    ]
+  },
+  {
+    "name": "sl-skip",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "position: fixed; inset-block-start: 1rem; inset-inline-start: 1rem; transform: translateY(-200%); z-index: 100",
+      "transform: none"
+    ]
+  },
+  {
+    "name": "sl-slide",
+    "modules": [
+      "slider"
+    ],
+    "declarations": [
+      "flex: 0 0 100%; min-inline-size: 0; scroll-snap-align: start; scroll-snap-stop: always; padding: 1.5rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius-lg); background: var(--sl-surface)",
+      "outline: 2px solid var(--sl-accent); outline-offset: -3px",
+      "flex-basis: calc((100% - 1rem) / 2)",
+      "flex-basis: min(85%,18rem)",
+      "padding: 1rem"
+    ]
+  },
+  {
+    "name": "sl-slide-art",
+    "modules": [
+      "slider"
+    ],
+    "declarations": [
+      "min-block-size: 8rem; border-radius: var(--sl-radius); background: radial-gradient(circle at 25% 120%,#0ea5e9 0 40%,transparent 41%),radial-gradient(circle at 75% 80%,#8b5cf6 0 45%,#12344a 46%)"
+    ]
+  },
+  {
+    "name": "sl-slide-art--mint",
+    "modules": [
+      "slider"
+    ],
+    "declarations": [
+      "background: radial-gradient(circle at 25% 120%,#14b8a6 0 40%,transparent 41%),radial-gradient(circle at 75% 80%,#38bdf8 0 45%,#153f45 46%)"
+    ]
+  },
+  {
+    "name": "sl-slide-art--warm",
+    "modules": [
+      "slider"
+    ],
+    "declarations": [
+      "background: radial-gradient(circle at 25% 120%,#ea9c75 0 40%,transparent 41%),radial-gradient(circle at 75% 80%,#b38ce8 0 45%,#382244 46%)"
+    ]
+  },
+  {
+    "name": "sl-slider",
+    "modules": [
+      "slider"
+    ],
+    "declarations": [
+      "min-inline-size: 0; max-inline-size: 100%"
+    ]
+  },
+  {
+    "name": "sl-slider__nav",
+    "modules": [
+      "slider"
+    ],
+    "declarations": [
+      "display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin-block-start: 1rem",
+      "display: inline-grid; place-items: center; min-inline-size: 2.75rem; min-block-size: 2.75rem; border: 1px solid var(--sl-border); border-radius: 50%; text-decoration: none; background: var(--sl-surface); color: var(--sl-accent)",
+      "background: var(--sl-soft); border-color: var(--sl-accent)",
+      "transition: background-color 250ms ease,border-color 250ms ease"
+    ]
+  },
+  {
+    "name": "sl-slider__track",
+    "modules": [
+      "slider"
+    ],
+    "declarations": [
+      "display: flex; gap: 1rem; overflow-x: auto; max-inline-size: 100%; scroll-snap-type: x mandatory; overscroll-behavior-inline: contain; scrollbar-width: thin; padding-block-end: .65rem",
+      "display: grid; grid-auto-rows: 100%; block-size: 22rem; overflow-y: auto; overflow-x: hidden; scroll-snap-type: y mandatory; padding-block-end: 0",
+      "scroll-behavior: smooth"
+    ]
+  },
+  {
+    "name": "sl-slider--cards",
+    "modules": [
+      "slider"
+    ],
+    "declarations": [
+      "flex-basis: calc((100% - 1rem) / 2)",
+      "flex-basis: min(85%,18rem)"
+    ]
+  },
+  {
+    "name": "sl-slider--vertical",
+    "modules": [
+      "slider"
+    ],
+    "declarations": [
+      "display: grid; grid-auto-rows: 100%; block-size: 22rem; overflow-y: auto; overflow-x: hidden; scroll-snap-type: y mandatory; padding-block-end: 0"
+    ]
+  },
+  {
+    "name": "sl-sm:block",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "display: block"
+    ]
+  },
+  {
+    "name": "sl-sm:cols-1",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 1"
+    ]
+  },
+  {
+    "name": "sl-sm:cols-10",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 10"
+    ]
+  },
+  {
+    "name": "sl-sm:cols-11",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 11"
+    ]
+  },
+  {
+    "name": "sl-sm:cols-12",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 12"
+    ]
+  },
+  {
+    "name": "sl-sm:cols-2",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 2"
+    ]
+  },
+  {
+    "name": "sl-sm:cols-3",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 3"
+    ]
+  },
+  {
+    "name": "sl-sm:cols-4",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 4"
+    ]
+  },
+  {
+    "name": "sl-sm:cols-5",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 5"
+    ]
+  },
+  {
+    "name": "sl-sm:cols-6",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 6"
+    ]
+  },
+  {
+    "name": "sl-sm:cols-7",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 7"
+    ]
+  },
+  {
+    "name": "sl-sm:cols-8",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 8"
+    ]
+  },
+  {
+    "name": "sl-sm:cols-9",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "--sl-cols: 9"
+    ]
+  },
+  {
+    "name": "sl-sm:column",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "flex-direction: column"
+    ]
+  },
+  {
+    "name": "sl-sm:flex",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "display: flex"
+    ]
+  },
+  {
+    "name": "sl-sm:grid",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "display: grid"
+    ]
+  },
+  {
+    "name": "sl-sm:hidden",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "display: none"
+    ]
+  },
+  {
+    "name": "sl-sm:row",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "flex-direction: row"
+    ]
+  },
+  {
+    "name": "sl-spinner",
+    "modules": [
+      "motion",
+      "variants"
+    ],
+    "declarations": [
+      "animation: sl-spin 900ms linear infinite",
+      "display: inline-block; inline-size: 1em; block-size: 1em; border: 2px solid currentColor; border-inline-end-color: transparent; border-radius: 50%"
+    ]
+  },
+  {
+    "name": "sl-split",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "display: flex; flex-wrap: wrap; column-gap: .25em",
+      "animation: sl-reveal 1s linear both; animation-timeline: view(block); animation-range: entry 0% entry 50%",
+      "animation-range: entry calc(var(--sl-i,0) * 3%) entry calc(40% + var(--sl-i,0) * 3%)"
+    ]
+  },
+  {
+    "name": "sl-sr-only",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "position: absolute; inline-size: 1px; block-size: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0"
+    ]
+  },
+  {
+    "name": "sl-stack",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "margin-block-start: var(--sl-gap, 1rem)"
+    ]
+  },
+  {
+    "name": "sl-stagger",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "animation: sl-reveal 1s linear both; animation-timeline: view(block); animation-range: entry 0% entry 50%",
+      "animation-range: entry calc(var(--sl-i,0) * 3%) entry calc(40% + var(--sl-i,0) * 3%)",
+      "animation-play-state: paused"
+    ]
+  },
+  {
+    "name": "sl-surface",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "background: var(--sl-surface)"
+    ]
+  },
+  {
+    "name": "sl-swatch",
+    "modules": [
+      "collections",
+      "colors",
+      "dates",
+      "fields",
+      "media",
+      "navigation",
+      "overlays",
+      "status",
+      "surfaces"
+    ],
+    "declarations": [
+      "transition: background-color 220ms ease,color 220ms ease,border-color 220ms ease,box-shadow 220ms ease,translate 220ms ease,outline-color 220ms ease",
+      "display: inline-block; inline-size: 2.75rem; block-size: 2.75rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background: var(--sl-color)",
+      "outline: 2px solid var(--sl-focus); outline-offset: 3px",
+      "outline: 2px dashed var(--sl-focus); outline-offset: 4px"
+    ]
+  },
+  {
+    "name": "sl-swatch-choice",
+    "modules": [
+      "colors"
+    ],
+    "declarations": [
+      "position: relative; display: inline-flex; cursor: pointer",
+      "position: absolute; inline-size: 1px; block-size: 1px; opacity: 0",
+      "outline: 2px solid var(--sl-focus); outline-offset: 3px",
+      "outline: 2px dashed var(--sl-focus); outline-offset: 4px"
+    ]
+  },
+  {
+    "name": "sl-switch",
+    "modules": [
+      "fields"
+    ],
+    "declarations": [
+      "display: inline-flex; align-items: center; gap: .75rem; cursor: pointer; position: relative",
+      "position: absolute; inline-size: 1px; block-size: 1px; opacity: 0",
+      "background: var(--sl-accent); border-color: var(--sl-accent)",
+      "translate: 1.25rem 0; background: var(--sl-on-accent)",
+      "outline: 2px solid var(--sl-focus); outline-offset: 3px",
+      "opacity: .6; cursor: not-allowed"
+    ]
+  },
+  {
+    "name": "sl-switch__track",
+    "modules": [
+      "collections",
+      "colors",
+      "dates",
+      "fields",
+      "media",
+      "navigation",
+      "overlays",
+      "status",
+      "surfaces"
+    ],
+    "declarations": [
+      "transition: background-color 220ms ease,color 220ms ease,border-color 220ms ease,box-shadow 220ms ease,translate 220ms ease,outline-color 220ms ease",
+      "display: block; inline-size: 3rem; block-size: 1.7rem; padding: .2rem; border: 1px solid var(--sl-border); border-radius: 99rem; background: var(--sl-surface)",
+      "content: ''; display: block; inline-size: 1.15rem; block-size: 1.15rem; border-radius: 50%; background: var(--sl-muted)",
+      "background: var(--sl-accent); border-color: var(--sl-accent)",
+      "translate: 1.25rem 0; background: var(--sl-on-accent)",
+      "outline: 2px solid var(--sl-focus); outline-offset: 3px"
+    ]
+  },
+  {
+    "name": "sl-tab",
+    "modules": [
+      "tabs"
+    ],
+    "declarations": [
+      "min-inline-size: 0; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background: var(--sl-surface)",
+      "display: flex; align-items: center; justify-content: space-between; gap: .75rem; min-block-size: 2.75rem; padding: .85rem 1rem; list-style: none; font-weight: 600; cursor: pointer; overflow-wrap: anywhere",
+      "display: none",
+      "content: ''",
+      "margin-inline-start: auto",
+      "color: var(--sl-accent)",
+      "rotate: 180deg",
+      "outline: 2px solid var(--sl-focus); outline-offset: -4px",
+      "block-size: 0; overflow: clip",
+      "block-size: auto",
+      "display: contents",
+      "grid-row: 1; border: 1px solid var(--sl-border); border-block-end: 2px solid var(--sl-border); border-radius: var(--sl-radius) var(--sl-radius) 0 0; background: var(--sl-surface)",
+      "background: var(--sl-soft); border-block-end-color: var(--sl-accent); color: var(--sl-accent)",
+      "grid-row: 2; grid-column: 1 / -1",
+      "border: 1px solid var(--sl-border); border-block-start: 0; border-radius: 0 0 var(--sl-radius) var(--sl-radius); background: var(--sl-surface)",
+      "transition: background-color 220ms ease,color 220ms ease,border-color 220ms ease",
+      "transition: rotate 300ms ease",
+      "interpolate-size: allow-keywords",
+      "transition: block-size 360ms cubic-bezier(.2,.7,.2,1),content-visibility 360ms allow-discrete"
+    ]
+  },
+  {
+    "name": "sl-tab__panel",
+    "modules": [
+      "tabs"
+    ],
+    "declarations": [
+      "padding: 1.25rem; overflow-wrap: anywhere"
+    ]
+  },
+  {
+    "name": "sl-table",
+    "modules": [
+      "tables"
+    ],
+    "declarations": [
+      "inline-size: 100%; border-collapse: collapse; text-align: start",
+      "padding: .75rem 1rem; border-block-end: 1px solid var(--sl-border); text-align: start",
+      "font-weight: 700; background: var(--sl-surface)",
+      "text-align: start; font-weight: 650; padding-block: .75rem"
+    ]
+  },
+  {
+    "name": "sl-table--responsive",
+    "modules": [
+      "tables"
+    ],
+    "declarations": [
+      "display: block",
+      "position: absolute; inline-size: 1px; block-size: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap",
+      "display: grid; gap: 1rem",
+      "display: grid; padding: .25rem .85rem; background: var(--sl-surface); border: 1px solid var(--sl-border); border-radius: var(--sl-radius)",
+      "padding: .75rem 0; overflow-wrap: anywhere; min-inline-size: 0",
+      "font-size: 1rem",
+      "display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: baseline; gap: .75rem",
+      "border-block-end: 0",
+      "display: block; color: var(--sl-muted); font-weight: 600",
+      "min-inline-size: 0",
+      "white-space: normal"
+    ]
+  },
+  {
+    "name": "sl-table-label",
+    "modules": [
+      "tables"
+    ],
+    "declarations": [
+      "display: none",
+      "display: block; color: var(--sl-muted); font-weight: 600"
+    ]
+  },
+  {
+    "name": "sl-table-wrap",
+    "modules": [
+      "tables"
+    ],
+    "declarations": [
+      "min-inline-size: 0; max-inline-size: 100%; overflow-x: auto"
+    ]
+  },
+  {
+    "name": "sl-tabs",
+    "modules": [
+      "tabs"
+    ],
+    "declarations": [
+      "display: grid; gap: .75rem; min-inline-size: 0"
+    ]
+  },
+  {
+    "name": "sl-tabs--always",
+    "modules": [
+      "tabs"
+    ],
+    "declarations": [
+      "grid-template-columns: repeat(var(--sl-tabs-count,3),minmax(0,1fr)); gap: 0",
+      "display: contents",
+      "grid-row: 1; border: 1px solid var(--sl-border); border-block-end: 2px solid var(--sl-border); border-radius: var(--sl-radius) var(--sl-radius) 0 0; background: var(--sl-surface)",
+      "background: var(--sl-soft); border-block-end-color: var(--sl-accent); color: var(--sl-accent)",
+      "display: none",
+      "grid-row: 2; grid-column: 1 / -1",
+      "border: 1px solid var(--sl-border); border-block-start: 0; border-radius: 0 0 var(--sl-radius) var(--sl-radius); background: var(--sl-surface)"
+    ]
+  },
+  {
+    "name": "sl-tabs--responsive",
+    "modules": [
+      "tabs"
+    ],
+    "declarations": [
+      "grid-template-columns: repeat(var(--sl-tabs-count,3),minmax(0,1fr)); gap: 0",
+      "display: contents",
+      "grid-row: 1; border: 1px solid var(--sl-border); border-block-end: 2px solid var(--sl-border); border-radius: var(--sl-radius) var(--sl-radius) 0 0; background: var(--sl-surface)",
+      "background: var(--sl-soft); border-block-end-color: var(--sl-accent); color: var(--sl-accent)",
+      "display: none",
+      "grid-row: 2; grid-column: 1 / -1",
+      "border: 1px solid var(--sl-border); border-block-start: 0; border-radius: 0 0 var(--sl-radius) var(--sl-radius); background: var(--sl-surface)"
+    ]
+  },
+  {
+    "name": "sl-tabs-container",
+    "modules": [
+      "tabs"
+    ],
+    "declarations": [
+      "container: sl-tabs / inline-size; min-inline-size: 0"
+    ]
+  },
+  {
+    "name": "sl-text-center",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "text-align: center"
+    ]
+  },
+  {
+    "name": "sl-text-danger",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "color: var(--sl-danger)"
+    ]
+  },
+  {
+    "name": "sl-text-lg",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "font-size: var(--sl-text-lg)"
+    ]
+  },
+  {
+    "name": "sl-text-muted",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "color: var(--sl-muted)"
+    ]
+  },
+  {
+    "name": "sl-text-sm",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "font-size: var(--sl-text-sm)"
+    ]
+  },
+  {
+    "name": "sl-text-start",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "text-align: start"
+    ]
+  },
+  {
+    "name": "sl-text-success",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "color: var(--sl-success)"
+    ]
+  },
+  {
+    "name": "sl-text-xl",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "font-size: var(--sl-text-xl)"
+    ]
+  },
+  {
+    "name": "sl-toast",
+    "modules": [
+      "overlays"
+    ],
+    "declarations": [
+      "inset: auto 1rem 1rem auto; translate: 0 0",
+      "inset: auto; position-area: bottom; position-try-fallbacks: flip-block; translate: 0 0; margin: .5rem 0"
+    ]
+  },
+  {
+    "name": "sl-toggle",
+    "modules": [
+      "collections",
+      "colors",
+      "dates",
+      "fields",
+      "media",
+      "navigation",
+      "overlays",
+      "status",
+      "surfaces"
+    ],
+    "declarations": [
+      "display: inline-flex; position: relative; align-items: center; gap: .5rem; cursor: pointer",
+      "position: absolute; inline-size: 1px; block-size: 1px; opacity: 0",
+      "display: inline-flex; align-items: center; justify-content: center; min-block-size: 2.75rem; padding: .55rem 1rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background: var(--sl-surface)",
+      "background: var(--sl-soft); border-color: var(--sl-accent); color: var(--sl-accent)",
+      "outline: 2px solid var(--sl-focus); outline-offset: 2px",
+      "transition: background-color 220ms ease,color 220ms ease,border-color 220ms ease,box-shadow 220ms ease,translate 220ms ease,outline-color 220ms ease"
+    ]
+  },
+  {
+    "name": "sl-toolbar",
+    "modules": [
+      "surfaces"
+    ],
+    "declarations": [
+      "display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; padding: .6rem; border: 1px solid var(--sl-border); border-radius: var(--sl-radius); background: var(--sl-surface)"
+    ]
+  },
+  {
+    "name": "sl-tooltip",
+    "modules": [
+      "overlays"
+    ],
+    "declarations": [
+      "position: relative; display: inline-flex",
+      "visibility: visible; opacity: 1; translate: 0 0"
+    ]
+  },
+  {
+    "name": "sl-tooltip__text",
+    "modules": [
+      "overlays"
+    ],
+    "declarations": [
+      "position: absolute; z-index: 10; inset-block-end: calc(100% + .5rem); inset-inline-start: 0; inline-size: max-content; max-inline-size: min(16rem,75vw); padding: .5rem .7rem; border: 1px solid var(--sl-border); border-radius: .4rem; background: var(--sl-text); color: var(--sl-bg); font-size: .85rem; visibility: hidden; opacity: 0; translate: 0 .25rem; pointer-events: none",
+      "visibility: visible; opacity: 1; translate: 0 0",
+      "transition: opacity 180ms ease,translate 180ms ease,visibility 180ms allow-discrete"
+    ]
+  },
+  {
+    "name": "sl-w-full",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "inline-size: 100%"
+    ]
+  },
+  {
+    "name": "sl-word",
+    "modules": [
+      "motion"
+    ],
+    "declarations": [
+      "display: inline-block; white-space: nowrap",
+      "animation: sl-reveal 1s linear both; animation-timeline: view(block); animation-range: entry 0% entry 50%",
+      "animation-range: entry calc(var(--sl-i,0) * 3%) entry calc(40% + var(--sl-i,0) * 3%)"
+    ]
+  },
+  {
+    "name": "sl-wrap",
+    "modules": [
+      "core"
+    ],
+    "declarations": [
+      "flex-wrap: wrap"
+    ]
+  }
+]

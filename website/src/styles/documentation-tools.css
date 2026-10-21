@@ -1,0 +1,16 @@
+.docs-search-link { display:block; padding:.65rem; margin-block-end:1.5rem; border:1px solid var(--sl-border); border-radius:.5rem; color:var(--sl-accent); text-decoration:none; font-size:.9375rem; }
+.search-controls { display:flex; align-items:end; gap:1rem; flex-wrap:wrap; margin-block:1.5rem; }.search-controls label { flex:1 1 15rem; }.search-results { display:grid; gap:1rem; list-style:none; padding:0; margin-block:1rem; }.search-results li { padding:1rem; border:1px solid var(--sl-border); border-radius:.5rem; background:var(--sl-surface); min-width:0; }.search-results h3 { font-size:1.125rem; }.search-results p,.search-results code { overflow-wrap:anywhere; }.search-results p { color:var(--sl-muted); font-size:.9375rem; }.search-results code { white-space:normal; font-size:.875rem; }[data-search-item][hidden],[data-search-clear][hidden] { display:none; }
+.guide-toc { display:flex; flex-wrap:wrap; gap:1rem; margin-block:1.5rem; }.guide-example { display:grid; gap:1rem; }.guide-section pre { overflow:auto; max-inline-size:100%; }.guide-section :is(h2,h3) { scroll-margin-top:7rem; }.guide-section h3 { margin-block:1.5rem .75rem; }.guide-section p+ p { margin-block-start:1rem; }.guide-section a { text-underline-offset:.2em; }
+/* Light-theme decorative copy still needs readable contrast. */
+:root[data-theme="light"] :is(.hero-demo-card .sl-badge,.palette-label,.floating-palette > span:last-child,.metrics-inner strong small,.metrics-inner > div > span,.principle-number,.mini-buttons > span,.mini-motion > b) { color:#62516f; }
+:root[data-theme="light"] :is(.section-heading h2 span,.build-section h2 span,.theme-copy h2 span) { color:#71617d; }
+:root[data-theme="light"] .mini-table i { color:#4e4165; }
+:root[data-theme="light"] .code-comment { color:#d0c4dd; }
+/* Reflow navigation and category headings when text is enlarged. */
+.header-inner { position:relative; flex-wrap:wrap; row-gap:.75rem; }
+.desktop-nav { flex-wrap:wrap; min-inline-size:0; }
+.mobile-nav { position:static; }
+.site-header .mobile-nav > div { inset-inline:1rem; min-inline-size:0; }
+.mobile-nav a { overflow-wrap:anywhere; }
+.section-line { flex-wrap:wrap; }
+.section-line h2 { min-inline-size:0; overflow-wrap:anywhere; }
