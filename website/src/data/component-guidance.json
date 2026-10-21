@@ -1,0 +1,242 @@
+{
+  "buttons": [
+    "CSS Buttons: Sizes, Icons & Hover Effects",
+    "Choose filled buttons for primary actions, outlines for secondary actions and small buttons only where labels remain readable.",
+    "Use button for an action and an anchor for navigation. Give icon-only controls an accessible name.",
+    "Hover effects supplement the action label. Reduced-motion settings should preserve a clear static state."
+  ],
+  "cards": [
+    "CSS Cards: Responsive Grids & Hover States",
+    "Group one subject per card, then combine cards with the grid utilities for product, feature or project collections.",
+    "Use a heading for each card and meaningful link text. Avoid nesting interactive controls inside a whole-card link.",
+    "Cards do not need JavaScript; fetching their content and filtering collections are application responsibilities."
+  ],
+  "forms": [
+    "CSS Form Controls: Inputs, Labels & Selects",
+    "Use consistent fields for data entry and reserve helper text for instructions that readers need before submitting.",
+    "Associate every label with its control and connect errors with aria-describedby. Do not rely only on color for invalid fields.",
+    "Native selects remain usable without customizable-select support. Submission and server validation need application code."
+  ],
+  "accordions": [
+    "CSS Accordion: Single & Multiple Open Panels",
+    "Use disclosures for secondary explanations and FAQs. Keep essential instructions visible outside collapsed content.",
+    "Retain details and summary so Enter and Space work natively. Give each independent exclusive group its own name.",
+    "The name attribute enables exclusive groups in supporting browsers. Smooth closing is progressive enhancement, not a requirement for reading the answer."
+  ],
+  "headers": [
+    "Responsive CSS Headers & Navigation Menus",
+    "Pick a logo/menu arrangement that fits your navigation, and keep the primary action easy to find on small screens.",
+    "Use a labelled navigation landmark, real links and the native Menu disclosure. Keep the current page identifiable.",
+    "Headers respond to their available container width. Test long translated labels and zoom rather than relying only on a device width."
+  ],
+  "footers": [
+    "CSS Footers: Links, Columns & Credits",
+    "Use footer columns for secondary navigation, project resources and clear ownership information.",
+    "Give repeated navigation a distinguishing label and keep link contrast readable in both themes.",
+    "Footer grids can stack naturally on narrow screens; legal, support and contact copy must match your own project."
+  ],
+  "heroes": [
+    "CSS Hero Sections: Layouts & Calls to Action",
+    "Lead with a specific benefit, a short explanation and a primary link to the next useful action.",
+    "Keep one page-level h1 and meaningful CTA text. Decorative illustrations should not compete with the reading order.",
+    "Hero layouts are CSS-only; avoid making the main heading depend on an animation completing."
+  ],
+  "links": [
+    "CSS Links: Underlines, Icons & Hover Effects",
+    "Use underlines and deliberate spacing to make links recognizable within paragraphs and navigation.",
+    "Preserve a visible keyboard focus indicator and ensure icon decoration is not the only accessible name.",
+    "Hover is unavailable on many touch devices, so the destination and purpose must be clear before interaction."
+  ],
+  "sliders": [
+    "CSS Sliders: Scroll Snap & Range Inputs",
+    "Choose a scroll-snap rail for a small collection that readers can browse at their own pace, or a range input for a numeric setting.",
+    "Label the scroll region and keep visible navigation links. Range inputs need an associated label and a meaningful value range.",
+    "These carousels do not autoplay or announce a scripted active slide. Dynamic synchronization belongs to an application integration."
+  ],
+  "editor": [
+    "CSS WYSIWYG Editor Layout & Rich Text",
+    "Use the editor module for a rich-text canvas, wrapping toolbar and read-only document presentation.",
+    "Give the editable region a clear accessible label and keep formatting buttons named and keyboard reachable.",
+    "CSS styles the editor; formatting commands, sanitization, undo and saving are not supplied by this module."
+  ],
+  "tabs": [
+    "CSS Tabs That Become Mobile Accordions",
+    "Use the responsive pattern when desktop readers benefit from side-by-side section choices and mobile readers need stacked disclosures.",
+    "The controls keep native details semantics. Do not add tablist roles unless you also implement their keyboard interaction model.",
+    "The same content is used at both widths. The layout changes at a 48rem container width; smooth height transitions depend on browser support."
+  ],
+  "testimonials": [
+    "CSS Testimonials: Quote Cards, Grids & Sliders",
+    "Present real customer quotes with a clear attribution, and choose a grid when comparing several quotes matters.",
+    "Use blockquote and attribution markup, and let readers browse slider content without timed movement.",
+    "Example names and quotes are fictional. Replace them with permissioned testimonials before publishing."
+  ],
+  "grid": [
+    "CSS Grid Layouts: Responsive Columns & Gaps",
+    "Use explicit columns when the layout has a known structure, or the auto grid when item widths should determine the column count.",
+    "Keep DOM order meaningful so keyboard and screen-reader order matches the intended reading sequence.",
+    "The base grid starts with one column; responsive classes add columns at their documented breakpoints."
+  ],
+  "flex": [
+    "CSS Flexbox: Wrapping Rows & Sidebar Layouts",
+    "Use a cluster for wrapping rows of controls and the sidebar pattern for a flexible content region beside navigation.",
+    "Allow labels to wrap, preserve source order and avoid shrinking interactive targets below a usable size.",
+    "Test long labels and enlarged text. A layout that wraps naturally needs fewer device-specific overrides."
+  ],
+  "tables": [
+    "Responsive CSS Tables & Mobile Data Rows",
+    "Use a table for real relationships between rows and columns. Add captions and choose stacked or scrollable presentation deliberately.",
+    "Use column headers and row labels, and preserve every field in the narrow-screen representation.",
+    "Stacked labels must match the headers. Dense data may be better served by an accessible horizontal scroll region."
+  ],
+  "feedback": [
+    "CSS Alerts, Badges & Feedback Patterns",
+    "Use alerts for relevant status information and badges for short categories or counts rather than full instructions.",
+    "Include text that explains the state. Select live-region behavior only when an application actually updates important information.",
+    "CSS controls presentation; asynchronous announcements and dismissal state need an appropriate application integration."
+  ],
+  "typography": [
+    "CSS Typography: Fluid Headings & Text Rhythm",
+    "Use fluid headings to scale comfortably, and keep body copy at a readable size with a consistent text measure.",
+    "Keep the heading outline logical and allow browser text enlargement. Do not use heading tags only to get a visual size.",
+    "The framework uses a system font stack. The documentation website separately loads its branded fonts."
+  ],
+  "animations": [
+    "CSS Animations: Scroll Reveals & Hover Motion",
+    "Use motion to clarify an interaction or draw attention to a meaningful change, not to hide essential information.",
+    "Respect reduced motion and keep controls usable by keyboard and touch. Content must remain readable without scroll-animation support.",
+    "Scroll-driven effects and advanced interpolation are progressive enhancements with browser-dependent support."
+  ],
+  "cursors": [
+    "CSS Cursor Effects & Section Hover States",
+    "Apply cursor treatments sparingly to indicate an interactive surface while preserving native text and control cursors.",
+    "Keep ordinary focus styles and do not rely on a custom cursor as the only indication that something is clickable.",
+    "Coarse pointers and forced colors retain native behavior. Pointer-following trails require JavaScript and are not implemented here."
+  ],
+  "avatars": [
+    "CSS Avatars: Groups, Sizes & Status",
+    "Use avatars to support identification in comments, teams and compact profile summaries.",
+    "Use a useful image alternative when the image adds identity, or empty alt text when an adjacent name provides it.",
+    "Status dots need accompanying text for important presence information; CSS cannot establish a user’s actual online state."
+  ],
+  "breadcrumbs": [
+    "CSS Breadcrumb Navigation Examples",
+    "Use breadcrumbs to show a content hierarchy on documentation or category pages, with the current page at the end.",
+    "Label the breadcrumb navigation and apply aria-current to the current location. Keep separators decorative.",
+    "Breadcrumbs describe hierarchy rather than a browser back stack. Keep their destinations aligned with your real site structure."
+  ],
+  "pagination": [
+    "CSS Pagination Links & Current Page States",
+    "Use pagination for collections with real page destinations, keeping the next and previous actions easy to locate.",
+    "Label the navigation and mark the current page. Give abbreviated or icon-only controls understandable names.",
+    "The examples style navigation; slicing records, fetching pages and updating the address belong to your application."
+  ],
+  "selection": [
+    "CSS Checkboxes, Radio Groups & Switches",
+    "Use checkboxes for independent choices, radios for a single choice and switches for an immediate on/off preference.",
+    "Keep the native input, associate its label and use a fieldset/legend for related choices.",
+    "CSS exposes checked and disabled states. Saving preferences or applying their effects is separate application behavior."
+  ],
+  "chips": [
+    "CSS Chips, Tags & Selection Labels",
+    "Use chips to summarize categories, filters or short metadata, with a clear distinction between static and interactive items.",
+    "Do not make a static tag look like an unexplained button. Removal controls need a label naming what will be removed.",
+    "The examples provide styling and native selection patterns; collection updates require application state."
+  ],
+  "collections": [
+    "CSS Dropdowns, Lists & Selection Collections",
+    "Use a disclosure for a compact group of navigation links, and native select controls for a labelled selection task.",
+    "Retain standard link and input semantics. A custom menu role requires keyboard behavior beyond ordinary tab navigation.",
+    "These patterns do not claim a scripted ARIA menu or listbox implementation; use native controls when that behavior is needed."
+  ],
+  "text-fields": [
+    "CSS Text Fields, Search, Number & OTP Inputs",
+    "Choose the native input type that matches the task, including email, search, number or a single verification-code field.",
+    "Provide persistent labels, autocomplete hints and instructions before a user makes an error.",
+    "Native validation is a convenience, not a security boundary. OTP sending and verification need backend logic."
+  ],
+  "form-patterns": [
+    "CSS Form Layouts, Help Text & Error Messages",
+    "Group related fields and make the expected information clear before presenting validation feedback.",
+    "Use fieldset/legend for groups and aria-describedby for help and errors. Error text should identify a correction.",
+    "Form saving, server validation and success announcements belong to the application rather than the stylesheet."
+  ],
+  "pickers": [
+    "Native Autocomplete & CSS ComboBox Examples",
+    "Use a native datalist for a small static set of suggestions when free text is also acceptable.",
+    "Give the input a real label and explain whether suggestions are optional or a fixed set of allowed choices.",
+    "A datalist is not a complete ARIA combobox. Remote filtering, virtualized options and custom keyboard behavior need application code."
+  ],
+  "colors": [
+    "CSS Color Controls: Pickers, Swatches & Sliders",
+    "Use a native color input for real color entry and labelled swatches for a small set of known palette choices.",
+    "Name each swatch so its meaning is available without seeing the color, and keep selected state distinguishable.",
+    "The two-dimensional gradient is illustrative. Slider-to-color conversion, synchronization and theme updates require application code."
+  ],
+  "dates": [
+    "CSS Date Inputs & Calendar Presentation",
+    "Prefer native date/time fields for reliable entry. Use the fixed-month calendar as an example of day-selection presentation.",
+    "Provide labels and format guidance. Explain date-range constraints and validation messages in text.",
+    "The sample calendar is fixed to October 2026. Month navigation, localization and range calculations are not implemented by CSS."
+  ],
+  "status": [
+    "CSS Progress, Loading Spinners & Skeletons",
+    "Choose progress for known completion, a meter for a measured value and a short loading indicator for unknown duration.",
+    "Label native progress and meter elements. Give important loading states readable text and avoid announcing every visual frame.",
+    "Progress values must reflect real application state. Reduced motion keeps loading decoration from continuous movement."
+  ],
+  "surfaces": [
+    "CSS Surfaces, Toolbars & Scroll Shadows",
+    "Use surfaces to group related content and separators to clarify boundaries without adding unnecessary visual weight.",
+    "Name toolbar groups and preserve ordinary keyboard order unless you implement the composite toolbar interaction model.",
+    "Scroll shadows indicate additional content visually; keep the region scrollable and understandable without that effect."
+  ],
+  "keyboard": [
+    "CSS Keyboard Shortcut Hints",
+    "Use kbd markup to show an actual shortcut near the related action, with the platform convention your application supports.",
+    "Write a readable shortcut label and avoid replacing the control’s accessible name with only symbols.",
+    "The CSS only draws the hint. The application must implement and document the shortcut itself."
+  ],
+  "modals": [
+    "CSS Modal Dialogs with Native HTML Commands",
+    "Use a modal for a focused task that needs a deliberate decision before returning to the underlying page.",
+    "Give the dialog a name, a visible close action and a sensible initial focus target. Verify Escape and focus return.",
+    "The examples use native dialog invoker commands in supporting browsers. Test your target browsers or provide an application fallback."
+  ],
+  "alert-dialogs": [
+    "CSS Alert Dialogs for Confirmations",
+    "Reserve urgent confirmation dialogs for choices whose consequences need explicit explanation.",
+    "Use concise text, a clear cancel action and initial focus that does not accidentally encourage a destructive choice.",
+    "Showing the dialog is native in supported browsers; the confirmed operation must be implemented by your application."
+  ],
+  "drawers": [
+    "CSS Drawers & Native Side Dialogs",
+    "Use a drawer for a focused secondary task or navigation area while keeping its purpose and close action clear.",
+    "When modal, preserve native dialog focus containment and a useful accessible name. Keep long content scrollable.",
+    "Native command support and discrete opening transitions vary across browsers; the panel must remain usable without the animation."
+  ],
+  "popovers": [
+    "CSS Popovers with Native HTML Controls",
+    "Use a popover for brief supporting controls that can be dismissed without completing a blocking task.",
+    "Name the trigger and use native popovertarget behavior. Interactive content must remain keyboard reachable.",
+    "Popover placement and dismissal are native where supported. The example does not implement a full application menu interaction model."
+  ],
+  "tooltips": [
+    "CSS Tooltips for Hover & Keyboard Focus",
+    "Use a tooltip only for short supporting information; keep essential meaning in the visible control or nearby text.",
+    "Ensure the trigger has a complete name. Test keyboard focus and avoid putting interactive controls inside a tooltip.",
+    "These CSS hints are not a complete scripted tooltip controller. Touch users still need the underlying information to be understandable."
+  ],
+  "toasts": [
+    "CSS Toast Notifications & Status Messages",
+    "Use a toast for brief nonblocking feedback and keep important errors available in persistent page content.",
+    "Choose announcements deliberately and make dismissal understandable. Do not remove important text before a user can read it.",
+    "The examples demonstrate presentation and native dismissal; queues, timers and live announcements need application logic."
+  ],
+  "component-reference": [
+    "CSS Component Index & Native HTML Alternatives",
+    "Use the index to find the closest StyloftCSS example for each reference component family.",
+    "Follow the semantics in each linked example and read its integration notes before adding application roles or state.",
+    "Coverage is a mapping of examples and alternatives, not a claim of React API or behavior parity with another UI library."
+  ]
+}

@@ -34,3 +34,16 @@ for(const root of document.querySelectorAll<HTMLElement>('[data-search]')){
  const filter=()=>{const terms=input.value.trim().toLowerCase().split(/\s+/).filter(Boolean);let count=0;for(const item of items){const haystack=item.dataset.terms||'';item.hidden=!terms.every(term=>haystack.includes(term));if(!item.hidden)count++;}status.textContent=count+' results'+(terms.length?' match your search':'. Search by component, class or CSS property.');};
  input.addEventListener('input',filter);root.addEventListener('submit',event=>{event.preventDefault();filter();});reset.addEventListener('click',()=>{input.value='';filter();input.focus();});filter();
 }
+
+// The native menu opens without JS; enhance overlay keyboard behavior when available.
+for(const menu of document.querySelectorAll<HTMLDetailsElement>('.mobile-nav')){
+ const trigger=menu.querySelector<HTMLElement>('summary')!;
+ const saved=new Map<HTMLElement,boolean>();
+ const restore=()=>{for(const [el,inert] of saved)el.inert=inert;saved.clear();};
+ const close=()=>{menu.open=false;restore();trigger.focus();};
+ menu.addEventListener('toggle',()=>{restore();if(menu.open){for(const el of document.querySelectorAll<HTMLElement>('main,.site-footer,.announcement,.header-inner > :not(.mobile-nav)')){saved.set(el,el.inert);el.inert=true;}}});
+ document.addEventListener('keydown',event=>{if(!menu.open)return;if(event.key==='Escape'){event.preventDefault();close();}else if(event.key==='Tab'){const items=[trigger,...menu.querySelectorAll<HTMLElement>('a[href]')];const first=items[0],last=items[items.length-1];if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}}});
+ document.addEventListener('click',event=>{if(menu.open&&event.target instanceof Node&&(event.target===menu||!menu.contains(event.target)))close();});
+ menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.open=false;restore();}));
+ const desktop=matchMedia('(min-width:992px)');desktop.addEventListener('change',()=>{if(desktop.matches){menu.open=false;restore();}});
+}

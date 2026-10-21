@@ -1,0 +1,115 @@
+[
+  {
+    "slug": "css-only-accordion",
+    "title": "Build a CSS-only accordion without JavaScript",
+    "description": "Create a native HTML accordion with single-open or independent panels, keyboard controls and progressive CSS transitions.",
+    "components": [
+      "accordions",
+      "tabs",
+      "forms"
+    ],
+    "modules": [],
+    "html": "<section class=\"sl-stack sl-gap-4\" aria-label=\"Installation questions\">\n  <details class=\"sl-details\" name=\"tutorial-faq\" open>\n    <summary>Do I need a build tool?</summary>\n    <p>No. Copy the core stylesheet into your site and link it in the document head.</p>\n  </details>\n  <details class=\"sl-details\" name=\"tutorial-faq\">\n    <summary>Can I load only button styles?</summary>\n    <p>Yes. Use the standalone buttons pack instead of the full core.</p>\n  </details>\n</section>",
+    "sections": [
+      [
+        "Choose a disclosure for secondary information",
+        "An accordion is useful when readers need to scan a set of questions and open the answers that matter to them. It is less suitable for a short page where every answer is essential. Keep required setup instructions outside collapsed panels so the page remains understandable before anyone interacts. In this example, the questions concern a real decision: whether to use the core CSS or a standalone component pack."
+      ],
+      [
+        "Start with native HTML",
+        "Each details element owns a summary and its answer. The browser supplies the open state and keyboard activation. Add the sl-details class for borders, spacing and a right-aligned indicator, then use sl-stack and sl-gap-4 to separate the panels. There is no hidden checkbox or click handler. The first panel has the boolean open attribute to make its answer visible initially; open=\"false\" would still count as open."
+      ],
+      [
+        "Choose single-open or independent panels",
+        "Give the panels the same name when you want one open at a time in browsers supporting grouped details. Use a different name for each separate accordion group on a page. To let readers compare several answers, remove name from the panels so each can remain open independently. The text and controls stay in the same document in either configuration."
+      ],
+      [
+        "Verify keyboard, motion and browser fallback",
+        "Tab to each summary and activate it with Enter or Space. Check that focus stays visible and the question still has a complete name. Avoid putting another button inside summary. Current StyloftCSS transitions enhance supported browsers, while native opening and readable content remain the fallback. Test with reduced motion and a screen reader; CSS animation support does not establish that a disclosure is accessible in every application."
+      ]
+    ],
+    "checks": [
+      "Open the second panel: the first should close when grouped details is supported.",
+      "Remove name from both panels to try multiple-open behavior.",
+      "Disable JavaScript and verify the controls still work."
+    ],
+    "source": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details"
+  },
+  {
+    "slug": "responsive-css-header",
+    "title": "Build a responsive CSS header with a native menu",
+    "description": "Create a logo, navigation links and call-to-action header that becomes a keyboard-operated native menu in a narrow container.",
+    "components": [
+      "headers",
+      "links",
+      "buttons",
+      "flex"
+    ],
+    "modules": [
+      "header"
+    ],
+    "html": "<header class=\"sl-header\">\n  <div class=\"sl-header__row\">\n    <a class=\"sl-header__brand\" href=\"/\">North studio</a>\n    <nav class=\"sl-header__menu\" aria-label=\"Studio desktop navigation\">\n      <a href=\"/guides/\">Our process</a>\n      <a class=\"sl-btn\" href=\"/getting-started/\">Start a project</a>\n    </nav>\n    <details class=\"sl-header__mobile\">\n      <summary>Menu <span aria-hidden=\"true\">+</span></summary>\n      <nav class=\"sl-header__mobile-nav\" aria-label=\"Studio mobile navigation\">\n        <a href=\"/guides/\">Our process</a>\n        <a class=\"sl-btn\" href=\"/getting-started/\">Start a project</a>\n      </nav>\n    </details>\n  </div>\n</header>",
+    "sections": [
+      [
+        "Design around the available space",
+        "A header needs room for its brand, destination labels and primary action. The width available to it may be smaller than the browser viewport, especially when it sits inside a demo, sidebar or embedded layout. The header module establishes a named inline-size container so its children can respond to the space they actually have."
+      ],
+      [
+        "Load the core and header module",
+        "Load styloft.min.css followed by header.min.css, or use the standalone headers pack by itself. The sl-header wrapper establishes the container; sl-header__row arranges the brand and desktop menu. The action uses the ordinary sl-btn class, so its label and destination are present as normal HTML. Replace the sample paths with destinations belonging to your own site."
+      ],
+      [
+        "Provide the narrow-container menu",
+        "The native details control contains a second navigation list with the same destinations. Below 44rem of header-container width, the module hides desktop navigation and displays the Menu disclosure. Keep the two lists synchronized when editing your site; only the visible version should participate in keyboard navigation. The summary supplies the open/closed control without requiring component JavaScript."
+      ],
+      [
+        "Test beyond one phone size",
+        "Resize the preview and also test with doubled text, long labels and right-to-left content. Use a short, recognizable brand label and avoid forcing every item onto a single line. Tab through the active navigation and verify the hidden list does not receive focus. Opening transitions depend on newer details-content support, but opening the links must not depend on animation. If a target browser lacks container-query support, evaluate the wide layout as a fallback or supply your own breakpoint adaptation."
+      ]
+    ],
+    "checks": [
+      "Switch the preview width to 375 pixels and open Menu.",
+      "Use Tab and Enter to follow a destination without a mouse.",
+      "Check that the brand remains readable when the menu is open."
+    ],
+    "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries"
+  },
+  {
+    "slug": "responsive-card-grid",
+    "title": "Build a responsive CSS card grid with design tokens",
+    "description": "Combine CSS grid utilities, semantic cards and theme tokens to build a responsive service section without component JavaScript.",
+    "components": [
+      "cards",
+      "grid",
+      "typography",
+      "heroes",
+      "surfaces"
+    ],
+    "modules": [],
+    "html": "<section class=\"sl-container sl-py-6 sl-stack sl-gap-6\">\n  <h2 class=\"sl-text-xl\">A small service collection</h2>\n  <div class=\"sl-grid sl-md:cols-3 sl-gap-6\">\n    <article class=\"sl-card sl-stack sl-gap-4\"><h3 class=\"sl-text-lg\">Plan</h3><p>Decide what the page needs to communicate.</p></article>\n    <article class=\"sl-card sl-stack sl-gap-4\"><h3 class=\"sl-text-lg\">Design</h3><p>Choose a readable structure and consistent tokens.</p></article>\n    <article class=\"sl-card sl-stack sl-gap-4\"><h3 class=\"sl-text-lg\">Build</h3><p>Ship the CSS required by the actual content.</p></article>\n  </div>\n</section>",
+    "sections": [
+      [
+        "Let the content determine the structure",
+        "Start with a section heading that explains the collection, then use an article for each service. The cards have short headings and distinct descriptions so readers can compare them without opening another control. This structure also gives assistive technology useful landmarks and headings; a generic clickable rectangle would communicate less."
+      ],
+      [
+        "Compose layout utilities",
+        "The sl-container class limits the overall measure. A stack creates vertical rhythm around the section heading and grid. The base sl-grid uses one column, while sl-md:cols-3 requests three columns at the core medium breakpoint. The gap utility controls the space between items without individual margins on every card. Keep the DOM order meaningful rather than using visual reordering to compensate for confusing source markup."
+      ],
+      [
+        "Customize semantic tokens",
+        "Cards inherit surface, text, border and radius tokens from their theme. Override those variables in your application stylesheet after loading StyloftCSS, and keep related foreground/background values together. For example, changing an accent may also require a different on-accent text color. Use the theme gallery to inspect pairs instead of assuming that a favorite color will have sufficient contrast."
+      ],
+      [
+        "Choose a loading strategy and verify reflow",
+        "The full core supplies this example. If you choose a standalone card pack instead, inspect its included helpers before adding further components inside the cards. A nested form or special animation may need its own CSS. Test a narrow viewport, long words and enlarged body text; the card grid should adapt while keeping the reading order. No component JavaScript is needed, but fetching records or filtering a live collection remains application behavior."
+      ]
+    ],
+    "checks": [
+      "Use the 375-pixel preview to verify a single readable column.",
+      "Add a fourth article and inspect the next row on desktop.",
+      "Try the light theme and check text and border contrast."
+    ],
+    "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout"
+  }
+]

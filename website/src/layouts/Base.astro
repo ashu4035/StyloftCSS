@@ -34,6 +34,7 @@ import '../styles/code-editor.css';
 import '../styles/typography.css';
 import '../styles/fonts.css';
 import '../styles/documentation-tools.css';
+import '../styles/navigation-polish.css';
 import fontFiles from '../../public/fonts/manifest.json';
 const { title='Lightweight CSS Framework & Components', description='A modular CSS framework with zero runtime JavaScript. Explore live StyloftCSS components, layouts, and themes.', section='home' }=Astro.props;
 const isLight=Astro.url.pathname.startsWith('/light/');
@@ -84,17 +85,17 @@ const favicon=await getImage({src:mark,width:64,height:64,fit:'contain',format:'
     </script>
   </>}
 </head>
-<body class="sl-cursor-site sl-cursor-pulse">
+<body class="site-cursor">
   <a class="sl-skip sl-btn" href="#main">Skip to content</a>
   <div class="announcement"><span class="announcement-dot"></span> Introducing StyloftCSS 0.1 <span class="announcement-divider">/</span> A small foundation for your next big idea. <a href="/getting-started/">Meet the framework <span aria-hidden="true">↗</span></a></div>
   <header class="site-header"><nav class="sl-container header-inner" aria-label="Main navigation">
     <Brand/>
     <div class="desktop-nav"><a href="/search/">Search</a><a href="/getting-started/" aria-current={section==='docs'?'page':undefined}>Documentation</a><a href="/components/" aria-current={section==='components'?'page':undefined}>Components</a><a href="/layouts/" aria-current={section==='layouts'?'page':undefined}>Layouts</a><a href="/themes/" aria-current={section==='themes'?'page':undefined}>Themes</a></div>
     <div class="header-actions"><a data-theme-switch class="mode-switch" href={togglePath} aria-label={`Switch to ${isLight?'dark':'light'} mode`} title={`Switch to ${isLight?'dark':'light'} mode`}><Icon name={isLight?'moon':'sun'} size={18}/><span>{isLight?'Dark':'Light'}</span></a><a class="header-cta sl-btn" href="/getting-started/">Start building <Icon name="arrow" size={16}/></a></div>
-    <details class="mobile-nav"><summary aria-label="Open navigation">Menu <span aria-hidden="true">+</span></summary><div><a href="/search/">Search documentation</a><a href="/getting-started/">Documentation</a><a href="/components/">Components</a><a href="/layouts/">Layouts</a><a href="/themes/">Themes</a></div></details>
+    <details class="mobile-nav"><summary aria-label="Navigation menu"><span class="menu-icon" aria-hidden="true"><i></i><i></i><i></i></span></summary><div><a href="/search/">Search documentation</a><a href="/getting-started/">Documentation</a><a href="/components/">Components</a><a href="/layouts/">Layouts</a><a href="/themes/">Themes</a></div></details>
   </nav></header>
   <main id="main" tabindex="-1"><slot/></main>
-  <footer class="site-footer"><div class="sl-container"><div class="footer-top sl-grid sl-md:cols-3 sl-gap-12"><div class="sl-stack"><Brand/><p>Style more.<br/>Load less.</p><span class="footer-version">v0.1.0 · Open source · MIT</span><a class="footer-repository" href="https://github.com/ashu4035/StyloftCSS" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a></div><div><h2>Build something</h2><a href="/guides/">Guides &amp; releases</a><a href="/search/">Search CSS classes</a><a href="/getting-started/">Getting started</a><a href="/components/">Component library</a><a href="/layouts/">Layout patterns</a><a href="/themes/">Design tokens & themes</a></div><div><h2>Make it yours</h2><a href="/downloads/styloft.min.css" download>Download core CSS</a><a href="/downloads/prose.min.css" download>Download prose module</a><a href="/downloads/tables.min.css" download>Download tables module</a><a href="/downloads/size-report.json">Measured size report</a></div></div><div class="footer-bottom"><p>© 2026 StyloftCSS contributors. MIT licensed.</p><p>StyloftCSS created by <a class="footer-author" href="https://github.com/ashu4035" rel="author">Ashish Verma</a>.</p><a href="#main">Back to top ↑</a></div></div></footer>
+  <footer class="site-footer"><div class="sl-container"><div class="footer-top sl-grid sl-md:cols-3 sl-gap-12"><div class="sl-stack"><Brand/><p>Style more.<br/>Load less.</p><span class="footer-version">v0.1.0 · Open source · MIT</span><a class="footer-repository" href="https://github.com/ashu4035/StyloftCSS" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a></div><div><h2>Build something</h2><a href="/tutorials/">CSS tutorials</a><a href="/guides/">Guides &amp; releases</a><a href="/search/">Search CSS classes</a><a href="/getting-started/">Getting started</a><a href="/components/">Component library</a><a href="/layouts/">Layout patterns</a><a href="/themes/">Design tokens & themes</a></div><div><h2>Make it yours</h2><a href="/downloads/styloft.min.css" download>Download core CSS</a><a href="/downloads/prose.min.css" download>Download prose module</a><a href="/downloads/tables.min.css" download>Download tables module</a><a href="/downloads/size-report.json">Measured size report</a></div></div><div class="footer-bottom"><p>© 2026 StyloftCSS contributors. MIT licensed.</p><p>StyloftCSS created by <a class="footer-author" href="https://github.com/ashu4035" rel="author">Ashish Verma</a>.</p><a href="#main">Back to top ↑</a></div></div></footer>
   <script>import '../scripts/site-tools';</script>
 </body>
 </html>

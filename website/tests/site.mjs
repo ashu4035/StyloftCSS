@@ -13,7 +13,7 @@ fs.mkdirSync(out,{recursive:true});
 const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]);
 const files=walk(dist), pages=files.filter(f=>f.endsWith('.html')&&!/^google[a-f0-9]+\.html$/i.test(path.basename(f))&&!f.includes(path.sep+'downloads'+path.sep));
 const reference=JSON.parse(fs.readFileSync(path.join(root,'src/data/reference-manifest.json')));
-const expectedPages=54+reference.newCategories.length*2;
+const expectedPages=62+reference.newCategories.length*2;
 assert.equal(pages.length,expectedPages,'every dark page has a light counterpart');
 for(const file of files)if(/\.(m?js|cjs)$/.test(file))assert.equal(path.dirname(file),path.join(dist,'_astro'),'Only bundled documentation scripts');
 for(const file of pages){
@@ -63,7 +63,7 @@ try{
   const fresh=async()=>{await page.close();page=await context.newPage();page.on('pageerror',err=>errors.push(err.message));};
   const check=async(name,fn)=>{if(process.env.SITE_CHECK&&!name.includes(process.env.SITE_CHECK))return;await fn();passed.push(name);console.log('PASS '+name);};
   const darkRoutes=['/','/getting-started/','/components/','/layouts/','/themes/','/components/buttons/','/components/cards/','/components/headers/','/components/heroes/','/components/footers/','/components/forms/','/components/accordions/','/components/tables/','/components/grid/','/components/flex/','/components/animations/','/components/feedback/','/components/typography/'];
-  darkRoutes.push('/search/','/guides/');
+  darkRoutes.push('/search/','/guides/','/tutorials/','/tutorials/css-only-accordion/','/tutorials/responsive-css-header/','/tutorials/responsive-card-grid/');
   darkRoutes.push('/components/editor/','/components/cursors/','/components/tabs/');
   darkRoutes.push(...reference.newCategories.map(slug=>'/components/'+slug+'/'));
   const routes=[...darkRoutes,...darkRoutes.map(route=>'/light'+route)];

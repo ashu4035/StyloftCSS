@@ -7,3 +7,5 @@ The framework browser suite covers skip links, visible keyboard focus, native di
 This is not a real screen-reader test. Before an official accessibility claim, review the site with NVDA or VoiceOver, multiple browsers and representative users. Verify reading order, announcements, dialog focus and tooltip behavior. Current automated browser coverage is Chromium; Safari and Firefox are not claimed tested.
 
 Reproduce: npm run site:build, npm run site:test:expansion and npm run test:browser. Machine-readable scan detail is generated at website/test-results/accessibility.json.
+
+The SEO content expansion adds the tutorial index, three tutorial pages and two light tutorial pages to the representative scan: 16 scanned pages now report zero automated violations. Native accordion grouping, mobile header navigation and the card-grid column change were also verified with JavaScript disabled.

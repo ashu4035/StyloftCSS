@@ -16,3 +16,9 @@ After publishing:
 The local build does not update the public site. Deploy the changes through the existing Git/Cloudflare workflow. Preview deployments should be access-protected or receive an X-Robots-Tag: noindex response header in their hosting configuration.
 
 Google controls indexing and ranking; neither is guaranteed. Avoid paid backlink schemes and keyword stuffing. See https://developers.google.com/search/docs/fundamentals/seo-starter-guide.
+
+## Content and discovery update — 21 October 2026
+
+All 40 component families now have descriptive search titles and specific guidance on use, accessibility and browser/integration limits. Three original tutorials (native accordion, responsive header and card grid) include editable HTML, no-JavaScript interaction checks, related component links and MDN references. They are linked from the footer, documentation sidebar, guides and search. Dark/light variants canonicalize to the main tutorial URLs. The local build has 104 documentation pages and 51 canonical sitemap URLs.
+
+These changes need deployment. They improve useful content and internal discovery; ranking and indexing remain Google's decisions. No backlinks were purchased, ratings fabricated, or community posts sent. The working XML sitemap was not rewritten as a claimed fix for the unexplained Search Console fetch error. See docs/sitemap-evidence.md and docs/sitemap-support-draft.md for current live checks and the escalation draft.

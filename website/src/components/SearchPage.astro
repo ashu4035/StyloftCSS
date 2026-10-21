@@ -2,13 +2,15 @@
 import Docs from '../layouts/Docs.astro';
 import {components} from '../data/components';
 import classes from '../data/classes.json';
+import {tutorials} from '../data/tutorials';
 const light=Astro.url.pathname.startsWith('/light/');const prefix=light?'/light':'';
 ---
 <Docs title="Search components & CSS classes" description="Find StyloftCSS components, utilities, CSS declarations and optional module dependencies." active="search">
 <header class="docs-page-header"><h1>Find your building blocks.</h1><p>Search component names, class names, module names and CSS properties. The class reference is generated from the actual framework stylesheets.</p></header>
 <form data-search role="search" aria-label="Documentation search">
-<div class="search-controls"><label class="sl-field"><span class="sl-label">Search documentation</span><input class="sl-input" type="search" placeholder="Try button, sl-grid or border-radius" autocomplete="off" aria-controls="component-results class-results"/></label><button class="sl-btn sl-btn--outline" type="button" data-search-clear hidden>Clear search</button></div>
+<div class="search-controls"><label class="sl-field"><span class="sl-label">Search documentation</span><input class="sl-input" type="search" placeholder="Try button, sl-grid or border-radius" autocomplete="off" aria-controls="tutorial-results component-results class-results"/></label><button class="sl-btn sl-btn--outline" type="button" data-search-clear hidden>Clear search</button></div>
 <p data-search-status role="status" aria-live="polite">Browse all entries below. Without JavaScript, use your browser’s Find command.</p>
+<h2 class="sl-text-xl sl-my-6">Tutorials</h2><ul class="search-results" id="tutorial-results">{tutorials.map(t=><li data-search-item data-terms={(t.title+' '+t.description+' '+t.components.join(' ')).toLowerCase()}><h3><a href={prefix+'/tutorials/'+t.slug+'/'}>{t.title}</a></h3><p>{t.description}</p></li>)}</ul>
 <h2 class="sl-text-xl sl-my-6">Components</h2><ul class="search-results" id="component-results">{components.map(c=><li data-search-item data-terms={(c.name+' '+c.slug+' '+c.group+' '+c.description).toLowerCase()}><h3><a href={prefix+'/components/'+c.slug+'/'}>{c.name}</a></h3><p>{c.description}</p></li>)}</ul>
 <h2 class="sl-text-xl sl-my-6" id="class-reference">Class reference</h2><p>Core classes load with styloft.min.css. Other modules load after the core unless you choose a standalone pack. Declarations may vary by responsive or interaction state; see the readable CSS for complete selectors.</p>
 <ul class="search-results" id="class-results">{classes.map(c=><li data-search-item data-terms={(c.name+' '+c.modules.join(' ')+' '+c.declarations.join(' ')).toLowerCase()}><h3><code>{c.name}</code></h3><p>Defined or extended in: {c.modules.join(', ')}</p><details><summary>View CSS declarations</summary><code>{c.declarations.join(' | ')}</code></details></li>)}</ul>

@@ -2,14 +2,21 @@
 import Docs from '../../layouts/Docs.astro';
 import Demo from '../../components/Demo.astro';
 import {components} from '../../data/components';
+import guidance from '../../data/component-guidance.json';
+import {tutorials} from '../../data/tutorials';
 export function getStaticPaths(){return components.map(component=>({params:{slug:component.slug},props:{component}}));}
 const {component}=Astro.props;
 const extraModules=component.modules||({buttons:['variants','motion','button-fx'],sliders:['slider'],editor:['editor'],forms:['select'],tabs:['tabs'],cursors:['cursor','slider'],testimonials:['slider','motion'],cards:['variants','motion'],headers:['variants','motion','header'],footers:['variants','motion'],heroes:['motion'],accordions:['variants','motion'],tables:['tables'],grid:['responsive'],flex:['variants','responsive'],animations:['variants','motion'],typography:['prose','motion'],links:['variants','motion']} as Record<string,string[]>)[component.slug]||[];
 const standalone=component.standalone||({tabs:'tabs',buttons:'buttons',cards:'cards',forms:'forms',headers:'headers',heroes:'heroes',footers:'footers',accordions:'accordions',sliders:'sliders',editor:'editor',tables:'tables',typography:'typography',grid:'layout',flex:'layout',animations:'animations',cursors:'cursors',testimonials:'testimonials',feedback:'feedback',links:'links'} as Record<string,string>)[component.slug];
 const index=components.findIndex(c=>c.slug===component.slug);
 const next=components[(index+1)%components.length];
+const advice=guidance[component.slug];
+if(!advice)throw new Error('Missing component guidance: '+component.slug);
+const prefix=Astro.url.pathname.startsWith('/light/')?'/light':'';
+const related=tutorials.filter(t=>t.components.includes(component.slug));
+const description=advice[1];
 ---
-<Docs title={component.name} description={component.description} active={component.slug}>
+<Docs title={advice[0]} description={description} active={component.slug}>
   <div class="breadcrumbs"><a href="/components/">Components</a><span>/</span><span>{component.name}</span></div>
   <header class="docs-page-header"><span class="eyebrow">{component.group}</span><h1>{component.name}</h1><p>{component.description}</p><div class="doc-tags"><span>CSS only</span><span>{component.examples.length} examples</span><span>Keyboard friendly HTML</span></div></header>
   {standalone&&<aside class="framework-extension"><strong>Use this component only:</strong> <a href={`/downloads/components/${standalone}.min.css`} download>{standalone}.min.css ↓</a><p>Includes design tokens and required component dependencies. No core stylesheet required. For mixed patterns, load the corresponding component packs or use the core.</p></aside>}
@@ -18,5 +25,6 @@ const next=components[(index+1)%components.length];
   <div class="examples-list">{component.examples.map((ex,i)=><Demo {...ex} id={`example-${i+1}`}/>)}</div>
   <p class="framework-extension">Classes beginning with <code>sl-</code> come from StyloftCSS. Examples with <code>demo-</code> classes also use our <a href="/downloads/demo-extensions.css" download>optional demo extension CSS ↓</a>. Load it after the core to reproduce those details.</p>
   <aside class="usage-note"><h2>A note on using this pattern</h2><p>{component.note}</p></aside>
+  <section class="guide-section" aria-label="Implementation guidance"><h2>When to use {component.name.toLowerCase()}</h2><p>{advice[1]}</p><h3>Accessibility checks</h3><p>{advice[2]}</p><h3>Browser support and integration</h3><p>{advice[3]}</p><p><a href={prefix+'/guides/#installation'}>Choose the right CSS files</a> · <a href={prefix+'/search/'}>Find class declarations</a></p>{related.length>0&&<><h3>Related tutorials</h3><ul>{related.map(t=><li><a href={prefix+'/tutorials/'+t.slug+'/'}>{t.title}</a></li>)}</ul></>}</section>
   <nav class="docs-next" aria-label="More documentation"><a href="/components/">← All components</a><a href={`/components/${next.slug}/`}>Next: {next.name} →</a></nav>
 </Docs>

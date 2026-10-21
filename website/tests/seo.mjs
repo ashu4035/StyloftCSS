@@ -35,3 +35,9 @@ const textUrls=fs.readFileSync(path.join(root,'sitemap.txt'),'utf8').trim().spli
 assert.deepEqual(textUrls,urls,'Text sitemap contains the same canonical URLs as XML');
 assert.equal(new Set(textUrls).size,textUrls.length);
 console.log('PASS alternative text sitemap: '+textUrls.length+' matching URLs');
+
+const guidance=JSON.parse(fs.readFileSync(path.resolve(root,'../src/data/component-guidance.json'),'utf8'));
+for(const [slug,advice]of Object.entries(guidance)){assert.equal(advice.length,4);for(const theme of ['','light/']){const html=fs.readFileSync(path.join(root,theme,'components',slug,'index.html'),'utf8');assert.ok(html.includes('When to use '));assert.ok(html.includes('Accessibility checks'));assert.ok(html.includes('Browser support and integration'));assert.ok(html.includes(advice[0].replaceAll('&','&amp;')));}}
+const tutorials=JSON.parse(fs.readFileSync(path.resolve(root,'../src/data/tutorials.json'),'utf8'));
+for(const t of tutorials){assert.ok(t.sections.reduce((n,s)=>n+s[1].split(/\s+/).length,0)>200,'Substantive tutorial: '+t.slug);assert.ok(fs.existsSync(path.join(root,'tutorials',t.slug,'index.html')));}
+console.log('PASS editorial guidance for 40 families and three original tutorials');

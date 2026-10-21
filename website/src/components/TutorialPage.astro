@@ -1,0 +1,14 @@
+---
+import Docs from '../layouts/Docs.astro';import Demo from './Demo.astro';import {components} from '../data/components';
+const {tutorial}=Astro.props;const prefix=Astro.url.pathname.startsWith('/light/')?'/light':'';
+---
+<Docs title={tutorial.title} description={tutorial.description} section="docs" active="tutorials">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href={prefix+'/tutorials/'}>Tutorials</a><span aria-hidden="true">/</span><span>{tutorial.slug.replaceAll('-',' ')}</span></nav>
+<header class="docs-page-header"><h1>{tutorial.title}</h1><p>{tutorial.description}</p><p>By Ashish Verma · StyloftCSS v0.1.0</p></header>
+<aside class="framework-extension"><strong>CSS required:</strong> <a href="/downloads/styloft.min.css" download>Core CSS</a>{tutorial.modules.map(m=><span> + <a href={'/downloads/'+m+'.min.css'} download>{m}.min.css</a></span>)}<p>Load the core first, then optional modules. These component examples do not require runtime JavaScript.</p></aside>
+{tutorial.sections.slice(0,2).map(([heading,text])=><section class="guide-section"><h2>{heading}</h2><p>{text}</p></section>)}
+<Demo id="tutorial-example" title="Try the working example" description="Edit the HTML or change preview width to explore the behavior." html={tutorial.html}/>
+{tutorial.sections.slice(2).map(([heading,text])=><section class="guide-section"><h2>{heading}</h2><p>{text}</p></section>)}
+<section class="guide-section"><h2>Check your result</h2><ul>{tutorial.checks.map(text=><li>{text}</li>)}</ul><p>Browser reference: <a href={tutorial.source}>MDN documentation</a>. See the <a href={prefix+'/guides/#browser-support'}>project browser-support notes</a> before depending on newer enhancements.</p></section>
+<nav class="guide-section" aria-label="Related components"><h2>Explore related components</h2><ul>{tutorial.components.map(slug=><li><a href={prefix+'/components/'+slug+'/'}>{components.find(c=>c.slug===slug)?.name}</a></li>)}</ul><p><a href={prefix+'/tutorials/'}>Browse all tutorials</a> · <a href={prefix+'/search/'}>Search CSS classes</a></p></nav>
+</Docs>
