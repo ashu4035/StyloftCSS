@@ -73,6 +73,15 @@ const favicon=await getImage({src:mark,width:64,height:64,fit:'contain',format:'
   <meta name="author" content="Ashish Verma"/>
   <meta name="theme-color" content={isLight?'#f7fafc':'#060b16'}/>
   <link rel="icon" type="image/png" href={favicon.src}/>
+  {import.meta.env.PROD && <>
+    <script is:inline async data-styloft-analytics="loader" src="https://www.googletagmanager.com/gtag/js?id=G-FXJQZFLQF5"></script>
+    <script is:inline data-styloft-analytics="config">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FXJQZFLQF5');
+    </script>
+  </>}
 </head>
 <body class="sl-cursor-site sl-cursor-pulse">
   <a class="sl-skip sl-btn" href="#main">Skip to content</a>

@@ -22,7 +22,12 @@ for(const file of pages){
   const jsonLd=[...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)];
   assert.equal(jsonLd.length,1,'One structured data graph');
   JSON.parse(jsonLd[0][1]);
-  const executableHtml=html.replace(/<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/g,'');
+  const analytics=[...html.matchAll(/<script\b([^>]*data-styloft-analytics[^>]*)>([\s\S]*?)<\/script>/g)];
+  assert.equal(analytics.length,2,'One GA4 loader and one configuration');
+  assert.ok(analytics[0][1].includes('async'));
+  assert.ok(analytics[0][1].includes('https://www.googletagmanager.com/gtag/js?id=G-FXJQZFLQF5'));
+  assert.ok(analytics[1][2].includes("gtag('config', 'G-FXJQZFLQF5')"));
+  const executableHtml=html.replace(/<script\b[^>]*data-styloft-analytics[^>]*>[\s\S]*?<\/script>/g,'').replace(/<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/g,'');
   const scripts=[...executableHtml.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)];
   assert.equal(scripts.length,html.includes('class="example-source"')?1:0,'Only the approved documentation playground script');
   for(const [,attrs,body] of scripts){assert.ok(attrs.includes('type="module"'));if(!attrs.includes('src=')){assert.ok(body.includes('script-src'));assert.ok(body.includes('Preview updated'));}}
@@ -50,6 +55,8 @@ const passed=[];
 try{
   browser=await chromium.launch({headless:true,...(process.env.BROWSER_PATH?{executablePath:process.env.BROWSER_PATH}:process.platform==='win32'?{channel:'msedge'}:{})});
   const context=await browser.newContext({viewport:{width:1440,height:1000}});
+  // Do not send test traffic to the production Analytics property.
+  await context.route(/https:\/\/(?:[^/]+\.)?(?:googletagmanager\.com|google-analytics\.com)\//,route=>route.abort());
   let page=await context.newPage();
   const base=`http://127.0.0.1:${server.address().port}`;
   const errors=[]; page.on('pageerror',err=>errors.push(err.message));
@@ -67,7 +74,7 @@ try{
       const response=await page.goto(base+route);assert.equal(response.status(),200,route);
       assert.equal(await page.locator('h1').count(),1,route);
       const ids=await page.locator('[id]').evaluateAll(els=>els.map(el=>el.id));assert.equal(new Set(ids).size,ids.length,'duplicate IDs '+route);
-      assert.equal(await page.locator('script:not([type="application/ld+json"])').count(),(await page.locator('.example-source').count())>0?1:0);
+      assert.equal(await page.locator('script:not([type="application/ld+json"]):not([data-styloft-analytics])').count(),(await page.locator('.example-source').count())>0?1:0);
       const missing=await page.locator('a[href^="#"]').evaluateAll(els=>els.filter(el=>el.hash&&!document.getElementById(el.hash.slice(1))).map(el=>el.hash));assert.deepEqual(missing,[],route);
     }
     assert.deepEqual(errors,[]);
@@ -326,7 +333,7 @@ try{
       await track.focus();await page.keyboard.press('ArrowRight');await page.waitForTimeout(500);
       assert.ok(await track.evaluate(el=>el.scrollLeft>0),'keyboard scroll');
       assert.equal(await page.locator('#example-3 figcaption').count(),3);
-      assert.equal(await page.locator('script:not([type="application/ld+json"])').count(),1);
+      assert.equal(await page.locator('script:not([type="application/ld+json"]):not([data-styloft-analytics])').count(),1);
     }
     await page.emulateMedia({reducedMotion:'no-preference'});
   });
