@@ -30,3 +30,8 @@ const fonts=JSON.parse(fs.readFileSync(path.join(root,'fonts/manifest.json'),'ut
 for(const font of fonts){const bytes=fs.readFileSync(path.join(root,'fonts',font.file));assert.equal(bytes.toString('ascii',0,4),'wOF2');assert.equal(bytes.length,font.bytes);}
 assert.ok(fs.readFileSync(path.join(root,'_headers'),'utf8').includes('max-age=31536000, immutable'));
 console.log('PASS local WOFF2 font files, two preloads and static cache configuration');
+
+const textUrls=fs.readFileSync(path.join(root,'sitemap.txt'),'utf8').trim().split(/\r?\n/);
+assert.deepEqual(textUrls,urls,'Text sitemap contains the same canonical URLs as XML');
+assert.equal(new Set(textUrls).size,textUrls.length);
+console.log('PASS alternative text sitemap: '+textUrls.length+' matching URLs');
