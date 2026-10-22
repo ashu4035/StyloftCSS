@@ -1,0 +1,652 @@
+
+> styloftcss@0.1.0 site:build
+> npm --prefix website run build
+
+
+> styloftcss-website@0.1.0 build
+> node scripts/prepare.mjs && astro build && node scripts/route-css.mjs
+
+{
+  "styloft.css": {
+    "bytes": 14688,
+    "gzipBytes": 3518
+  },
+  "styloft.min.css": {
+    "bytes": 12544,
+    "gzipBytes": 3313
+  },
+  "prose.css": {
+    "bytes": 608,
+    "gzipBytes": 321
+  },
+  "prose.min.css": {
+    "bytes": 543,
+    "gzipBytes": 310
+  },
+  "tables.css": {
+    "bytes": 1940,
+    "gzipBytes": 725
+  },
+  "tables.min.css": {
+    "bytes": 1547,
+    "gzipBytes": 618
+  },
+  "variants.css": {
+    "bytes": 2327,
+    "gzipBytes": 722
+  },
+  "variants.min.css": {
+    "bytes": 2045,
+    "gzipBytes": 697
+  },
+  "responsive.css": {
+    "bytes": 1534,
+    "gzipBytes": 412
+  },
+  "responsive.min.css": {
+    "bytes": 1224,
+    "gzipBytes": 331
+  },
+  "motion.css": {
+    "bytes": 5304,
+    "gzipBytes": 1714
+  },
+  "motion.min.css": {
+    "bytes": 4526,
+    "gzipBytes": 1516
+  },
+  "button-fx.css": {
+    "bytes": 4510,
+    "gzipBytes": 1255
+  },
+  "button-fx.min.css": {
+    "bytes": 3990,
+    "gzipBytes": 1137
+  },
+  "slider.css": {
+    "bytes": 2404,
+    "gzipBytes": 878
+  },
+  "slider.min.css": {
+    "bytes": 2180,
+    "gzipBytes": 853
+  },
+  "editor.css": {
+    "bytes": 3086,
+    "gzipBytes": 974
+  },
+  "editor.min.css": {
+    "bytes": 2678,
+    "gzipBytes": 897
+  },
+  "header.css": {
+    "bytes": 4031,
+    "gzipBytes": 1144
+  },
+  "header.min.css": {
+    "bytes": 3573,
+    "gzipBytes": 1090
+  },
+  "cursor.css": {
+    "bytes": 3861,
+    "gzipBytes": 1052
+  },
+  "cursor.min.css": {
+    "bytes": 3572,
+    "gzipBytes": 956
+  },
+  "select.css": {
+    "bytes": 3507,
+    "gzipBytes": 1084
+  },
+  "select.min.css": {
+    "bytes": 3104,
+    "gzipBytes": 984
+  },
+  "tabs.css": {
+    "bytes": 3552,
+    "gzipBytes": 993
+  },
+  "tabs.min.css": {
+    "bytes": 3157,
+    "gzipBytes": 898
+  },
+  "collections.css": {
+    "bytes": 2484,
+    "gzipBytes": 861
+  },
+  "collections.min.css": {
+    "bytes": 2389,
+    "gzipBytes": 814
+  },
+  "fields.css": {
+    "bytes": 2243,
+    "gzipBytes": 839
+  },
+  "fields.min.css": {
+    "bytes": 2153,
+    "gzipBytes": 795
+  },
+  "colors.css": {
+    "bytes": 1610,
+    "gzipBytes": 665
+  },
+  "colors.min.css": {
+    "bytes": 1520,
+    "gzipBytes": 621
+  },
+  "dates.css": {
+    "bytes": 1663,
+    "gzipBytes": 743
+  },
+  "dates.min.css": {
+    "bytes": 1574,
+    "gzipBytes": 704
+  },
+  "overlays.css": {
+    "bytes": 3112,
+    "gzipBytes": 1115
+  },
+  "overlays.min.css": {
+    "bytes": 3020,
+    "gzipBytes": 1067
+  },
+  "status.css": {
+    "bytes": 1987,
+    "gzipBytes": 803
+  },
+  "status.min.css": {
+    "bytes": 1897,
+    "gzipBytes": 758
+  },
+  "media.css": {
+    "bytes": 1364,
+    "gzipBytes": 628
+  },
+  "media.min.css": {
+    "bytes": 1275,
+    "gzipBytes": 587
+  },
+  "navigation.css": {
+    "bytes": 1210,
+    "gzipBytes": 580
+  },
+  "navigation.min.css": {
+    "bytes": 1116,
+    "gzipBytes": 536
+  },
+  "surfaces.css": {
+    "bytes": 1870,
+    "gzipBytes": 758
+  },
+  "surfaces.min.css": {
+    "bytes": 1778,
+    "gzipBytes": 715
+  },
+  "components/buttons.css": {
+    "bytes": 13807,
+    "gzipBytes": 3267
+  },
+  "components/buttons.min.css": {
+    "bytes": 12616,
+    "gzipBytes": 2981
+  },
+  "components/cards.css": {
+    "bytes": 12965,
+    "gzipBytes": 3114
+  },
+  "components/cards.min.css": {
+    "bytes": 11332,
+    "gzipBytes": 2935
+  },
+  "components/forms.css": {
+    "bytes": 15455,
+    "gzipBytes": 3511
+  },
+  "components/forms.min.css": {
+    "bytes": 13487,
+    "gzipBytes": 3243
+  },
+  "components/accordions.css": {
+    "bytes": 12136,
+    "gzipBytes": 2913
+  },
+  "components/accordions.min.css": {
+    "bytes": 10537,
+    "gzipBytes": 2748
+  },
+  "components/testimonials.css": {
+    "bytes": 15308,
+    "gzipBytes": 3638
+  },
+  "components/testimonials.min.css": {
+    "bytes": 13470,
+    "gzipBytes": 3424
+  },
+  "components/feedback.css": {
+    "bytes": 3839,
+    "gzipBytes": 1293
+  },
+  "components/feedback.min.css": {
+    "bytes": 3432,
+    "gzipBytes": 1199
+  },
+  "components/links.css": {
+    "bytes": 3955,
+    "gzipBytes": 1419
+  },
+  "components/links.min.css": {
+    "bytes": 3527,
+    "gzipBytes": 1308
+  },
+  "components/alerts.css": {
+    "bytes": 3471,
+    "gzipBytes": 1218
+  },
+  "components/alerts.min.css": {
+    "bytes": 3081,
+    "gzipBytes": 1127
+  },
+  "components/badges.css": {
+    "bytes": 3414,
+    "gzipBytes": 1226
+  },
+  "components/badges.min.css": {
+    "bytes": 3025,
+    "gzipBytes": 1131
+  },
+  "components/heroes.css": {
+    "bytes": 19173,
+    "gzipBytes": 4264
+  },
+  "components/heroes.min.css": {
+    "bytes": 16871,
+    "gzipBytes": 3968
+  },
+  "components/tabs.css": {
+    "bytes": 14447,
+    "gzipBytes": 3209
+  },
+  "components/tabs.min.css": {
+    "bytes": 12570,
+    "gzipBytes": 2969
+  },
+  "components/headers.css": {
+    "bytes": 22616,
+    "gzipBytes": 4940
+  },
+  "components/headers.min.css": {
+    "bytes": 19873,
+    "gzipBytes": 4597
+  },
+  "components/footers.css": {
+    "bytes": 18832,
+    "gzipBytes": 4245
+  },
+  "components/footers.min.css": {
+    "bytes": 16532,
+    "gzipBytes": 3948
+  },
+  "components/sliders.css": {
+    "bytes": 13384,
+    "gzipBytes": 3186
+  },
+  "components/sliders.min.css": {
+    "bytes": 11660,
+    "gzipBytes": 3001
+  },
+  "components/editor.css": {
+    "bytes": 13675,
+    "gzipBytes": 3156
+  },
+  "components/editor.min.css": {
+    "bytes": 11785,
+    "gzipBytes": 2917
+  },
+  "components/selects.css": {
+    "bytes": 6792,
+    "gzipBytes": 1978
+  },
+  "components/selects.min.css": {
+    "bytes": 6023,
+    "gzipBytes": 1780
+  },
+  "components/tables.css": {
+    "bytes": 12992,
+    "gzipBytes": 3016
+  },
+  "components/tables.min.css": {
+    "bytes": 11099,
+    "gzipBytes": 2751
+  },
+  "components/typography.css": {
+    "bytes": 11179,
+    "gzipBytes": 2660
+  },
+  "components/typography.min.css": {
+    "bytes": 9632,
+    "gzipBytes": 2508
+  },
+  "components/layout.css": {
+    "bytes": 13185,
+    "gzipBytes": 2813
+  },
+  "components/layout.min.css": {
+    "bytes": 11393,
+    "gzipBytes": 2588
+  },
+  "components/animations.css": {
+    "bytes": 24451,
+    "gzipBytes": 5211
+  },
+  "components/animations.min.css": {
+    "bytes": 21376,
+    "gzipBytes": 4678
+  },
+  "components/cursors.css": {
+    "bytes": 7344,
+    "gzipBytes": 1967
+  },
+  "components/cursors.min.css": {
+    "bytes": 6689,
+    "gzipBytes": 1779
+  },
+  "components/avatars.css": {
+    "bytes": 12510,
+    "gzipBytes": 2916
+  },
+  "components/avatars.min.css": {
+    "bytes": 11012,
+    "gzipBytes": 2747
+  },
+  "components/breadcrumbs.css": {
+    "bytes": 11014,
+    "gzipBytes": 2624
+  },
+  "components/breadcrumbs.min.css": {
+    "bytes": 9524,
+    "gzipBytes": 2459
+  },
+  "components/pagination.css": {
+    "bytes": 11722,
+    "gzipBytes": 2850
+  },
+  "components/pagination.min.css": {
+    "bytes": 10227,
+    "gzipBytes": 2666
+  },
+  "components/selection.css": {
+    "bytes": 21574,
+    "gzipBytes": 4802
+  },
+  "components/selection.min.css": {
+    "bytes": 19185,
+    "gzipBytes": 4411
+  },
+  "components/chips.css": {
+    "bytes": 20069,
+    "gzipBytes": 4533
+  },
+  "components/chips.min.css": {
+    "bytes": 17769,
+    "gzipBytes": 4158
+  },
+  "components/collections.css": {
+    "bytes": 20263,
+    "gzipBytes": 4592
+  },
+  "components/collections.min.css": {
+    "bytes": 17960,
+    "gzipBytes": 4237
+  },
+  "components/text-fields.css": {
+    "bytes": 20578,
+    "gzipBytes": 4540
+  },
+  "components/text-fields.min.css": {
+    "bytes": 18199,
+    "gzipBytes": 4183
+  },
+  "components/form-patterns.css": {
+    "bytes": 21779,
+    "gzipBytes": 4734
+  },
+  "components/form-patterns.min.css": {
+    "bytes": 19394,
+    "gzipBytes": 4366
+  },
+  "components/pickers.css": {
+    "bytes": 20067,
+    "gzipBytes": 4494
+  },
+  "components/pickers.min.css": {
+    "bytes": 17689,
+    "gzipBytes": 4138
+  },
+  "components/colors.css": {
+    "bytes": 14475,
+    "gzipBytes": 3160
+  },
+  "components/colors.min.css": {
+    "bytes": 12893,
+    "gzipBytes": 2941
+  },
+  "components/dates.css": {
+    "bytes": 13670,
+    "gzipBytes": 3216
+  },
+  "components/dates.min.css": {
+    "bytes": 12083,
+    "gzipBytes": 2990
+  },
+  "components/status.css": {
+    "bytes": 13602,
+    "gzipBytes": 3154
+  },
+  "components/status.min.css": {
+    "bytes": 12030,
+    "gzipBytes": 2933
+  },
+  "components/surfaces.css": {
+    "bytes": 20947,
+    "gzipBytes": 4636
+  },
+  "components/surfaces.min.css": {
+    "bytes": 18648,
+    "gzipBytes": 4270
+  },
+  "components/keyboard.css": {
+    "bytes": 18875,
+    "gzipBytes": 4302
+  },
+  "components/keyboard.min.css": {
+    "bytes": 16583,
+    "gzipBytes": 3987
+  },
+  "components/modals.css": {
+    "bytes": 20325,
+    "gzipBytes": 4649
+  },
+  "components/modals.min.css": {
+    "bytes": 18021,
+    "gzipBytes": 4276
+  },
+  "components/alert-dialogs.css": {
+    "bytes": 20325,
+    "gzipBytes": 4649
+  },
+  "components/alert-dialogs.min.css": {
+    "bytes": 18021,
+    "gzipBytes": 4276
+  },
+  "components/drawers.css": {
+    "bytes": 20922,
+    "gzipBytes": 4741
+  },
+  "components/drawers.min.css": {
+    "bytes": 18613,
+    "gzipBytes": 4368
+  },
+  "components/popovers.css": {
+    "bytes": 20347,
+    "gzipBytes": 4667
+  },
+  "components/popovers.min.css": {
+    "bytes": 18043,
+    "gzipBytes": 4310
+  },
+  "components/tooltips.css": {
+    "bytes": 19404,
+    "gzipBytes": 4440
+  },
+  "components/tooltips.min.css": {
+    "bytes": 17108,
+    "gzipBytes": 4098
+  },
+  "components/toasts.css": {
+    "bytes": 20578,
+    "gzipBytes": 4686
+  },
+  "components/toasts.min.css": {
+    "bytes": 18273,
+    "gzipBytes": 4331
+  }
+}
+Class reference: 349 classes from actual CSS
+Release archive: styloftcss-0.1.0-b436ccc14e18.zip (344091 bytes)
+10:05:37 [types] Generated 91ms
+10:05:37 [build] output: "static"
+10:05:37 [build] mode: "static"
+10:05:37 [build] directory: D:\sites\StyloftCSS\website\dist\
+10:05:37 [build] Collecting build info...
+10:05:37 [build] ✓ Completed in 137ms.
+10:05:37 [build] Building static entrypoints...
+10:05:37 [vite] ✓ built in 429ms
+10:05:37 [vite] ✓ built in 113ms
+10:05:37 [build] Rearranging server assets...
+
+ generating static routes 
+10:05:37   ├─ /404.html (+20ms) 
+10:05:37   ├─ /blog/building-lighter-with-css/index.html (+7ms) 
+10:05:37   ├─ /blog/index.html (+7ms) 
+10:05:37   ├─ /components/buttons/index.html (+150ms) 
+10:05:38   ├─ /components/cards/index.html (+30ms) 
+10:05:38   ├─ /components/headers/index.html (+49ms) 
+10:05:38   ├─ /components/heroes/index.html (+35ms) 
+10:05:38   ├─ /components/footers/index.html (+24ms) 
+10:05:38   ├─ /components/forms/index.html (+21ms) 
+10:05:38   ├─ /components/accordions/index.html (+20ms) 
+10:05:38   ├─ /components/tables/index.html (+23ms) 
+10:05:38   ├─ /components/grid/index.html (+10ms) 
+10:05:38   ├─ /components/flex/index.html (+15ms) 
+10:05:38   ├─ /components/animations/index.html (+42ms) 
+10:05:38   ├─ /components/feedback/index.html (+8ms) 
+10:05:38   ├─ /components/typography/index.html (+19ms) 
+10:05:38   ├─ /components/links/index.html (+9ms) 
+10:05:38   ├─ /components/sliders/index.html (+29ms) 
+10:05:38   ├─ /components/testimonials/index.html (+20ms) 
+10:05:38   ├─ /components/editor/index.html (+19ms) 
+10:05:38   ├─ /components/cursors/index.html (+11ms) 
+10:05:38   ├─ /components/tabs/index.html (+21ms) 
+10:05:38   ├─ /components/avatars/index.html (+5ms) 
+10:05:38   ├─ /components/breadcrumbs/index.html (+5ms) 
+10:05:38   ├─ /components/pagination/index.html (+4ms) 
+10:05:38   ├─ /components/selection/index.html (+8ms) 
+10:05:38   ├─ /components/chips/index.html (+10ms) 
+10:05:38   ├─ /components/collections/index.html (+8ms) 
+10:05:38   ├─ /components/text-fields/index.html (+11ms) 
+10:05:38   ├─ /components/form-patterns/index.html (+10ms) 
+10:05:38   ├─ /components/pickers/index.html (+5ms) 
+10:05:38   ├─ /components/colors/index.html (+16ms) 
+10:05:38   ├─ /components/dates/index.html (+26ms) 
+10:05:38   ├─ /components/status/index.html (+8ms) 
+10:05:38   ├─ /components/surfaces/index.html (+7ms) 
+10:05:38   ├─ /components/keyboard/index.html (+3ms) 
+10:05:38   ├─ /components/modals/index.html (+4ms) 
+10:05:38   ├─ /components/alert-dialogs/index.html (+5ms) 
+10:05:38   ├─ /components/drawers/index.html (+5ms) 
+10:05:38   ├─ /components/popovers/index.html (+4ms) 
+10:05:38   ├─ /components/tooltips/index.html (+3ms) 
+10:05:38   ├─ /components/toasts/index.html (+4ms) 
+10:05:38   ├─ /components/component-reference/index.html (+37ms) 
+10:05:38   ├─ /components/index.html (+5ms) 
+10:05:38   ├─ /getting-started/index.html (+3ms) 
+10:05:38   ├─ /guides/index.html (+7ms) 
+10:05:38   ├─ /layouts/index.html (+10ms) 
+10:05:38   ├─ /light/blog/building-lighter-with-css/index.html (+3ms) 
+10:05:38   ├─ /light/blog/index.html (+3ms) 
+10:05:38   ├─ /light/guides/index.html (+22ms) 
+10:05:38   ├─ /light/search/index.html (+7ms) 
+10:05:38   ├─ /light/tutorials/css-only-accordion/index.html (+5ms) 
+10:05:38   ├─ /light/tutorials/responsive-css-header/index.html (+7ms) 
+10:05:38   ├─ /light/tutorials/responsive-card-grid/index.html (+5ms) 
+10:05:38   ├─ /light/tutorials/index.html (+5ms) 
+10:05:38   ├─ /light/index.html (+3ms) 
+10:05:38   ├─ /light/getting-started/index.html (+3ms) 
+10:05:38   ├─ /light/components/index.html (+3ms) 
+10:05:38   ├─ /light/layouts/index.html (+16ms) 
+10:05:38   ├─ /light/themes/index.html (+6ms) 
+10:05:38   ├─ /light/404/index.html (+2ms) 
+10:05:38   ├─ /light/components/buttons/index.html (+45ms) 
+10:05:38   ├─ /light/components/cards/index.html (+22ms) 
+10:05:38   ├─ /light/components/headers/index.html (+27ms) 
+10:05:38   ├─ /light/components/heroes/index.html (+13ms) 
+10:05:38   ├─ /light/components/footers/index.html (+22ms) 
+10:05:38   ├─ /light/components/forms/index.html (+16ms) 
+10:05:38   ├─ /light/components/accordions/index.html (+14ms) 
+10:05:38   ├─ /light/components/tables/index.html (+20ms) 
+10:05:38   ├─ /light/components/grid/index.html (+11ms) 
+10:05:38   ├─ /light/components/flex/index.html (+11ms) 
+10:05:38   ├─ /light/components/animations/index.html (+36ms) 
+10:05:38   ├─ /light/components/feedback/index.html (+8ms) 
+10:05:38   ├─ /light/components/typography/index.html (+21ms) 
+10:05:39   ├─ /light/components/links/index.html (+14ms) 
+10:05:39   ├─ /light/components/sliders/index.html (+62ms) 
+10:05:39   ├─ /light/components/testimonials/index.html (+19ms) 
+10:05:39   ├─ /light/components/editor/index.html (+16ms) 
+10:05:39   ├─ /light/components/cursors/index.html (+9ms) 
+10:05:39   ├─ /light/components/tabs/index.html (+21ms) 
+10:05:39   ├─ /light/components/avatars/index.html (+5ms) 
+10:05:39   ├─ /light/components/breadcrumbs/index.html (+4ms) 
+10:05:39   ├─ /light/components/pagination/index.html (+4ms) 
+10:05:39   ├─ /light/components/selection/index.html (+8ms) 
+10:05:39   ├─ /light/components/chips/index.html (+5ms) 
+10:05:39   ├─ /light/components/collections/index.html (+7ms) 
+10:05:39   ├─ /light/components/text-fields/index.html (+9ms) 
+10:05:39   ├─ /light/components/form-patterns/index.html (+12ms) 
+10:05:39   ├─ /light/components/pickers/index.html (+8ms) 
+10:05:39   ├─ /light/components/colors/index.html (+13ms) 
+10:05:39   ├─ /light/components/dates/index.html (+25ms) 
+10:05:39   ├─ /light/components/status/index.html (+10ms) 
+10:05:39   ├─ /light/components/surfaces/index.html (+10ms) 
+10:05:39   ├─ /light/components/keyboard/index.html (+4ms) 
+10:05:39   ├─ /light/components/modals/index.html (+6ms) 
+10:05:39   ├─ /light/components/alert-dialogs/index.html (+5ms) 
+10:05:39   ├─ /light/components/drawers/index.html (+5ms) 
+10:05:39   ├─ /light/components/popovers/index.html (+5ms) 
+10:05:39   ├─ /light/components/tooltips/index.html (+4ms) 
+10:05:39   ├─ /light/components/toasts/index.html (+5ms) 
+10:05:39   ├─ /light/components/component-reference/index.html (+40ms) 
+10:05:39   ├─ /robots.txt (+3ms) 
+10:05:39   ├─ /search/index.html (+4ms) 
+10:05:39   ├─ /sitemap.txt (+3ms) 
+10:05:39   ├─ /sitemap.xml (+3ms) 
+10:05:39   ├─ /themes/index.html (+10ms) 
+10:05:39   ├─ /tutorials/css-only-accordion/index.html (+5ms) 
+10:05:39   ├─ /tutorials/responsive-css-header/index.html (+4ms) 
+10:05:39   ├─ /tutorials/responsive-card-grid/index.html (+6ms) 
+10:05:39   ├─ /tutorials/index.html (+5ms) 
+10:05:39   ├─ /index.html (+2ms) 
+10:05:39 ✓ Completed in 1.61s.
+
+ generating optimized images 
+10:05:39   ▶ /_astro/brand-mark.wnBYXhuR_ZzqzRW.webp (reused cache entry) (+1ms) (1/4)
+10:05:39   ▶ /_astro/brand-mark.wnBYXhuR_Z2fny2W.png (reused cache entry) (+1ms) (2/4)
+10:05:39   ▶ /_astro/brand-mark.wnBYXhuR_ZL18xy.webp (reused cache entry) (+1ms) (3/4)
+10:05:39   ▶ /_astro/brand-mark.wnBYXhuR_1cn8ri.webp (reused cache entry) (+1ms) (4/4)
+10:05:39 ✓ Completed in 4ms.
+
+10:05:39 [build] ✓ Completed in 2.24s.
+10:05:39 [build] 108 page(s) built in 2.43s
+10:05:39 [build] Complete!
+CSS selection: 108 pages, 53 unique stylesheets, largest page 11251 gzip bytes (previous baseline 12604).

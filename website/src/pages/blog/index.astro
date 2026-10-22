@@ -1,0 +1,10 @@
+---
+import Base from '../../layouts/Base.astro';
+import {posts} from '../../data/blog';
+import '../../styles/blog.css';
+---
+<Base title="Blog: CSS Ideas & Practical Guides" description="Notes from Ashish Verma on building lighter websites with semantic HTML, CSS-only components and StyloftCSS." section="blog">
+ <div class="sl-container blog-shell"><header class="blog-heading"><p class="blog-eyebrow">THE STYLOFTCSS JOURNAL</p><h1>Small ideas.<br/>Better websites.</h1><p>Practical CSS, thoughtful components and notes from building StyloftCSS.</p></header>
+ <div class="blog-grid">{posts.map(post=><article class="blog-card"><div class="blog-meta"><span>{post.category}</span><time datetime={post.date}>{new Date(post.date+'T00:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'})}</time></div><h2><a href={'/blog/'+post.slug+'/'}>{post.title}</a></h2><p>{post.description}</p><div class="blog-meta"><span>By {post.author}</span><span>{post.readingTime}</span></div><a class="blog-read" href={'/blog/'+post.slug+'/'}>Read article <span aria-hidden="true">↗</span></a></article>)}</div>
+ <p class="blog-end">More practical notes are on the way. In the meantime, <a href="/tutorials/">explore the CSS tutorials</a>.</p></div>
+</Base>

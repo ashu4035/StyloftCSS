@@ -1,0 +1,7 @@
+---
+import Page from '../../blog/[slug].astro';
+import {posts} from '../../../data/blog';
+export function getStaticPaths(){return posts.map(post=>({params:{slug:post.slug},props:{post}}));}
+const {post}=Astro.props;
+---
+<Page post={post}/>
